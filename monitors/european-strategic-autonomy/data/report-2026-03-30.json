@@ -1,0 +1,319 @@
+{
+  "meta": {
+    "issue": 1,
+    "volume": 1,
+    "week_label": "W/E 29 March 2026",
+    "published": "2026-03-30T19:00:00Z",
+    "slug": "european-strategic-autonomy",
+    "publish_time_utc": "T19:00:00Z",
+    "editor": "asym-intel",
+    "schema_version": "1.0"
+  },
+  "m00_the_signal": {
+    "title": "Hungary election crisis deepens as three foreign actors converge on single theatre",
+    "body": "Hungary election crisis deepens with BBC voter intimidation expose and confirmed Russian political technologists in Budapest; NATO reports 20% European defence spending increase; Slovenia election produces razor-thin result amid Israeli Black Cube interference.",
+    "source_url": "https://www.bbc.com/news/articles/c36r0068xp2o"
+  },
+  "m01_executive_insight": {
+    "items": [
+      {
+        "rank": 1,
+        "headline": "Hungary's April 12 election is a single theatre where Russian, US (MAGA-adjacent), and Israeli FIMI operations are simultaneously active",
+        "why_it_matters": "If Orbán loses, the EU's Hungary veto weapon dissolves and the captured-state pipeline loses its anchor. If he wins with confirmed foreign assistance, it validates the multi-actor interference model for replication across Europe.",
+        "source_url": "https://www.csis.org/analysis/what-stake-hungarys-election"
+      },
+      {
+        "rank": 2,
+        "headline": "European defence spending surge (+20% real terms) is the strongest positive autonomy signal but remains US-equipment dependent",
+        "why_it_matters": "SAFE EUR 150B programme is operationalising with first disbursements in March 2026, but 58% of arms remain US-sourced and Arrow 3 dependency on Israel deepens structural constraints on foreign policy independence.",
+        "source_url": "https://www.nato.int/en/news-and-events/articles/news/2026/03/26/nato-secretary-generals-annual-report-shows-significant-increase-in-defence-investment-from-europe-and-canada"
+      },
+      {
+        "rank": 3,
+        "headline": "Czech Republic under Babis completes the HU-SK-CZ anti-Ukraine bloc, shifting Central European balance",
+        "why_it_matters": "Three EU member states now oppose Ukraine support. Combined with Babis's CPAC appearance and ANO co-founding Patriots for Europe, this is a structural realignment of Central European foreign policy.",
+        "source_url": "https://apnews.com/article/czech-arson-pardubice-drone-warehouse-fire-arrest-c95c669372e267f24858e06f24337364"
+      }
+    ]
+  },
+  "m02_ukraine_war": {
+    "items": [
+      {
+        "headline": "Russia Spring-Summer Offensive Underway Against Fortress Belt",
+        "summary": "ISW confirms Russian forces have begun anticipated Spring-Summer offensive against Fortress Belt (Kramatorsk-Slovyansk). Ground attacks intensified across all axes. Senior Ukrainian official: mobilised personnel deploying 1 April. Ukrainian counterattacks in Zaporizhzhia forcing Russian reserves into defensive posture. Russian logistics described as 'practically nonexistent' within 15km of frontline due to drone interdiction.",
+        "category_tag": "OFFENSIVE",
+        "source_url": "https://understandingwar.org/research/russia-ukraine/russian-offensive-campaign-assessment-march-23-2026/"
+      },
+      {
+        "headline": "Putin Offers Europe Energy Amid Iran Crisis — Strategic Trap",
+        "summary": "Putin publicly offered to resume gas/oil supply to Europe as US-Iran war closes Strait of Hormuz and oil exceeds $100/barrel. Orbán immediately called for lifting EU Russian energy sanctions. Putin simultaneously instructed government to explore redirecting remaining flows away from Europe. Classic coercive diplomacy — offer and threat simultaneously.",
+        "category_tag": "ENERGY",
+        "source_url": "https://www.aljazeera.com/news/2026/3/9/putin-says-russia-can-supply-oil-gas-to-europe-amid-global-energy-crisis"
+      }
+    ]
+  },
+  "m03_threat_actors": {
+    "actors": {
+      "RU": {
+        "items": [
+          {
+            "headline": "151 confirmed hybrid operations across Europe since Feb 2022",
+            "summary": "41 new incidents from summer 2025 to February 2026. 320 incidents in Germany alone (2025). RUSI analysis: recruitment is financial/criminal, not ideological — a deliberately scalable, deniable system using crypto payments and Telegram recruitment.",
+            "source_url": "https://united24media.com/latest-news/over-150-russian-hybrid-attacks-recorded-across-europe-since-2022-16529"
+          },
+          {
+            "headline": "Russian political technologists confirmed operating in Budapest under Kiriyenko",
+            "summary": "Social Design Agency (SDA) — EU/US-sanctioned — engaged to run Moldova-style disinformation ahead of Hungary's April 12 election. EEAS RAS activated 19 March.",
+            "source_url": "https://www.dw.com/en/russia-working-to-tip-scale-for-orban-in-hungary-election/a-76349043"
+          }
+        ]
+      },
+      "CN": {
+        "items": [
+          {
+            "headline": "EU-China trade deficit EUR 305.8B; rare earth controls as strategic weapon",
+            "summary": "97% EU magnesium, 71% gallium from China. Only 19/141 licence applications approved. Hungary: 57% FDI from China. Budapest-Belgrade railway operational Feb 2026. CBAM entered into force 1 Jan 2026.",
+            "source_url": "https://www.china-briefing.com/news/eu-china-relations-in-2026-what-to-watch/"
+          }
+        ]
+      },
+      "US": {
+        "items": [
+          {
+            "headline": "Trump NSS explicitly calls for 'cultivating resistance' within European nations",
+            "summary": "December 2025 NSS backs 'patriotic European parties.' First US national security document to frame EU as threat to European sovereignty. 16 Section 301 investigations against EU. Alliance of Sovereign Nations launched 5 March. State Dept opposing GDPR globally via Rubio cable.",
+            "source_url": "https://www.nytimes.com/2026/01/19/world/europe/trump-greenland-europe-nato-alliance.html"
+          }
+        ]
+      },
+      "IL": {
+        "items": [
+          {
+            "headline": "$725M hasbara budget — 20x pre-war levels; Black Cube confirmed in Slovenia",
+            "summary": "EUR 42M YouTube/X campaigns targeting DE/IT/PL/UK. ELNET: $7M+ US donor funding, 100+ Bundestag members on undisclosed trips. Black Cube: 4 visits to Slovenia, met Jansa, compromising videos released. Arrow 3 total $6.5B — largest Israeli defence export in history.",
+            "source_url": "https://spotlight.ebu.ch/p/the-new-front-of-war-inside-israels"
+          }
+        ]
+      }
+    }
+  },
+  "m04_elections": {
+    "items": [
+      {
+        "country": "Hungary",
+        "headline": "Mass Voter Intimidation Documented + Russian Interference Confirmed",
+        "severity": "CRITICAL",
+        "summary": "BBC documentary 'The Price of the Vote' (26 Mar) alleges Fidesz voter intimidation across 53 of 106 electoral districts, potentially affecting 600,000 voters. Russian political technologists confirmed in Budapest under Kiriyenko. Fidesz trailing Tisza by up to 20 points. Election 12 April.",
+        "source_url": "https://www.bbc.com/news/articles/c36r0068xp2o"
+      },
+      {
+        "country": "Slovenia",
+        "headline": "Black Cube Interference, Razor-Thin Result, Coalition Formation Pending",
+        "severity": "HIGH",
+        "summary": "Freedom Movement 28.5% vs SDS 28.1%. No majority. Israeli Black Cube interference confirmed (4 visits, met Jansa). Golob asked EU to investigate. Coalition talks ongoing.",
+        "source_url": "https://www.aljazeera.com/news/2026/3/22/slovenias-freedom-movement-party-takes-narrow-election-lead-exit-poll"
+      }
+    ]
+  },
+  "m05_state_capture": {
+    "items": [
+      {
+        "country": "Czech Republic",
+        "headline": "Babis Government Joins HU/SK Anti-Ukraine Bloc",
+        "summary": "New Babis government rejected financial aid for Ukraine and EU loan guarantees, joining Orbán (Hungary) and Fico (Slovakia) in opposing EU backing for Ukraine. Combined with CPAC appearance and populist posture, Czech Republic moving toward captured-state pipeline.",
+        "source_url": "https://apnews.com/article/czech-arson-pardubice-drone-warehouse-fire-arrest-c95c669372e267f24858e06f24337364"
+      }
+    ]
+  },
+  "m06_networks": {
+    "items": [
+      {
+        "headline": "CPAC Budapest + Patriots Grand Assembly — 45 Speakers, 51 Countries",
+        "summary": "Orbán keynote ('Make Europe Great Again'). Trump video. Netanyahu endorsement. Le Pen, Weidel, Salvini, Wilders, Kickl, Abascal, Milei, Georgian PM Kobakhidze in person. 10K+ at Grand Assembly. Georgia's PM appearing alongside EU far-right confirms alignment of Russian-captured Georgia with autocratic network.",
+        "source_url": "https://www.hungarianconservative.com/articles/current/cpac-hungary-2026-javier-milei/"
+      }
+    ]
+  },
+  "m07_eu_legislation": {
+    "items": [
+      {
+        "legislation": "EU Sanctions on Russia",
+        "headline": "Renewed to September Despite HU/SK Obstruction",
+        "summary": "~2,600 individuals/entities extended to 15 September. Hungary/Slovakia veto overcome after concessions (2 delistings, 5 deceased removed). Next renewal September 2026.",
+        "source_url": "https://www.reuters.com/world/eu-extends-sanctions-against-people-over-russias-war-against-ukraine-2026-03-14/"
+      }
+    ]
+  },
+  "m08_defence": {
+    "items": [
+      {
+        "headline": "NATO Annual Report: European Defence Spending Up 20% in Real Terms",
+        "summary": "All Allies met 2% GDP for first time. Total NATO spending exceeds $1.4 trillion. Hague Summit 5% target reaffirmed. SAFE EUR 150B programme operationalising with first EUR 22.5B tranche approved for 8 member states.",
+        "source_url": "https://www.nato.int/en/news-and-events/articles/news/2026/03/26/nato-secretary-generals-annual-report-shows-significant-increase-in-defence-investment-from-europe-and-canada"
+      }
+    ]
+  },
+  "m09_eu_response": {
+    "items": [
+      {
+        "headline": "EU Council Adopts Conclusions on Countering Hybrid Threats (16 Mar)",
+        "summary": "Council condemned persistent hybrid activities by state and non-state actors. Affirmed use of hybrid toolbox, cyber diplomacy toolbox, and restrictive measures. Called for FIMI monitoring across all CSDP missions.",
+        "source_url": "https://changeflow.com/govping/trade-sanctions/council-adopts-conclusions-on-countering-hybrid-threats-2026-03-17"
+      }
+    ]
+  },
+  "m10_strategic_independence": {
+    "lagrange_point_progress": "~35%",
+    "items": [
+      {
+        "headline": "Strategic Autonomy Baseline — ~35% Overall, Defence Score Improving",
+        "summary": "Energy 52%, Defence 30% (up from 28% — SAFE disbursements + 20% spending increase), Tech 18% (Digital Omnibus weakening protections), Finance 22%, Materials 25% (rare earth suspension until Nov 2026), Institutions 35% (QMV blocked).",
+        "source_url": "https://asym-intel.info/monitors/european-strategic-autonomy/dashboard.html"
+      }
+    ]
+  },
+  "m11_weekly_brief": {
+    "summary": "Hungary election crisis deepens with BBC voter intimidation expose and confirmed Russian political technologists in Budapest; NATO reports 20% European defence spending increase; Slovenia election produces razor-thin result amid Israeli Black Cube interference.",
+    "items": [
+      {
+        "rank": 1,
+        "headline": "Hungary Election: Mass Voter Intimidation Documented + Russian Interference Confirmed",
+        "summary": "BBC documentary alleges Fidesz voter intimidation across 53/106 districts, ~600K voters. Russian political technologists confirmed in Budapest under Kiriyenko. SDA engaged. Fidesz trailing Tisza by up to 20 points.",
+        "source_url": "https://www.bbc.com/news/articles/c36r0068xp2o"
+      },
+      {
+        "rank": 2,
+        "headline": "NATO Annual Report: European Defence Spending Up 20%",
+        "summary": "European Allies and Canada increased defence spending by 20% in real terms. All Allies met 2% GDP for first time. Total >$1.4T. SAFE EUR 150B operationalising.",
+        "source_url": "https://www.nato.int/en/news-and-events/articles/news/2026/03/26/nato-secretary-generals-annual-report-shows-significant-increase-in-defence-investment-from-europe-and-canada"
+      },
+      {
+        "rank": 3,
+        "headline": "Slovenia Election: Black Cube Interference, Razor-Thin Result",
+        "summary": "Freedom Movement 28.5% vs SDS 28.1%. No majority. Israeli Black Cube interference confirmed. Coalition formation pending.",
+        "source_url": "https://www.aljazeera.com/news/2026/3/22/slovenias-freedom-movement-party-takes-narrow-election-lead-exit-poll"
+      },
+      {
+        "rank": 4,
+        "headline": "Putin Offers Europe Energy Amid Iran Crisis — Strategic Trap",
+        "summary": "Putin offered to resume gas/oil supply while instructing government to redirect flows away from Europe. Tests sanctions resolve.",
+        "source_url": "https://www.aljazeera.com/news/2026/3/9/putin-says-russia-can-supply-oil-gas-to-europe-amid-global-energy-crisis"
+      },
+      {
+        "rank": 5,
+        "headline": "Russia Spring-Summer Offensive Underway — Mobilised Troops Deploying 1 April",
+        "summary": "ISW confirms offensive against Fortress Belt (Kramatorsk-Slovyansk). Ukrainian counterattacks in Zaporizhzhia forcing reserves into defensive posture.",
+        "source_url": "https://understandingwar.org/research/russia-ukraine/russian-offensive-campaign-assessment-march-23-2026/"
+      },
+      {
+        "rank": 6,
+        "headline": "Czech Drone Warehouse Arson — 3 Arrested on Terrorism Charges",
+        "summary": "Arson at LPP Holding drone warehouse in Pardubice. 'Earthquake Faction' claimed. Czech government under Babis joining HU/SK anti-Ukraine bloc.",
+        "source_url": "https://apnews.com/article/czech-arson-pardubice-drone-warehouse-fire-arrest-c95c669372e267f24858e06f24337364"
+      },
+      {
+        "rank": 7,
+        "headline": "CPAC Budapest + Patriots Grand Assembly — 45 Speakers, 51 Countries",
+        "summary": "Trump video, Netanyahu endorsement, Le Pen, Weidel, Salvini, Wilders, Kickl, Abascal, Georgian PM in person. Confirms MAGA-EU far-right alliance deepening.",
+        "source_url": "https://www.hungarianconservative.com/articles/current/cpac-hungary-2026-javier-milei/"
+      },
+      {
+        "rank": 8,
+        "headline": "EU Sanctions Renewed to September Despite HU/SK Obstruction",
+        "summary": "~2,600 entries extended. Hungary/Slovakia veto overcome after concessions.",
+        "source_url": "https://www.reuters.com/world/eu-extends-sanctions-against-people-over-russias-war-against-ukraine-2026-03-14/"
+      },
+      {
+        "rank": 9,
+        "headline": "Russian Hybrid Attacks: 41 New Incidents Since Summer 2025",
+        "summary": "151 total confirmed since Feb 2022. RUSI: recruitment is financial/criminal, not ideological — scalable, deniable system.",
+        "source_url": "https://united24media.com/latest-news/over-150-russian-hybrid-attacks-recorded-across-europe-since-2022-16529"
+      },
+      {
+        "rank": 10,
+        "headline": "Czech Republic Joins HU/SK Anti-Ukraine Bloc Under Babis",
+        "summary": "Babis government rejected Ukraine financial aid and EU loan guarantees. Moving toward captured-state pipeline.",
+        "source_url": "https://apnews.com/article/czech-arson-pardubice-drone-warehouse-fire-arrest-c95c669372e267f24858e06f24337364"
+      }
+    ]
+  },
+  "cross_monitor_flags": {
+    "updated": "2026-03-30T19:00:00Z",
+    "flags": [
+      {
+        "id": "CMF-001",
+        "monitor": "Global FIMI & Cognitive Warfare Monitor",
+        "status": "Active",
+        "title": "Hungary SDA Pre-Op + Alliance of Sovereign Nations",
+        "description": "The FIMI Monitor confirms Russia's Social Design Agency operating from the Budapest Embassy ahead of April 12 Hungarian election (EEAS RAS activated 19 Mar), and independently tracks Turning Point Action's Alliance of Sovereign Nations as an assessed-active near-state US information operation targeting European far-right parties. These converge on Hungary as a single theatre where Russian, US (MAGA-adjacent), and Israeli FIMI operations are simultaneously active.",
+        "classification": "STRUCTURAL",
+        "source_url": "https://asym-intel.info/monitors/fimi-cognitive-warfare/dashboard.html",
+        "first_flagged": "2026-03-30",
+        "unchanged_since": "2026-03-30"
+      },
+      {
+        "id": "CMF-002",
+        "monitor": "Democratic Integrity Monitor",
+        "status": "Active",
+        "title": "Hungary State Capture + Georgia Civil Society Collapse",
+        "description": "The Democratic Integrity Monitor rates Hungary at Severity 5 (Rapid Decay) with Tisza leading Fidesz by 23 points, but flags electoral redistricting requiring 3-5pt national margin for opposition majority. Georgia's March 2026 law package completes civil society capture architecture — CIVICUS downgraded to 'Repressed.' Both feed directly into our state capture tracker.",
+        "classification": "STRUCTURAL",
+        "source_url": "https://asym-intel.info/monitors/democratic-integrity/dashboard.html",
+        "first_flagged": "2026-03-30",
+        "unchanged_since": "2026-03-30"
+      },
+      {
+        "id": "CMF-003",
+        "monitor": "AI Governance Monitor",
+        "status": "Active",
+        "title": "AI-Generated Election Content + EU AI Safety Independence Deficit",
+        "description": "The AI Governance Monitor documents NewsGuard-confirmed coordinated AI-generated TikTok content promoting pro-Orbán messaging ahead of Hungary's election, and flags Armenia as a high-probability FIMI target. AI-enabled FIMI is a force multiplier for the state actors we track; the Digital Omnibus weakening of the AI Act compounds this vulnerability.",
+        "classification": "ACTIVE",
+        "source_url": "https://asym-intel.info/monitors/ai-governance/dashboard.html",
+        "first_flagged": "2026-03-30",
+        "unchanged_since": "2026-03-30"
+      },
+      {
+        "id": "CMF-004",
+        "monitor": "Environmental Risks & Planetary Boundaries Monitor",
+        "status": "Active",
+        "title": "Critical Mineral Dependencies + AMOC Early Warning",
+        "description": "The Environmental Risks Monitor independently tracks the same EU rare earth vulnerability we assess in P-CN-001 and P-EU-003: 97% magnesium from China, only 19/141 REE licence applications approved. Its AMOC freshwater flux anomaly — third consecutive week at WATCH advisory — represents a long-horizon European agricultural and infrastructure risk.",
+        "classification": "STRUCTURAL",
+        "source_url": "https://asym-intel.info/monitors/environmental-risks/dashboard.html",
+        "first_flagged": "2026-03-30",
+        "unchanged_since": "2026-03-30"
+      },
+      {
+        "id": "CMF-005",
+        "monitor": "Macro Monitor",
+        "status": "Active",
+        "title": "Hormuz Oil Premium + System Stress Elevation",
+        "description": "The Macro Monitor reports system stress at ELEVATED→HIGH with a $15-20 Hormuz oil premium. This intersects with our P-EU-003 energy score and Putin's energy offer: elevated oil prices increase European vulnerability to Russian energy coercion and test sanctions resolve.",
+        "classification": "ACTIVE",
+        "source_url": "https://asym-intel.info/monitors/macro-monitor/",
+        "first_flagged": "2026-03-30",
+        "unchanged_since": "2026-03-30"
+      },
+      {
+        "id": "CMF-006",
+        "monitor": "Strategic Conflict & Escalation Monitor",
+        "status": "Active",
+        "title": "Sudan Displacement Cascade",
+        "description": "The Conflict & Escalation Monitor rates Sudan as the highest escalation signal this week (RSF capture of Kurmuk, 73,000 displaced). Sustained Sahel-Horn instability is a background driver of migration pressure on Southern and Central Mediterranean EU states — a vector historically instrumentalised by Russia and exploited in far-right narratives.",
+        "classification": "MONITORING",
+        "source_url": "https://asym-intel.info/monitors/conflict-escalation/",
+        "first_flagged": "2026-03-30",
+        "unchanged_since": "2026-03-30"
+      }
+    ],
+    "version_history": [
+      {
+        "date": "2026-03-30",
+        "change": "Initial population of 6 cross-monitor flags from all sibling monitors",
+        "reason": "First cross-monitor scan as part of v1.2 structural upgrade"
+      }
+    ]
+  },
+  "source_url": "https://asym-intel.info/monitors/european-strategic-autonomy/2026-03-30-weekly-brief/"
+}

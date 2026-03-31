@@ -1,0 +1,552 @@
+{
+  "meta": {
+    "issue": 1,
+    "volume": 1,
+    "week_label": "Week of 30 March 2026",
+    "published": "2026-03-30T08:00:00Z",
+    "slug": "macro-monitor",
+    "publish_time_utc": "T08:00:00Z",
+    "editor": "asym-intel",
+    "schema_version": "1.0"
+  },
+  "executive_briefing": {
+    "system_stress_label": "ELEVATED → HIGH",
+    "system_stress_direction": "Deteriorating",
+    "regime": "STAGFLATION",
+    "regime_conviction": "HIGH",
+    "system_average_score": -0.559,
+    "summary": "System stress at ELEVATED → HIGH with zero bullish asset class scores: consumer confidence at a GFC-trough (55.5), Hormuz supply disruption embedding a $15–20 oil premium, and private credit gate risk the most underpriced systemic trigger in the model.",
+    "one_number_to_watch": "VIX 24.15 with CDX at a 9-month high while S&P sits within 5% of all-time highs — this combination preceded drawdowns in 2007, 2015, and 2022 every single time.",
+    "one_indicator_lying": "Nominal M2 growth (+4.88%). Real M2 vs. Core PCE is +1.78% and narrowing. The market is using the nominal figure to justify compressed risk premia.",
+    "base_case_label": "Slow Burn",
+    "base_case_probability": 0.55,
+    "source_url": "https://asym-intel.info/monitors/macro-monitor/2026-03-30-weekly-brief/"
+  },
+  "asset_class_scores": [
+    {
+      "asset_class": "Consumer Staples",
+      "score": -0.88,
+      "flag": "BEARISH",
+      "direction": "Deteriorating",
+      "key_driver": "Stagflation destroys the defensive trade; consumer confidence at GFC trough",
+      "source_url": "https://asym-intel.info/monitors/macro-monitor/dashboard.html"
+    },
+    {
+      "asset_class": "Energy",
+      "score": -0.73,
+      "flag": "BEARISH",
+      "direction": "Deteriorating",
+      "key_driver": "Near-term spike play only; exit above $100 Brent; Hormuz binary risk",
+      "source_url": "https://asym-intel.info/monitors/macro-monitor/dashboard.html"
+    },
+    {
+      "asset_class": "EM Equities",
+      "score": -0.65,
+      "flag": "BEARISH",
+      "direction": "Deteriorating",
+      "key_driver": "Most crowded long; highest reversal risk; Fragile Five EM distress",
+      "source_url": "https://asym-intel.info/monitors/macro-monitor/dashboard.html"
+    },
+    {
+      "asset_class": "Real Estate",
+      "score": -0.67,
+      "flag": "BEARISH",
+      "direction": "Deteriorating",
+      "key_driver": "CMBS office delinquency 12.34% all-time high; private credit gate risk",
+      "source_url": "https://asym-intel.info/monitors/macro-monitor/dashboard.html"
+    },
+    {
+      "asset_class": "Metals",
+      "score": -0.41,
+      "flag": "MILD NEGATIVE",
+      "direction": "Deteriorating",
+      "key_driver": "Structural long undermined by dollar-as-safe-haven; stagflation secular tailwind intact",
+      "source_url": "https://asym-intel.info/monitors/macro-monitor/dashboard.html"
+    },
+    {
+      "asset_class": "Bonds",
+      "score": -0.40,
+      "flag": "MILD NEGATIVE",
+      "direction": "Deteriorating",
+      "key_driver": "JGB spiral risk; avoid long duration; inflation above target",
+      "source_url": "https://asym-intel.info/monitors/macro-monitor/dashboard.html"
+    },
+    {
+      "asset_class": "Crypto",
+      "score": -0.42,
+      "flag": "MILD NEGATIVE",
+      "direction": "Deteriorating",
+      "key_driver": "Nominal M2 narrative thinning in real terms; blind spot Rule 2 active",
+      "source_url": "https://asym-intel.info/monitors/macro-monitor/dashboard.html"
+    },
+    {
+      "asset_class": "Tech",
+      "score": -0.31,
+      "flag": "MILD NEGATIVE",
+      "direction": "Deteriorating",
+      "key_driver": "Q2 guidance season is the detonation point; AI capex debt building",
+      "source_url": "https://asym-intel.info/monitors/macro-monitor/dashboard.html"
+    }
+  ],
+  "outlook": {
+    "label": "BEARISH",
+    "system_average": -0.559,
+    "conviction": "MEDIUM",
+    "rationale": "All eight asset classes are in negative territory. No bullish scores. Stagflation regime confirmed at high conviction. Base case 55% slow burn; 25% deflationary bust; 20% fast cascade.",
+    "zero_bullish_note": "The absence of a single positive forward outlook is itself the signal."
+  },
+  "tactical_alerts": [],
+  "blind_spot_overrides": [
+    {
+      "rule": "Rule 1 — Earnings Suppression",
+      "indicator": "earnings_revisions",
+      "flag": "GREEN",
+      "warning": "Score may be suppressed by buyback distortion and non-GAAP adjustments. Watch Q2 guidance season.",
+      "affected_asset_class": "Tech",
+      "active_since": "2026-03-24",
+      "source_url": "https://asym-intel.info/monitors/macro-monitor/methodology/"
+    },
+    {
+      "rule": "Rule 2 — Nominal M2 Mirage",
+      "indicator": "m2_money_supply",
+      "flag": "ELEVATED",
+      "direction": "Deteriorating",
+      "warning": "Nominal M2 expansion is thinning in real terms. Forward Real M2 may turn negative by Q3 2026.",
+      "affected_asset_class": "Crypto",
+      "active_since": "2026-03-24",
+      "source_url": "https://fred.stlouisfed.org/series/M2SL"
+    }
+  ],
+  "domain_indicators": {
+    "domain_1_debt_sovereign": [
+      {
+        "indicator": "US Debt / Deficit",
+        "slug": "us_debt_deficit",
+        "flag": "ELEVATED",
+        "score": -0.3,
+        "direction": "Deteriorating",
+        "reading": "$38T debt; $919B FY deficit tracking to $1.9T full-year",
+        "crisis_threshold": "Debt/GDP 100% (breached)",
+        "source_url": "https://bipartisanpolicy.org/"
+      },
+      {
+        "indicator": "Japan JGB Yields",
+        "slug": "japan_jgb_yields",
+        "flag": "WARNING",
+        "score": -1.0,
+        "direction": "Deteriorating",
+        "reading": "30yr at 3.55% (+96bps YoY) — BoJ pain threshold breached",
+        "crisis_threshold": "BoJ implicit pain ~3.0–3.5% (breached)",
+        "source_url": "https://tradingeconomics.com/japan/30-year-bond-yield"
+      },
+      {
+        "indicator": "EM Sovereign Distress",
+        "slug": "em_sovereign_distress",
+        "flag": "ELEVATED",
+        "score": -0.3,
+        "direction": "Stable with late deterioration signals",
+        "reading": "EMBI GD +1.39% Feb; Fragile Five individually RED",
+        "crisis_threshold": "EMBI spread >500bps",
+        "source_url": "https://www.imf.org/"
+      },
+      {
+        "indicator": "Custody Migration",
+        "slug": "custody_migration",
+        "flag": "ELEVATED",
+        "score": -0.3,
+        "direction": "Bifurcated",
+        "reading": "Record $9.355T foreign Treasury holdings; structural redistribution accelerating",
+        "crisis_threshold": "10%+ shift from CN/JP to financial hubs",
+        "source_url": "https://ticdata.treasury.gov/"
+      },
+      {
+        "indicator": "Gold/Reserve Ratio (EM)",
+        "slug": "gold_reserve_ratio_em",
+        "flag": "ELEVATED",
+        "score": -0.3,
+        "direction": "Accelerating",
+        "reading": "Gold surpassed Treasuries in CB reserves — first time since 1996",
+        "crisis_threshold": "Fragile Five EM reserves >15–20% gold",
+        "source_url": "https://www.gold.org/"
+      }
+    ],
+    "domain_2_banking_credit": [
+      {
+        "indicator": "Fed SLOOS",
+        "slug": "fed_sloos",
+        "flag": "GREEN",
+        "score": 1.0,
+        "direction": "Mildly tightening",
+        "reading": "Modest net tightening C&I loans — not distress level",
+        "crisis_threshold": "Net tightening >30–40%",
+        "source_url": "https://www.federalreserve.gov/data/sloos.htm"
+      },
+      {
+        "indicator": "CRE Delinquency",
+        "slug": "cre_delinquency",
+        "flag": "WARNING",
+        "score": -1.0,
+        "direction": "Deteriorating",
+        "reading": "CMBS office 12.34% — all-time high (Trepp); approaching GFC peak ~13%",
+        "crisis_threshold": "CMBS office >15% (GFC peak ~13%)",
+        "source_url": "https://www.trepp.com/"
+      },
+      {
+        "indicator": "G-SIB Capital",
+        "slug": "gsib_capital",
+        "flag": "ELEVATED",
+        "score": -0.3,
+        "direction": "Stable but softening",
+        "reading": "$45.2B capital reduction approved; regulatory buffer thinning",
+        "crisis_threshold": "CDS spreads >200bps; CET1 at minimums",
+        "source_url": "https://www.federalreserve.gov/"
+      },
+      {
+        "indicator": "Private Credit / NBFI",
+        "slug": "private_credit_nbfi",
+        "flag": "WARNING",
+        "score": -1.0,
+        "direction": "Deteriorating",
+        "reading": "$3T market; Blackstone/Blue Owl/BlackRock redemptions approaching 5% gate threshold",
+        "crisis_threshold": "NBFI credit drawdowns >50%",
+        "source_url": "https://www.reuters.com/"
+      }
+    ],
+    "domain_3_market_structure": [
+      {
+        "indicator": "VIX Term Structure",
+        "slug": "vix_term_structure",
+        "flag": "ELEVATED",
+        "score": -0.3,
+        "direction": "Normalising but fragile",
+        "reading": "24.15 (range 19.28–30.19); CDX at 9-month high",
+        "crisis_threshold": "VIX >35 systemic; >45 crisis",
+        "source_url": "https://www.cboe.com/"
+      },
+      {
+        "indicator": "Treasury Market Liquidity",
+        "slug": "treasury_market_liquidity",
+        "flag": "ELEVATED",
+        "score": -0.3,
+        "direction": "Deteriorating (structural)",
+        "reading": "SOFR > IORB since Oct 2025; basis trade overhang",
+        "crisis_threshold": "March 2020-style seizure",
+        "source_url": "https://home.treasury.gov/"
+      },
+      {
+        "indicator": "Margin Debt",
+        "slug": "margin_debt",
+        "flag": "WARNING",
+        "score": -1.0,
+        "direction": "Elevated; slight pullback from record",
+        "reading": "$1.253T (+47% in 10 months)",
+        "crisis_threshold": "Rapid buildup then sharp drawdown",
+        "source_url": "https://www.finra.org/"
+      },
+      {
+        "indicator": "FX Swap Basis",
+        "slug": "fx_swap_basis",
+        "flag": "GREEN",
+        "score": 1.0,
+        "direction": "Easing",
+        "reading": "EUR/USD basis +11.23bps",
+        "crisis_threshold": "EUR/USD basis <-50bps",
+        "source_url": "https://www.reuters.com/"
+      },
+      {
+        "indicator": "M2 / Real Net Liquidity",
+        "slug": "m2_money_supply",
+        "flag": "ELEVATED",
+        "score": -0.3,
+        "direction": "Deteriorating",
+        "reading": "Nominal +4.88%; Real vs Core PCE +1.78% and narrowing",
+        "crisis_threshold": "Real M2 <0% sustained",
+        "blind_spot_rule": "Rule 2 active — nominal figure misleading",
+        "source_url": "https://www.federalreserve.gov/releases/h6/current/"
+      }
+    ],
+    "domain_4_real_economy": [
+      {
+        "indicator": "ISM Manufacturing PMI",
+        "slug": "ism_pmi",
+        "flag": "GREEN",
+        "score": 1.0,
+        "direction": "Recovering but cost-pressured",
+        "reading": "52.4 — expansion with cost-push inflation caveat",
+        "crisis_threshold": "PMI <45 sustained",
+        "source_url": "https://www.ismworld.org/"
+      },
+      {
+        "indicator": "Jobless Claims",
+        "slug": "jobless_claims",
+        "flag": "ELEVATED",
+        "score": -0.3,
+        "direction": "Superficially stable; structurally stagnant",
+        "reading": "205K claims; Feb payrolls -92K — unusual divergence",
+        "crisis_threshold": "Claims >300K; payrolls -200K+",
+        "source_url": "https://www.bls.gov/"
+      },
+      {
+        "indicator": "Cass Freight Index",
+        "slug": "cass_freight",
+        "flag": "WARNING",
+        "score": -1.0,
+        "direction": "Deteriorating",
+        "reading": "-7.2% YoY; -12.3% two-year stacked",
+        "crisis_threshold": "Sustained >10% YoY declines",
+        "source_url": "https://www.cassinfo.com/"
+      },
+      {
+        "indicator": "Consumer Confidence",
+        "slug": "consumer_confidence",
+        "flag": "WARNING",
+        "score": -1.0,
+        "direction": "Deteriorating",
+        "reading": "UMich 55.5 — statistically indistinguishable from Nov 2008 GFC trough (55.3)",
+        "crisis_threshold": "Sustained <55",
+        "source_url": "http://www.sca.isr.umich.edu/"
+      },
+      {
+        "indicator": "Earnings Revisions",
+        "slug": "earnings_revisions",
+        "flag": "GREEN",
+        "score": 1.0,
+        "direction": "Positive but suppressed",
+        "reading": "+12.5% Q1 est. — suppressed by buyback distortion (see Blind Spot Rule 1)",
+        "crisis_threshold": "Revision breadth <40%",
+        "blind_spot_rule": "Rule 1 active — score may be suppressed",
+        "source_url": "https://www.factset.com/"
+      }
+    ],
+    "domain_5_composite_indices": [
+      {
+        "indicator": "STLFSI",
+        "slug": "stlfsi",
+        "flag": "ELEVATED",
+        "score": -0.3,
+        "direction": "Deteriorating",
+        "reading": "-0.299 (44% deterioration in 6 weeks)",
+        "crisis_threshold": "0 = neutral; >1 = elevated; >2 = crisis",
+        "source_url": "https://fred.stlouisfed.org/series/STLFSI4"
+      },
+      {
+        "indicator": "NFCI",
+        "slug": "nfci",
+        "flag": "ELEVATED",
+        "score": -0.3,
+        "direction": "Tightening",
+        "reading": "-0.486 (5-week tightening trend)",
+        "crisis_threshold": "0 = neutral; positive = tight",
+        "source_url": "https://www.chicagofed.org/"
+      },
+      {
+        "indicator": "IIF Global Debt Monitor",
+        "slug": "iif_global_debt",
+        "flag": "WARNING",
+        "score": -1.0,
+        "direction": "Accelerating",
+        "reading": "Record $348T global debt; $13.5T OECD refinancing in 2026",
+        "crisis_threshold": "Global debt/GDP >310% (at threshold)",
+        "source_url": "https://www.iif.com/"
+      },
+      {
+        "indicator": "0DTE Volume Ratio",
+        "slug": "zero_dte_volume",
+        "flag": "ELEVATED",
+        "score": -0.3,
+        "direction": "Structural increase",
+        "reading": "59% of SPX volume is 0DTE",
+        "crisis_threshold": "No established threshold — structural fragility amplifier",
+        "source_url": "https://www.cboe.com/"
+      }
+    ],
+    "domain_6_amplifiers": [
+      {
+        "indicator": "Trump Tariff Escalation",
+        "slug": "trump_tariffs",
+        "flag": "WARNING",
+        "score": -1.0,
+        "direction": "Escalating",
+        "reading": "50% steel; 25% auto (Apr 3); Section 301 ×16 active; approaching Smoot-Hawley levels",
+        "crisis_threshold": "Effective rate ~25–30% (Smoot-Hawley levels)",
+        "next_event": "April 3 auto tariffs; April 10 CIT court hearing",
+        "source_url": "https://www.piie.com/"
+      },
+      {
+        "indicator": "Oil / Supply Shock",
+        "slug": "oil_supply_shock",
+        "flag": "WARNING",
+        "score": -1.0,
+        "direction": "Active disruption",
+        "reading": "Brent ~$80–100; $15–20 geopolitical premium; zero AIS commercial crossings March 14",
+        "crisis_threshold": "Supply disruption >30 days = $120–150/bbl",
+        "current_driver": "Iran conflict / Hormuz restriction (March 2026)",
+        "source_url": "https://www.windward.ai/"
+      },
+      {
+        "indicator": "Dollar Weaponisation",
+        "slug": "dollar_weaponization",
+        "flag": "ELEVATED",
+        "score": -0.3,
+        "direction": "Structural erosion",
+        "reading": "USD reserve share ~58% (from 71% in 2001); gold surpassed Treasuries in CB reserves",
+        "crisis_threshold": "Reserve share <50%",
+        "source_url": "https://www.imf.org/en/Data"
+      },
+      {
+        "indicator": "AI Infrastructure Debt",
+        "slug": "ai_infra_debt",
+        "flag": "ELEVATED",
+        "score": -0.3,
+        "direction": "Accelerating",
+        "reading": "$660–690B capex 2026; $1.5T debt projected; capex/revenue 45–57%",
+        "crisis_threshold": "Capex/revenue >60%; AI ROI failure",
+        "source_url": "https://www.goldmansachs.com/"
+      }
+    ]
+  },
+  "sentiment_overlay": {
+    "risk_appetite": "Suppressed — CDX at 9-month high vs. S&P within 5% of ATH",
+    "fed_funds_path": "Market pricing first cut Sep 2026; Fed in structural policy trap",
+    "bofa_fms_positioning": "Most crowded long: EM equities; highest fear: private credit gate event",
+    "matt_framework_agreement": "40% — market partially agrees with Macro Monitor stress thesis",
+    "positioning_note": "Classic late-cycle positioning: consensus long EM and tech while credit stress builds beneath the surface.",
+    "source_url": "https://asym-intel.info/monitors/macro-monitor/dashboard.html"
+  },
+  "360_intelligence": [
+    {
+      "headline": "Hormuz: Zero Commercial Crossings as of March 14",
+      "summary": "~400 vessels holding in Gulf of Oman. Fujairah alternative hub hit by drone strike. De facto Iranian control of access. Binary outcome: resolution = sell energy/buy duration; 30+ day extension = Brent $120–150.",
+      "cross_domain_tag": "conflict-escalation",
+      "source_url": "https://www.windward.ai/"
+    },
+    {
+      "headline": "Private Credit Gate Risk: 40% Probability by End Q2 2026",
+      "summary": "Blackstone, Blue Owl, BlackRock redemptions approaching 5% gate threshold. Morgan Stanley projects defaults rising 5.6% → 8%. Gate events move from private to public rapidly, triggering CLO/IG credit contagion.",
+      "cross_domain_tag": "macro-monitor",
+      "source_url": "https://www.reuters.com/"
+    },
+    {
+      "headline": "Real M2 Policy Trap — Q3 2026 Trigger Window",
+      "summary": "Nominal M2 +4.88% masks Real M2 +1.78% (vs Core PCE) and approaching zero (vs PPI pipeline). Fed cannot cut, hold, or raise without worsening the trap. When Real M2 last turned negative, banking stress followed within 6–12 months.",
+      "cross_domain_tag": "macro-monitor",
+      "source_url": "https://www.federalreserve.gov/releases/h6/current/"
+    },
+    {
+      "headline": "JGB Yield Spiral: 30yr at 3.55% — BoJ Pain Threshold Breached",
+      "summary": "~¥400T in life insurer/pension holdings at risk. Emergency bond-buying → yen depreciation → FX swap demand → Treasury basis trade stress. No modern precedent for coordinated JGB/Treasury stress event.",
+      "cross_domain_tag": "macro-monitor",
+      "source_url": "https://tradingeconomics.com/japan/30-year-bond-yield"
+    },
+    {
+      "headline": "CDX/VIX Divergence: 4 for 4 Historical Drawdown Signal",
+      "summary": "CDX investment-grade at 9-month high while S&P within 5% of ATH. Every prior instance (2007, 2015, 2022) preceded a material drawdown. Not yet a sell signal — a confirmed reduce-and-wait signal.",
+      "cross_domain_tag": "macro-monitor",
+      "source_url": "https://asym-intel.info/monitors/macro-monitor/dashboard.html"
+    }
+  ],
+  "cross_monitor_flags": {
+    "updated": "2026-03-31T00:00:00Z",
+    "flags": [
+      {
+        "id": "cmf_001",
+        "monitor": "AI Governance Monitor",
+        "monitor_slug": "ai-governance",
+        "status": "Active",
+        "type": "STRUCTURAL",
+        "first_flagged": "2026-03-31",
+        "unchanged_since": "2026-03-31",
+        "title": "Hyperscaler capex trajectory reinforces AI Infrastructure Debt indicator",
+        "body": "$750B hyperscaler capex in 2026 with energy infrastructure lock-in (nuclear PPAs, two-tier power grid) creating a durable moat by 2028. Directly reinforces ai_infra_debt (ELEVATED, capex/revenue 45–57%). Anthropic IPO at $380B and Shield AI at $12.7B consistent with private credit late-cycle stress. AI capex is both a debt amplifier (2026–2027 risk) and potential deflationary force (2028–2030 payoff) — two effects on different timescales.",
+        "macro_indicators_affected": ["ai_infra_debt", "private_credit_nbfi"],
+        "source_url": "https://asym-intel.info/monitors/ai-governance/2026-03-30-weekly-digest/"
+      },
+      {
+        "id": "cmf_002",
+        "monitor": "AI Governance Monitor",
+        "monitor_slug": "ai-governance",
+        "status": "Active",
+        "type": "EMERGING",
+        "first_flagged": "2026-03-31",
+        "unchanged_since": "2026-03-31",
+        "title": "AI labour displacement beginning to show in entry-level employment data",
+        "body": "Anthropic research documents 14% drop in job entry rates for workers aged 22–25 in AI-exposed occupations. Consistent with Macro Monitor jobless_claims divergence (February payrolls -92K vs. claims 205K). If AI displacement is contributing to the payrolls revision, the Fed's labour market anchor is weaker than headline data suggests. Not yet confirmed as dominant driver — emerging signal only.",
+        "macro_indicators_affected": ["jobless_claims", "consumer_confidence"],
+        "source_url": "https://asym-intel.info/monitors/ai-governance/2026-03-30-weekly-digest/"
+      },
+      {
+        "id": "cmf_003",
+        "monitor": "Environmental Risks Monitor",
+        "monitor_slug": "environmental-risks",
+        "status": "Active",
+        "type": "STRUCTURAL",
+        "first_flagged": "2026-03-31",
+        "unchanged_since": "2026-03-31",
+        "title": "EU CSRD Phase 2 creates mandatory climate risk disclosure for financial institutions",
+        "body": "EU CSRD Phase 2 entered force 1 January 2026; first reporting obligations in 2027. Double materiality requirements expose EU financial institutions to mandatory climate risk disclosure for the first time. Structural cost amplifier for European banks and insurers already under G-SIB capital pressure. Adds to cost base of institutions tracked as systemic risk vectors. Significant on 12–24 month horizon.",
+        "macro_indicators_affected": ["gsib_capital", "private_credit_nbfi"],
+        "source_url": "https://asym-intel.info/monitors/environmental-risks/2026-03-29-weekly-brief/"
+      },
+      {
+        "id": "cmf_004",
+        "monitor": "Strategic Conflict & Escalation Monitor",
+        "monitor_slug": "conflict-escalation",
+        "status": "Active",
+        "type": "ACTIVE",
+        "first_flagged": "2026-03-31",
+        "unchanged_since": "2026-03-31",
+        "title": "Sudan economic warfare indicator above baseline — reinforces EM Sovereign Distress; Myanmar/Iran jet fuel is a secondary Hormuz signal",
+        "body": "Strategic Conflict Monitor flags Sudan's Economic Warfare indicator (I4) above baseline alongside Rhetoric, Diplomatic, and Displacement — four-indicator simultaneous breach. Sudan is a Fragile Five EM, part of em_sovereign_distress composite. Quad mediation framework non-operational since September 2025 removes primary de-escalation mechanism. Additionally, Myanmar junta sustaining air campaigns via Iranian jet fuel delivery is a secondary Hormuz-linked supply chain signal consistent with oil_supply_shock WARNING flag.",
+        "macro_indicators_affected": ["em_sovereign_distress", "oil_supply_shock"],
+        "source_url": "https://asym-intel.info/monitors/conflict-escalation/2026-03-30-weekly-brief/"
+      },
+      {
+        "id": "cmf_005",
+        "monitor": "FIMI & Cognitive Warfare Monitor",
+        "monitor_slug": "fimi-cognitive-warfare",
+        "status": "NoSignal",
+        "type": "NO_SIGNAL",
+        "first_flagged": "2026-03-31",
+        "unchanged_since": "2026-03-31",
+        "title": "No material macro-financial cross-signal identified this period",
+        "body": "Current FIMI operations focused on electoral and political interference. No identified macro-financial market manipulation or central bank credibility attacks. Hungary election (April 12) is a potential EM stress catalyst for HUF/Hungarian sovereign spreads if Tisza victory triggers Russian economic retaliation — speculative at this stage.",
+        "macro_indicators_affected": [],
+        "source_url": "https://asym-intel.info/monitors/fimi-cognitive-warfare/2026-03-30-weekly-brief/"
+      },
+      {
+        "id": "cmf_006",
+        "monitor": "Democratic Integrity Monitor",
+        "monitor_slug": "democratic-integrity",
+        "status": "NoSignal",
+        "type": "NO_SIGNAL",
+        "first_flagged": "2026-03-31",
+        "unchanged_since": "2026-03-31",
+        "title": "No material macro-financial cross-signal identified this period",
+        "body": "Hungary election crisis and Georgia civil society capture are political stress signals not yet translated into financial contagion vectors. Hungary election (April 12) watch: Tisza leads Fidesz by 23 points. A Tisza victory could trigger Russian economic retaliation against Hungary — potential EM stress signal for HUF. Monitor post-election.",
+        "macro_indicators_affected": ["em_sovereign_distress"],
+        "source_url": "https://asym-intel.info/monitors/democratic-integrity/2026-03-30-weekly-brief/"
+      },
+      {
+        "id": "cmf_007",
+        "monitor": "European Strategic Autonomy Monitor",
+        "monitor_slug": "european-strategic-autonomy",
+        "status": "NoSignal",
+        "type": "NO_SIGNAL",
+        "first_flagged": "2026-03-31",
+        "unchanged_since": "2026-03-31",
+        "title": "No material macro-financial cross-signal identified this period",
+        "body": "NATO 20% European defence spending increase is a fiscal signal — elevated defence budgets add to sovereign debt trajectories in European economies. Structural rather than acute. Reviewed: 31 March 2026.",
+        "macro_indicators_affected": ["us_debt_deficit"],
+        "source_url": "https://asym-intel.info/monitors/european-strategic-autonomy/2026-03-30-weekly-brief/"
+      }
+    ],
+    "version_history": [
+      {
+        "date": "2026-03-31",
+        "change": "Initial population — 7 cross-monitor flags created from inaugural scan of all asym-intel.info monitors",
+        "reason": "First run of cross-monitor scan protocol"
+      }
+    ]
+  },
+  "source_url": "https://asym-intel.info/monitors/macro-monitor/2026-03-30-weekly-brief/"
+}

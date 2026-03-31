@@ -1,0 +1,679 @@
+{
+  "meta": {
+    "monitor": "conflict-escalation",
+    "monitor_name": "Strategic Conflict & Escalation Monitor",
+    "issue": 1,
+    "volume": 1,
+    "week_number": 1,
+    "week_label": "W/E 30 March 2026",
+    "published": "2026-03-30T18:00:00Z",
+    "slug": "2026-03-30",
+    "publish_time_utc": "T18:00:00Z",
+    "baseline_status_note": "All baselines CONTESTED — insufficient observations. Baselines lock at week 13 for each conflict individually.",
+    "editor": "asym-intel",
+    "schema_version": "1.0"
+  },
+  "lead_signal": {
+    "conflict": "Sudan Civil War",
+    "headline": "RSF captures Kurmuk — 73,000 displaced in single event; four indicators above baseline simultaneously",
+    "indicator": "I6 / I1 / I4 / I5",
+    "deviation": "+1 across four indicators simultaneously",
+    "summary": "Sudan drives the week's highest escalation signal. RSF capture of Kurmuk (24 March) displaced 73,000 people in a single operational movement. Four of six indicators (I1 Rhetoric, I4 Economic Warfare, I5 Diplomatic, I6 Displacement) sit above initial baseline simultaneously. The Quad mediation framework has been non-operational since September 2025. F2-adjacent flag applied on mutual drone attribution.",
+    "source_url": "https://reliefweb.int"
+  },
+  "conflict_roster": [
+    {
+      "conflict": "Russia–Ukraine War",
+      "theatre": "Eastern Europe",
+      "trajectory": "Escalating",
+      "trajectory_arrow": "↑",
+      "week_number": 1,
+      "baseline_status": "Contested",
+      "indicators": {
+        "I1_rhetoric": {
+          "level": 5,
+          "baseline": 5,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "Sustained wartime norm. Medvedev 19 March circular delegitimisation (F4). Structural high."
+        },
+        "I2_military_posture": {
+          "level": 5,
+          "baseline": 5,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "Mechanised assault tempo increased 17 March. Spring offensive staging. 156 drones 19-20 March."
+        },
+        "I3_nuclear_strategic": {
+          "level": 2,
+          "baseline": 2,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "ISW: nuclear use unlikely. No posture change confirmed. Structural rhetorical baseline."
+        },
+        "I4_economic_warfare": {
+          "level": 4,
+          "baseline": 4,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "Comprehensive sanctions maintained. Russia oil windfall from ME conflict. No new measures."
+        },
+        "I5_diplomatic": {
+          "level": 4,
+          "baseline": 4,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Possible",
+          "note": "Geneva talks stalled. F4: Kremlin negotiating signals T3 only. No T2 corroboration."
+        },
+        "I6_displacement": {
+          "level": 4,
+          "baseline": 4,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "~10M+ total displaced. No new mass displacement event this week. Stable at wartime structural level."
+        }
+      },
+      "f_flags": [
+        {
+          "flag": "F4",
+          "indicator": "I5",
+          "detail": "Kremlin negotiating-willingness signals sourced from T3 (Russian state media) only. No independent corroboration.",
+          "applied": "2026-03-30"
+        }
+      ],
+      "lead_development": "Mechanised assault tempo increase since 17 March consistent with pre-Spring offensive staging",
+      "summary": "All indicators at structural wartime norm (baseline = level, deviation = 0). Escalation signals are trajectory indicators, not baseline deviations. Spring offensive staging is the key signal.",
+      "source_url": "https://www.understandingwar.org"
+    },
+    {
+      "conflict": "Gaza / Israel–Hamas",
+      "theatre": "Middle East",
+      "trajectory": "Stable (ceasefire)",
+      "trajectory_arrow": "→",
+      "week_number": 1,
+      "baseline_status": "Contested",
+      "indicators": {
+        "I1_rhetoric": {
+          "level": 3,
+          "baseline": 3,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "Ceasefire holds at low friction. IDF maintains 53-58% territory. F4 on diplomatic claims."
+        },
+        "I2_military_posture": {
+          "level": 3,
+          "baseline": 3,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "IDF presence maintained in Gaza. No new major offensive operations this week."
+        },
+        "I3_nuclear_strategic": {
+          "level": 1,
+          "baseline": 1,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "No nuclear signalling. Structural zero for this conflict."
+        },
+        "I4_economic_warfare": {
+          "level": 3,
+          "baseline": 3,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "Crossings closed due to Iran conflict. Aid restricted to below half-rations. Zikim crossing closed."
+        },
+        "I5_diplomatic": {
+          "level": 3,
+          "baseline": 2,
+          "deviation": 1,
+          "band": "CONTESTED",
+          "confidence": "Possible",
+          "note": "F4: Board of Peace disarmament claims sourced from Israeli/US officials (T3). Hamas disarmament unverified. Score at verified level."
+        },
+        "I6_displacement": {
+          "level": 4,
+          "baseline": 4,
+          "deviation": -1,
+          "band": "CONTESTED",
+          "confidence": "Possible",
+          "note": "Marginal negative deviation as Rafah returns begin. 4-week data lag — treat with caution."
+        }
+      },
+      "f_flags": [
+        {
+          "flag": "F4",
+          "indicator": "I5",
+          "detail": "Ceasefire and disarmament progress claims sourced from Israeli/US officials (T3). Hamas disarmament not independently verified.",
+          "applied": "2026-03-30"
+        }
+      ],
+      "lead_development": "Post-Oct 2025 ceasefire holds nominally; 689 Palestinian fatalities since announcement (OCHA)",
+      "summary": "Ceasefire holds at low-level friction. F4 flag on diplomatic channel — de-escalation claims not verified. Iran conflict side-effects (crossing closures) constitute I4 signal.",
+      "source_url": "https://www.ochaopt.org"
+    },
+    {
+      "conflict": "Sudan Civil War",
+      "theatre": "Sahel / Horn of Africa",
+      "trajectory": "Escalating",
+      "trajectory_arrow": "↑",
+      "week_number": 1,
+      "baseline_status": "Contested",
+      "indicators": {
+        "I1_rhetoric": {
+          "level": 4,
+          "baseline": 3,
+          "deviation": 1,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "SAF/RSF mutual drone attribution without forensic corroboration. F2-adjacent: false-flag seeding pattern. Both denied strikes on each other's civilian targets."
+        },
+        "I2_military_posture": {
+          "level": 5,
+          "baseline": 4,
+          "deviation": 1,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "RSF captured Kurmuk 24 March. SAF airstrike Ed Daein Hospital 20 March (70 killed). Active offensive operations confirmed."
+        },
+        "I3_nuclear_strategic": {
+          "level": 1,
+          "baseline": 1,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "No nuclear or strategic weapons dimension. Structural zero."
+        },
+        "I4_economic_warfare": {
+          "level": 4,
+          "baseline": 3,
+          "deviation": 1,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "Heglig oil field offline (RSF capture Dec 2025). Sudan economy at near-collapse. Above initial baseline."
+        },
+        "I5_diplomatic": {
+          "level": 4,
+          "baseline": 3,
+          "deviation": 1,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "Quad mediation (US/Saudi/UAE/Egypt) non-operational since Sep 2025. No ceasefire mechanism active. Above baseline."
+        },
+        "I6_displacement": {
+          "level": 5,
+          "baseline": 4,
+          "deviation": 1,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "Kurmuk: 73,000 displaced in single event 24 March. 12M+ total — world's largest displacement crisis. OCHA/IOM confirmed."
+        }
+      },
+      "f_flags": [
+        {
+          "flag": "F2-adjacent",
+          "indicator": "I1/I2",
+          "detail": "SAF and RSF attributing drone strikes to each other without forensic corroboration in tight time windows. Pattern consistent with mutual false-flag seeding.",
+          "applied": "2026-03-30"
+        }
+      ],
+      "lead_development": "RSF captures Kurmuk (24 March) — 73,000 displaced in single operational movement; SAF airstrike Ed Daein Hospital kills 70",
+      "summary": "Week's highest escalation signal. Four of six indicators above initial baseline simultaneously. F2-adjacent flag on mutual drone attribution. World's largest displacement crisis. No active mediation.",
+      "source_url": "https://reliefweb.int"
+    },
+    {
+      "conflict": "Myanmar Civil War",
+      "theatre": "Southeast Asia",
+      "trajectory": "Escalating",
+      "trajectory_arrow": "↑",
+      "week_number": 1,
+      "baseline_status": "Contested",
+      "indicators": {
+        "I1_rhetoric": {
+          "level": 4,
+          "baseline": 3,
+          "deviation": 1,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "Junta held presidential election 30 March. Min Aung Hlaing institutionalising rule. ASEAN/West refused endorsement."
+        },
+        "I2_military_posture": {
+          "level": 5,
+          "baseline": 4,
+          "deviation": 1,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "Iranian jet fuel (Reuters 26 Jan) sustaining air campaign. Airstrikes intensified. I2 above baseline."
+        },
+        "I3_nuclear_strategic": {
+          "level": 1,
+          "baseline": 1,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "No nuclear dimension. Structural zero."
+        },
+        "I4_economic_warfare": {
+          "level": 3,
+          "baseline": 3,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "Western individual-level sanctions maintained but circumvented via Iran fuel route. At baseline."
+        },
+        "I5_diplomatic": {
+          "level": 4,
+          "baseline": 3,
+          "deviation": 1,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "ASEAN refused to endorse 30 March election. No independent mediation channel active. Above baseline."
+        },
+        "I6_displacement": {
+          "level": 4,
+          "baseline": 4,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "3.6M displaced (IOM). 96,000 killed (ACLED). At sustained wartime baseline."
+        }
+      },
+      "f_flags": [],
+      "lead_development": "Iranian jet fuel deliveries confirmed sustaining junta air campaign; junta held sham presidential election 30 March",
+      "summary": "I2 and I5 above initial baseline. External actor enablement (Iran fuel) is a structural escalation driver. Junta elections signal institutional consolidation. F2-adjacent note: Iran fuel supply enables external actor facilitation of air campaign intensification.",
+      "source_url": "https://acleddata.com"
+    },
+    {
+      "conflict": "Haiti Political-Criminal",
+      "theatre": "Caribbean",
+      "trajectory": "Escalating",
+      "trajectory_arrow": "↑",
+      "week_number": 1,
+      "baseline_status": "Contested",
+      "indicators": {
+        "I1_rhetoric": {
+          "level": 3,
+          "baseline": 3,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "Explicit gang threat framing. PMC drone strikes on gang-controlled areas confirmed (HRW)."
+        },
+        "I2_military_posture": {
+          "level": 4,
+          "baseline": 3,
+          "deviation": 1,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "Gangs now control key maritime and overland routes (UN OHCHR 24 Mar). Expanded into Artibonite and Centre departments."
+        },
+        "I3_nuclear_strategic": {
+          "level": 1,
+          "baseline": 1,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "No strategic weapons dimension. Structural zero."
+        },
+        "I4_economic_warfare": {
+          "level": 3,
+          "baseline": 2,
+          "deviation": 1,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "Criminal control of maritime routes constitutes economic disruption above initial baseline."
+        },
+        "I5_diplomatic": {
+          "level": 2,
+          "baseline": 2,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "MSS to GSF transition underway. Security gap being exploited. At baseline."
+        },
+        "I6_displacement": {
+          "level": 4,
+          "baseline": 3,
+          "deviation": 1,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "1.4M displaced — 24% increase. 6-week OCHA data lag: current figure likely higher."
+        }
+      },
+      "f_flags": [],
+      "lead_development": "Gangs control maritime and overland routes; 1-in-4 Haitians in gang-controlled territory (UN OHCHR 24 March)",
+      "summary": "I2, I4, and I6 above initial baseline. MSS→GSF transition creating exploitable security gap. 1.4M displaced (24% increase). Trajectory: Escalating.",
+      "source_url": "https://www.ohchr.org"
+    },
+    {
+      "conflict": "DRC Eastern Theatre",
+      "theatre": "Central Africa",
+      "trajectory": "Escalating",
+      "trajectory_arrow": "↑",
+      "week_number": 1,
+      "baseline_status": "Contested",
+      "indicators": {
+        "I1_rhetoric": {
+          "level": 4,
+          "baseline": 3,
+          "deviation": 1,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "DRC and M23 simultaneously accusing each other of ceasefire violations. Washington Accords in parliament but operational gap persists."
+        },
+        "I2_military_posture": {
+          "level": 5,
+          "baseline": 4,
+          "deviation": 1,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "M23 kamikaze drone strikes on FARDC Kisangani command base. Active offensive operations continuing."
+        },
+        "I3_nuclear_strategic": {
+          "level": 1,
+          "baseline": 1,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "No nuclear dimension. Structural zero."
+        },
+        "I4_economic_warfare": {
+          "level": 3,
+          "baseline": 3,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "M23/Rwanda control of Rubaya coltan mine. FARDC targeting Rubaya explicitly. At baseline for this conflict."
+        },
+        "I5_diplomatic": {
+          "level": 3,
+          "baseline": 2,
+          "deviation": 1,
+          "band": "CONTESTED",
+          "confidence": "Possible",
+          "note": "F4: Doha/Washington/Angola ceasefire claims unverified operationally. MONUSCO oversight not functional. Score at verified level."
+        },
+        "I6_displacement": {
+          "level": 4,
+          "baseline": 4,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "Sustained high displacement. No major new displacement event this week beyond baseline."
+        }
+      },
+      "f_flags": [
+        {
+          "flag": "F4",
+          "indicator": "I5",
+          "detail": "Multiple ceasefire claims (Doha/Washington/Angola) without operational verification. MONUSCO oversight not functional. Both DRC and M23 accusing each other of violations simultaneously.",
+          "applied": "2026-03-30"
+        }
+      ],
+      "lead_development": "Doha ceasefire violated; M23 drone strikes on Kisangani command base; Washington Accords in DRC parliament but MONUSCO oversight not operational",
+      "summary": "Doha ceasefire actively violated. F4 flag on all ceasefire claims. I2 and I5 above initial baseline. Washington Accords ratification is positive signal but insufficient to change trajectory assessment.",
+      "source_url": "https://www.unocha.org/drc"
+    },
+    {
+      "conflict": "Taiwan Strait / PRC–Taiwan",
+      "theatre": "East Asia (latent)",
+      "trajectory": "Stable",
+      "trajectory_arrow": "→",
+      "week_number": 1,
+      "baseline_status": "Contested",
+      "indicators": {
+        "I1_rhetoric": {
+          "level": 3,
+          "baseline": 3,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "PRC-Japan tensions elevated (PM Takaichi Taiwan comments). At structural baseline."
+        },
+        "I2_military_posture": {
+          "level": 3,
+          "baseline": 3,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "PLA air/naval pressure maintained at baseline. No new exercises or escalation detected."
+        },
+        "I3_nuclear_strategic": {
+          "level": 2,
+          "baseline": 2,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "PRC drawing operational lessons from Iran-Israel conflict for Type 055 destroyer air-defence posture. I3-adjacent signal — monitor."
+        },
+        "I4_economic_warfare": {
+          "level": 3,
+          "baseline": 3,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "Ongoing technology/chip export controls. At structural baseline."
+        },
+        "I5_diplomatic": {
+          "level": 2,
+          "baseline": 2,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "ODNI: PRC invasion unlikely before 2027. Diplomatic signals stable at latent-conflict baseline."
+        },
+        "I6_displacement": {
+          "level": 1,
+          "baseline": 1,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "No conflict-related displacement. Structural zero for latent conflict."
+        }
+      },
+      "f_flags": [],
+      "lead_development": "ODNI 2026 assesses PRC invasion unlikely before 2027; PRC drawing lessons from Iran-Israel conflict for destroyer air-defence posture",
+      "summary": "All indicators at latent-conflict structural baseline. No deviation. PRC operational lesson-drawing from Iran-Israel conflict is an I3-adjacent signal worth monitoring.",
+      "source_url": "https://www.dni.gov"
+    },
+    {
+      "conflict": "Korean Peninsula",
+      "theatre": "East Asia (latent)",
+      "trajectory": "Stable (elevated posture)",
+      "trajectory_arrow": "→",
+      "week_number": 1,
+      "baseline_status": "Contested",
+      "indicators": {
+        "I1_rhetoric": {
+          "level": 4,
+          "baseline": 3,
+          "deviation": 1,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "DPRK SPA 22 March re-institutionalised 'two hostile states' doctrine. Kim: nuclear status 'irreversible'. Above initial baseline."
+        },
+        "I2_military_posture": {
+          "level": 4,
+          "baseline": 3,
+          "deviation": 1,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "Multiple cruise missile and 600mm MRL tests in March. Above initial baseline."
+        },
+        "I3_nuclear_strategic": {
+          "level": 4,
+          "baseline": 4,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Possible",
+          "note": "SPA legislation reinforcing nuclear deterrent. Nuclear Policy Law (2022) authorising pre-emptive strikes in force. ODNI: stockpile expansion continuing. At structural high baseline."
+        },
+        "I4_economic_warfare": {
+          "level": 4,
+          "baseline": 4,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Confirmed",
+          "note": "Comprehensive sanctions regime. Circumvention via Russia/China. At structural baseline."
+        },
+        "I5_diplomatic": {
+          "level": 4,
+          "baseline": 4,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Probable",
+          "note": "No active diplomatic channel. Trump-Kim meeting signal sourced from ROK government (T3) — unverified. MOU inter-Korean plan terminated."
+        },
+        "I6_displacement": {
+          "level": 1,
+          "baseline": 1,
+          "deviation": 0,
+          "band": "CONTESTED",
+          "confidence": "Possible",
+          "note": "DPRK internal displacement unmonitorable (no T1 access). Structural zero for this indicator."
+        }
+      },
+      "f_flags": [],
+      "lead_development": "DPRK SPA (22 March) re-institutionalises 'two hostile states' doctrine; Kim declares nuclear status 'irreversible'; multiple March tests",
+      "summary": "I1 and I2 above initial baseline following doctrine re-institutionalisation and March tests. I3 at structural high baseline — not a new deviation. Trump-Kim meeting signal T3 only.",
+      "source_url": "https://www.reuters.com"
+    }
+  ],
+  "roster_watch": {
+    "approaching_inclusion": [
+      {
+        "conflict": "Iran–US/Israel Military Conflict",
+        "theatre": "Middle East",
+        "note": "Active Iran-US military exchange absorbing significant US diplomatic bandwidth. I1 ≥3 met; I2 confirmed ≥4 (US active engagement); I3 likely ≥3 (Iran nuclear program). Meets inclusion criteria threshold on two indicators. Recommend roster addition consideration at next quarterly review or if criteria confirmed for two consecutive cycles.",
+        "criteria_met": [
+          "I1 ≥3",
+          "I2 ≥4 confirmed",
+          "I3 likely ≥3"
+        ],
+        "status": "Watch"
+      },
+      {
+        "conflict": "Ethiopia Northern Theatre Re-activation",
+        "theatre": "Horn of Africa",
+        "note": "ACLED March 2026: significant troop movements by ENDF, TDF, EDF in northern Ethiopia. TDF effort to reclaim Tselemt (late Jan). Does not yet meet dual-indicator threshold but brings region closer to potential conflict per ACLED.",
+        "criteria_met": [
+          "Partial I2"
+        ],
+        "status": "Watch"
+      }
+    ],
+    "approaching_retirement": []
+  },
+  "cross_monitor_flags": {
+    "updated": "2026-03-30T18:00:00Z",
+    "flags": [
+      {
+        "flag_id": "SCEM-FIMI-001",
+        "monitor": "FIMI & Cognitive Warfare",
+        "monitor_url": "https://asym-intel.info/monitors/fimi-cognitive-warfare/",
+        "conflict": "Sudan",
+        "indicator": "I1/I2",
+        "signal": "F2-adjacent — False-flag seeding risk",
+        "detail": "SAF and RSF attributing drone strikes to each other without forensic corroboration in tight time windows. Pattern consistent with mutual false-flag seeding for domestic legitimation. Flag for FIMI assessment.",
+        "structural_or_transient": "Transient (monitor for pattern persistence)",
+        "status": "Active",
+        "first_raised": "2026-03-30",
+        "unchanged_since": "2026-03-30"
+      },
+      {
+        "flag_id": "SCEM-FIMI-002",
+        "monitor": "FIMI & Cognitive Warfare",
+        "monitor_url": "https://asym-intel.info/monitors/fimi-cognitive-warfare/",
+        "conflict": "Gaza",
+        "indicator": "I5",
+        "signal": "F4 — Premature De-escalation",
+        "detail": "Ceasefire and disarmament progress claims sourced from Israeli/US officials (T3). Hamas disarmament plan not independently verified. Scored at verified level.",
+        "structural_or_transient": "Structural (persistent while ceasefire framework unverified)",
+        "status": "Active",
+        "first_raised": "2026-03-30",
+        "unchanged_since": "2026-03-30"
+      },
+      {
+        "flag_id": "SCEM-FIMI-003",
+        "monitor": "FIMI & Cognitive Warfare",
+        "monitor_url": "https://asym-intel.info/monitors/fimi-cognitive-warfare/",
+        "conflict": "DRC Eastern",
+        "indicator": "I5",
+        "signal": "F4 — Premature De-escalation",
+        "detail": "Multiple ceasefire frameworks (Doha/Washington/Angola) claimed without operational verification. MONUSCO oversight not functional. Both parties accusing each other simultaneously.",
+        "structural_or_transient": "Structural (persistent while MONUSCO oversight non-functional)",
+        "status": "Active",
+        "first_raised": "2026-03-30",
+        "unchanged_since": "2026-03-30"
+      },
+      {
+        "flag_id": "SCEM-FIMI-004",
+        "monitor": "FIMI & Cognitive Warfare",
+        "monitor_url": "https://asym-intel.info/monitors/fimi-cognitive-warfare/",
+        "conflict": "Russia–Ukraine",
+        "indicator": "I1",
+        "signal": "F4 — Premature De-escalation",
+        "detail": "Kremlin negotiating-willingness signals sourced from Russian state media (T3) only. Standard circular delegitimisation framing (Medvedev 19 March). No T2 corroboration.",
+        "structural_or_transient": "Structural (persistent Kremlin disinformation pattern)",
+        "status": "Active",
+        "first_raised": "2026-03-30",
+        "unchanged_since": "2026-03-30"
+      },
+      {
+        "flag_id": "SCEM-EGHTM-001",
+        "monitor": "European Geopolitical & Hybrid Threat Monitor",
+        "monitor_url": "https://asym-intel.info/monitors/european-strategic-autonomy/dashboard.html",
+        "conflict": "Russia–Ukraine",
+        "indicator": "I2/I5",
+        "signal": "European theatre — Spring offensive staging",
+        "detail": "Russian mechanised assault increase since 17 March. ISW assesses Spring-Summer 2026 offensive preparation. EGHTM should assess NATO eastern flank readiness and air defence allocation implications.",
+        "structural_or_transient": "Structural (seasonal offensive pattern)",
+        "status": "Active",
+        "first_raised": "2026-03-30",
+        "unchanged_since": "2026-03-30"
+      },
+      {
+        "flag_id": "SCEM-GERP-001",
+        "monitor": "Global Environmental Risks & Planetary Boundaries Monitor",
+        "monitor_url": "https://asym-intel.info/monitors/environmental-risks/dashboard.html",
+        "conflict": "Sudan",
+        "indicator": "I6",
+        "signal": "Climate/water displacement driver",
+        "detail": "Sudan 12M+ displacement includes conflict and climate/food-insecurity drivers. Famine in Darfur/Kordofan partly climate-aggravated. GERP should assess as compound crisis case.",
+        "structural_or_transient": "Structural",
+        "status": "Active",
+        "first_raised": "2026-03-30",
+        "unchanged_since": "2026-03-30"
+      },
+      {
+        "flag_id": "SCEM-MACRO-001",
+        "monitor": "Macro Monitor",
+        "monitor_url": "https://asym-intel.info/monitors/macro-monitor/dashboard.html",
+        "conflict": "DRC Eastern",
+        "indicator": "I4",
+        "signal": "Resource conflict financing — coltan/cobalt",
+        "detail": "M23/Rwanda control of Rubaya coltan mine. FARDC operations targeting Rubaya explicitly. US-DRC strategic minerals partnership (Washington Accords) links conflict zone to critical supply chain.",
+        "structural_or_transient": "Structural",
+        "status": "Active",
+        "first_raised": "2026-03-30",
+        "unchanged_since": "2026-03-30"
+      }
+    ],
+    "version_history": [
+      {
+        "date": "2026-03-30",
+        "change": "Initial population — 7 cross-monitor flags raised from inaugural edition",
+        "reason": "Inaugural brief analysis"
+      }
+    ]
+  },
+  "source_url": "https://asym-intel.info/monitors/conflict-escalation/2026-03-30-weekly-brief/"
+}

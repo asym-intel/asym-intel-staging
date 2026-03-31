@@ -1,0 +1,711 @@
+{
+  "meta": {
+    "issue": 2,
+    "volume": 1,
+    "week_label": "Week 2 — 30 March 2026",
+    "published": "2026-03-30T06:00:00Z",
+    "slug": "democratic-integrity",
+    "publish_time_utc": "T06:00:00Z",
+    "editor": "asym-intel",
+    "schema_version": "1.1"
+  },
+  "signal": "Hungary enters final 13 days with Tisza 23 pts ahead; Georgia passes three-law capture package; Philippines joins heatmap at Repressed. 15 Rapid Decay, 4 Recovery, 9 Watch List.",
+  "heatmap": {
+    "rapid_decay": [
+      {
+        "country": "United States",
+        "severity_score": 5.5,
+        "severity_arrow": "↑",
+        "lead_signal": "V-Dem LDI -24%, rank 20→51. SAVE America Act passed House February 2026 — documentation at polling places + mandatory DH…",
+        "summary": "V-Dem LDI -24%, rank 20→51. SAVE America Act passed House February 2026 — documentation at polling places + mandatory DHS access to all state voter rolls. MEGA Act introduced January 2026 would ban universal mail voting. Reuters (March 7): 97% of Trump's 31 Supreme Court emergency requests argue judicial interference — systematic campaign to weaken federal judiciary. Trump called own appointees Gorsuch/Barrett 'lapdogs' for ruling against tariffs. SCOTUS hearing birthright citizenship April 1.",
+        "confidence": "Confirmed",
+        "entry_type": "Episode",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-30",
+        "source_url": ""
+      },
+      {
+        "country": "Georgia",
+        "severity_score": 8.5,
+        "severity_arrow": "↑",
+        "lead_signal": "CIVICUS downgraded to 'Repressed' (December 2025). New March 2026 laws: expanded 'foreign grants' definition (criminal l…",
+        "summary": "CIVICUS downgraded to 'Repressed' (December 2025). New March 2026 laws: expanded 'foreign grants' definition (criminal liability, 6-year sentence); 'extremism against constitutional order' law targeting criticism of October 2024 elections; 8-year political party ban for anyone previously in foreign-funded civil society. FIDH (March 18): calls for repeal. Alliance of nine opposition parties formed — Kobakhidze announced banning lawsuit could be expanded to encompass them all. Kobakhidze keynoted CPAC Hungary 2026 (March 21).",
+        "confidence": "Confirmed",
+        "entry_type": "Episode",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-30",
+        "source_url": ""
+      },
+      {
+        "country": "Iran",
+        "severity_score": 10.0,
+        "severity_arrow": "→",
+        "lead_signal": "HRW/Amnesty joint report (8 Jan): security forces killed at least 28 in first days; total 30,000+ per official figures. …",
+        "summary": "HRW/Amnesty joint report (8 Jan): security forces killed at least 28 in first days; total 30,000+ per official figures. Near-total internet blackout from 8 Jan. Tens of thousands detained including children; mohareb charges carrying death penalty.",
+        "confidence": "Confirmed",
+        "entry_type": "Episode",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-30",
+        "source_url": ""
+      },
+      {
+        "country": "Tanzania",
+        "severity_score": 8.0,
+        "severity_arrow": "→",
+        "lead_signal": "HRW (19 Mar): hundreds killed in post-election crackdown including bystanders not protesting; 2,000+ arrested including …",
+        "summary": "HRW (19 Mar): hundreds killed in post-election crackdown including bystanders not protesting; 2,000+ arrested including children; CHADEMA opposition barred from elections; 10 government critics abducted and killed before polls.",
+        "confidence": "Confirmed",
+        "entry_type": "Episode",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "Kazakhstan",
+        "severity_score": 7.0,
+        "severity_arrow": "↑",
+        "lead_signal": "15 Mar referendum: constitutional overhaul removes international treaty supremacy, makes parliament unicameral, concentr…",
+        "summary": "15 Mar referendum: constitutional overhaul removes international treaty supremacy, makes parliament unicameral, concentrates presidential appointments. Amnesty: NGO disclosure requirements mirror Russian foreign agent law; journalists detained ahead of vote.",
+        "confidence": "Confirmed",
+        "entry_type": "Persistent",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "Tunisia",
+        "severity_score": 8.5,
+        "severity_arrow": "↑",
+        "lead_signal": "Amnesty (Feb): Ennahda leader Ghannouchi and four others convicted on appeal (3–35 years). HRW: 37 defendants in 'Conspi…",
+        "summary": "Amnesty (Feb): Ennahda leader Ghannouchi and four others convicted on appeal (3–35 years). HRW: 37 defendants in 'Conspiracy Case' convicted in mass trial (4–66 years); Tunisia withdrawing from African Court on Human and Peoples' Rights (effective March 2026).",
+        "confidence": "Confirmed",
+        "entry_type": "Persistent",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "Nicaragua",
+        "severity_score": 9.5,
+        "severity_arrow": "→",
+        "lead_signal": "OHCHR (10 Mar): UN experts uncover transnational spy network targeting hundreds of thousands of exiles across multiple c…",
+        "summary": "OHCHR (10 Mar): UN experts uncover transnational spy network targeting hundreds of thousands of exiles across multiple countries; public funds diverted to finance repression; at least one assassination (Roberto Samcam, Costa Rica, June 2025); 452 Nicaraguans arbitrarily stripped of nationality.",
+        "confidence": "Confirmed",
+        "entry_type": "Persistent",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "Serbia",
+        "severity_score": 4.0,
+        "severity_arrow": "→",
+        "lead_signal": "CIVICUS/IPI: universities stripped of financial autonomy; civil servants fired for neutrality; elections delayed by Vuci…",
+        "summary": "CIVICUS/IPI: universities stripped of financial autonomy; civil servants fired for neutrality; elections delayed by Vucic. Foreign agent bill (Movement of Socialists) stalled in parliament. EU advisory body warns bill incompatible with EU values.",
+        "confidence": "Confirmed",
+        "entry_type": "Episode",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "Hungary",
+        "severity_score": 5.0,
+        "severity_arrow": "→",
+        "lead_signal": "April 12 elections (13 days away): Tisza leads Fidesz by 23 percentage points among decided voters (Medián/Reuters, Marc…",
+        "summary": "April 12 elections (13 days away): Tisza leads Fidesz by 23 percentage points among decided voters (Medián/Reuters, March 25) — widest gap of campaign. Electoral redistricting still requires Tisza to win nationally by 3–5 points for parliamentary majority. IPI: HVG and Telex journalists ejected from Fidesz campaign events. ODIHR deployed. Most consequential European election of 2026.",
+        "confidence": "Confirmed",
+        "entry_type": "Episode",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-30",
+        "source_url": ""
+      },
+      {
+        "country": "Slovakia",
+        "severity_score": 4.0,
+        "severity_arrow": "→",
+        "lead_signal": "IPI/MJRC (Nov 2025): Fico government dissolved RTVS public broadcaster and replaced with STVR controlled by pro-governme…",
+        "summary": "IPI/MJRC (Nov 2025): Fico government dissolved RTVS public broadcaster and replaced with STVR controlled by pro-government appointees — direct violation of EMFA Article 5. Anti-NGO transparency law in force since June 2025. IPI: 'clear breach of EMFA'.",
+        "confidence": "Confirmed",
+        "entry_type": "Persistent",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "El Salvador",
+        "severity_score": 6.5,
+        "severity_arrow": "→",
+        "lead_signal": "CIVICUS/Amnesty: foreign agent law passed May 2025, 30% punitive tax on foreign grants; two major CSOs (journalists' ass…",
+        "summary": "CIVICUS/Amnesty: foreign agent law passed May 2025, 30% punitive tax on foreign grants; two major CSOs (journalists' association APES and Cristosal) forced to close; Freedom House: -5 points, net -12 over 20 years — worst decline of any formerly 'Free' country.",
+        "confidence": "Confirmed",
+        "entry_type": "Persistent",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "DRC",
+        "severity_score": 7.0,
+        "severity_arrow": "→",
+        "lead_signal": "RSF (24 Mar): M23 used shipping containers to hold and torture at least two journalists in eastern DRC; CIVICUS document…",
+        "summary": "RSF (24 Mar): M23 used shipping containers to hold and torture at least two journalists in eastern DRC; CIVICUS documents African Commission failure to confront widespread civic space closure across Africa.",
+        "confidence": "Confirmed",
+        "entry_type": "Persistent",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "Iraq",
+        "severity_score": 6.0,
+        "severity_arrow": "→",
+        "lead_signal": "CIVICUS (5 Mar): prominent feminist WHRD Yanar Mohammed (President, OWFI) assassinated by two gunmen in Baghdad on 2 Mar…",
+        "summary": "CIVICUS (5 Mar): prominent feminist WHRD Yanar Mohammed (President, OWFI) assassinated by two gunmen in Baghdad on 2 March 2026. Emblematic of impunity for violence against women human rights defenders.",
+        "confidence": "Confirmed",
+        "entry_type": "Transient",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "Uganda",
+        "severity_score": 4.5,
+        "severity_arrow": "↑",
+        "lead_signal": "New entry (Mar 23–24): Government labelling CSOs as 'terrorist-linked'; proposed NGO Funding Regulation Framework requir…",
+        "summary": "New entry (Mar 23–24): Government labelling CSOs as 'terrorist-linked'; proposed NGO Funding Regulation Framework requiring prior state approval. Presidential election 2026 context — pre-election civic space closure pattern.",
+        "confidence": "Probable",
+        "entry_type": "Episode",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "Philippines",
+        "severity_score": 5.5,
+        "severity_arrow": "↑",
+        "lead_signal": "NEW ENTRY. CIVICUS Watchlist March 25: added at 'Repressed' rating. DOJ charged 97 anti-corruption protesters with sedit…",
+        "summary": "NEW ENTRY. CIVICUS Watchlist March 25: added at 'Repressed' rating. DOJ charged 97 anti-corruption protesters with sedition under Cybercrime Prevention Act (November 2025). Journalists Frenchie Mae Cumpio and Marielle Domequil convicted on terrorism-financing after 6 years pre-trial detention (January 2026). Red-tagging of activists under Marcos Jr. Counter-Terrorism Act 2020 used as primary lawfare instrument against civil society.",
+        "confidence": "Probable",
+        "entry_type": "Episode",
+        "first_seen": "2026-03-30",
+        "last_material_change": "2026-03-30",
+        "source_url": ""
+      }
+    ],
+    "recovery": [
+      {
+        "country": "Romania",
+        "severity_score": 2.5,
+        "severity_arrow": "↓",
+        "summary": "Independent pro-EU President Dan and PM Bolojan grand coalition governing since mid-2025; state enterprise depoliticisation underway; firmly Euro-Atlantic. CIVICUS monitors ongoing fragility from prior FIMI-amplified crisis.",
+        "confidence": "Confirmed",
+        "entry_type": "Episode",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "Bolivia",
+        "severity_score": 1.0,
+        "severity_arrow": "↓",
+        "summary": "Freedom House upgraded to Free: 2025 elections resisted incumbent interference; peaceful transfer of power; independent judiciary held.",
+        "confidence": "Confirmed",
+        "entry_type": "Episode",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "Venezuela",
+        "severity_score": 7.0,
+        "severity_arrow": "↑",
+        "summary": "Amnesty law passed February 19; 1,557 applications received; Foro Penal confirmed 448 released by late February (BBC February 21). UN Fact-Finding Mission (March 12): 87 politically motivated arrests since January 3. Revolving-door pattern confirmed. Repressive state apparatus intact. Trump prioritising oil access over democratic conditions. Transition fragile and transactional.",
+        "confidence": "Probable",
+        "entry_type": "Episode",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-30",
+        "source_url": ""
+      },
+      {
+        "country": "Poland",
+        "severity_score": 3.0,
+        "severity_arrow": "↓",
+        "summary": "V-Dem: continuing democratising nation. IPI/MJRC: media reform stalled by presidential veto; EMFA not yet in national law; autocratic enclave obstruction ongoing but overall trajectory positive.",
+        "confidence": "Confirmed",
+        "entry_type": "Episode",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "South Korea",
+        "severity_score": 1.0,
+        "severity_arrow": "↓",
+        "summary": "Positive deviant. Constitutional Court unanimous impeachment of Yoon (Apr 2025); Yoon arrested — first sitting president detained. President Lee marking 1-year anniversary. Public trust recovering. Global model for democratic resilience.",
+        "confidence": "Confirmed",
+        "entry_type": "Episode",
+        "first_seen": "2026-03-30",
+        "last_material_change": "2026-03-30",
+        "source_url": ""
+      }
+    ],
+    "watchlist": [
+      {
+        "country": "Italy",
+        "severity_score": 3.5,
+        "severity_arrow": "↑",
+        "escalation_trigger": "Any legislative move against judicial independence or RAI editorial control.",
+        "triggers": [
+          "Press freedom decline",
+          "Executive-judiciary friction",
+          "V-Dem 2026 new autocratizer"
+        ],
+        "threshold_crossed": 2,
+        "summary": "V-Dem 2026 identifies Italy as a new autocratizing country — one of six in Europe/North America. PM Meloni government has increased friction with independent judiciary and RAI public broadcaster. Press freedom NGO restrictions proposed. Not yet at Rapid Decay threshold but two leading indicators active.",
+        "confidence": "Probable",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "United Kingdom",
+        "severity_score": 3.0,
+        "severity_arrow": "↑",
+        "escalation_trigger": "Any move to limit Supreme Court jurisdiction or restrict NGO access to judicial review.",
+        "triggers": [
+          "V-Dem 2026 new autocratizer",
+          "Judicial independence concerns",
+          "Civil society restrictions"
+        ],
+        "threshold_crossed": 2,
+        "summary": "V-Dem 2026 lists UK as a new autocratizer — significant given its historical role as a democratic reference point. Indicators include: Illegal Migration Act restricting legal challenge rights, Public Order Act criminalising protest tactics, and ongoing debate over Supreme Court authority. No physical repression and strong institutional resilience. Trajectory watching only.",
+        "confidence": "Probable",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "Bangladesh",
+        "severity_score": 4.5,
+        "severity_arrow": "↑",
+        "escalation_trigger": "Any use of Awami-era emergency powers, digital security laws, or NGO restrictions by new government.",
+        "triggers": [
+          "Election integrity concerns",
+          "Candidate ban (Awami League)",
+          "ODIHR not deployed",
+          "CIVICUS human rights concerns"
+        ],
+        "threshold_crossed": 3,
+        "summary": "Feb 2026 election held without ODIHR observation mission — internationally contested legitimacy. Awami League banned; BNP won with Islamist alliance partners. CIVICUS letter to new PM Tarique Rahman urging constitutional protections. Risk of new government consolidating power using Awami-era tools against different targets. Three active triggers — closest to Rapid Decay threshold of any Watch List entry.",
+        "confidence": "Probable",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "Israel",
+        "severity_score": 4.5,
+        "severity_arrow": "↑",
+        "escalation_trigger": "Any successful Knesset vote to curtail Supreme Court jurisdiction over Basic Laws, or extension of wartime emergency powers to domestic political opponents.",
+        "triggers": [
+          "Judicial independence under attack",
+          "Press freedom decline (RSF -11)",
+          "Al Jazeera Law extended Dec 2025",
+          "Wartime executive consolidation"
+        ],
+        "threshold_crossed": 3,
+        "summary": "Freedom House 2025: 73/100 Free (↓1 from 2024). RSF press freedom index dropped 11 places to 112/180 in 2025. Judicial reform bills — curtailing Supreme Court jurisdiction and politicising appointments — partially advanced despite mass protests that forced a pause in 2023. Knesset extended the 'Al Jazeera Law' for two further years (Dec 2025); Communications Minister approved 90-day extension of Al Jazeera and Al Mayadeen ban (Jan 26 2026), with Ben Gvir consolidating police powers to impose media bans and surveillance. CPJ (Jan 2026): ban on foreign journalists in Gaza maintained; 250+ journalists/media workers killed since Oct 7 2023. Democratic Erosion Consortium (Feb 2026): Netanyahu government fits 'stealth authoritarianism' pattern — weakening institutional accountability while preserving electoral legitimacy. NOTE: This entry tracks domestic Israeli democratic indicators; occupied Palestinian territory is a distinct context tracked by separate frameworks.",
+        "confidence": "Probable",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "India",
+        "severity_score": 5.0,
+        "severity_arrow": "→",
+        "escalation_trigger": "Any major opposition prosecution, state-level election manipulation, or FCRA enforcement wave ahead of state elections.",
+        "triggers": [
+          "V-Dem electoral autocracy since 2018",
+          "UN NGO Committee anti-NGO bloc participation",
+          "FCRA restrictions on civil society",
+          "Press freedom decline"
+        ],
+        "threshold_crossed": 4,
+        "summary": "V-Dem has classified India as an electoral autocracy since 2018 — the highest pre-existing risk level of any Watch List entry. Active participation in UN NGO Committee's anti-NGO bloc (voted to revoke civil society accreditations, Jan 2026). FCRA amendments restrict foreign funding for NGOs. RSF ranks India 159/180 for press freedom. Score is 5.0 — borderline Rapid Decay. Kept on Watch List rather than promoted because democratic scale and federal complexity create genuine resilience.",
+        "confidence": "Probable",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "Mexico",
+        "severity_score": 4.0,
+        "severity_arrow": "↑",
+        "escalation_trigger": "First direct confrontation between newly constituted Supreme Court and executive, or new anti-NGO legislation.",
+        "triggers": [
+          "V-Dem 2026 autocratizing",
+          "Judicial reform removing independent selection",
+          "Press impunity for journalist killings"
+        ],
+        "threshold_crossed": 3,
+        "summary": "V-Dem 2026 identifies Mexico as autocratizing. President Sheinbaum administration implementing Obrador-era judicial reform: Supreme Court judges now popularly elected (reducing technical independence). Mexico remains world's most dangerous country for journalists — 90%+ impunity rate. CIVICUS: 'obstructed' civic space. Worsening trajectory as judicial reform embeds.",
+        "confidence": "Probable",
+        "first_seen": "2026-03-24",
+        "last_material_change": "2026-03-24",
+        "source_url": ""
+      },
+      {
+        "country": "Benin",
+        "severity_score": 5.5,
+        "severity_arrow": "↑",
+        "escalation_trigger": "April 12 election result — if Wadagni wins with no credible opposition, Benin crosses the Rapid Decay threshold. Any post-election protest crackdown would be the confirming event.",
+        "triggers": [
+          "Constitution amended overnight November 2025",
+          "Opposition barred from April 2026 presidential election",
+          "Failed coup attempt December 7 2025",
+          "No opposition in National Assembly after January 2026 elections"
+        ],
+        "threshold_crossed": 4,
+        "summary": "Textbook democratic collapse sequence — Atlantic Council (March 16): 'deliberate and cumulative transformation of the political system.' Constitution revised overnight November 15 2025: presidential terms extended 5→7 years, Senate created with power to discipline politicians, six-year 'grace period' in which opposition cannot criticise the government. January 2026 legislative elections: National Assembly now composed exclusively of Talon-aligned parties — no opposition MPs. April 12 presidential election: only two candidates, Talon's preferred successor Wadagni expected to win. Failed coup attempt December 7 2025 signals institutional fragility beneath the managed stability façade. CIVICUS Watchlist March 2026: civic space rated 'Repressed'. GTI 2026: West African sub-region under compounding terrorist threat. Score 5.5↑ — borderline Rapid Decay.",
+        "confidence": "Probable",
+        "first_seen": "2026-03-30",
+        "last_material_change": "2026-03-30",
+        "source_url": ""
+      },
+      {
+        "country": "Colombia",
+        "severity_score": 4.0,
+        "severity_arrow": "↑",
+        "escalation_trigger": "Any collapse of the Total Peace negotiations, targeted killing of civil society leaders in conflict zones, or executive moves to use the security situation to restrict political competition.",
+        "triggers": [
+          "GTI 2026: re-entered top 10 most terrorism-impacted countries",
+          "70% increase in terrorism deaths 2025",
+          "FARC dissidents and ELN adopting drone warfare",
+          "Colombia-Venezuela border fragility"
+        ],
+        "threshold_crossed": 3,
+        "summary": "Global Terrorism Index 2026 (IEP, March 21): Colombia re-entered the top 10 most terrorism-impacted countries for the first time since 2013 — terrorism deaths up 70%, attacks up 47%. FARC dissident factions and ELN have adopted drone warfare (77 drone attacks 2024–2025), drawing directly from Ukrainian battlefield innovation. The institutional dimension: state fragility and inability to manage cross-border counterinsurgency is identified as a key structural driver. Colombia-Venezuela border region is one of IEP's four global 'persistent terrorism hotspot' zones. Petro administration's Total Peace policy faces credibility collapse as armed groups accelerate rather than negotiate. Democratic institutions are functioning but under stress from the security environment — V-Dem identifies as partially eroded.",
+        "confidence": "Probable",
+        "first_seen": "2026-03-30",
+        "last_material_change": "2026-03-30",
+        "source_url": ""
+      },
+      {
+        "country": "Côte d'Ivoire",
+        "severity_score": 3.5,
+        "severity_arrow": "↑",
+        "escalation_trigger": "Any move to extend Ouattara's term beyond 2030 or constitutional changes targeting judicial independence.",
+        "triggers": [
+          "Ouattara claimed fourth term October 2025 — constitution manipulation",
+          "Main opposition candidates banned from standing",
+          "Crackdown on public gatherings and protests pre-election"
+        ],
+        "threshold_crossed": 3,
+        "summary": "Carnegie Endowment (January 2026): 83-year-old President Ouattara claimed his controversial fourth term in October 2025 after abolishing term limits in 2023. Main opposition candidates were banned from standing. Authorities cracked down on public gatherings and protests throughout the election cycle. Carnegie: 'erosion deepened' despite years of economic growth and post-conflict stability. V-Dem identifies Côte d'Ivoire as following the 'incumbent clings to power' pattern documented across multiple West African elections in 2024–25. Economic performance providing legitimacy cover for democratic regression — the same pattern documented in Benin.",
+        "confidence": "Probable",
+        "first_seen": "2026-03-30",
+        "last_material_change": "2026-03-30",
+        "source_url": ""
+      }
+    ]
+  },
+  "intelligence_items": [
+    {
+      "rank": 1,
+      "country": "Georgia",
+      "headline": "OSCE Moscow Mechanism Rapporteur (12 Mar): 'marked democratic backsliding' confirmed — pattern of vi…",
+      "summary": "OSCE Moscow Mechanism Rapporteur (12 Mar): 'marked democratic backsliding' confirmed — pattern of violence against protesters, journalists and opposition 'arguably reaching threshold of torture'; near-complete impunity; small loyalist clique controlling judiciary; FARA-style foreign agent law (March 2025) requires criminal prosecution; bank accounts of nine CSOs frozen under 'sabotage' probe. OSCE recommends targeted sanctions and election monitoring deployment. Cross-link to Russian FIMI model export.",
+      "tier": "Other",
+      "resilience": false,
+      "severity": "High",
+      "source_url": ""
+    },
+    {
+      "rank": 2,
+      "country": "United States",
+      "headline": "Schedule Policy/Career final rule (OPM, effective 9 March 2026) enables reclassification of up to 50…",
+      "summary": "Schedule Policy/Career final rule (OPM, effective 9 March 2026) enables reclassification of up to 50,000 federal civil servants into a category stripped of MSPB appeal rights and due-process protections. Revives and extends Schedule F. Cross-link: IPI/Platform note the US civil service dismantling is structurally equivalent to what Hungary executed over a decade — creating a politically compliant administrative apparatus without needing a legislative supermajority.",
+      "tier": "Other",
+      "resilience": false,
+      "severity": "High",
+      "source_url": ""
+    },
+    {
+      "rank": 3,
+      "country": "United States",
+      "headline": "Draft executive order circulating would invoke a national security emergency to seize control of 202…",
+      "summary": "Draft executive order circulating would invoke a national security emergency to seize control of 2026 midterm election administration — imposing in-person re-registration for 211 million voters, banning mail ballots, and rewriting ballot printing rules — without legislative authority. Federal courts have already struck down prior March 2025 EO on election procedures. Cross-link: OHCHR SR on Counter-Terrorism warns 'abuse of counter-terrorism laws has become a tool of choice to suppress civil society, including through transnational repression'.",
+      "tier": "EmergencyPowers",
+      "resilience": false,
+      "severity": "High",
+      "source_url": ""
+    },
+    {
+      "rank": 4,
+      "country": "Tunisia",
+      "headline": "Amnesty International (4 Feb): Tunis Appeal Court handed down 3–35 year sentences to at least 20 ind…",
+      "summary": "Amnesty International (4 Feb): Tunis Appeal Court handed down 3–35 year sentences to at least 20 individuals including Rached Ghannouchi and Ennahda leadership in 'Conspiracy 2' appeal. HRW: 37 defendants in 'Conspiracy Case' sentenced 4–66 years after only three hearings. Defense lawyer Ahmed Souab jailed for questioning judicial independence. Tunisia's March 2026 withdrawal from African Court Article 34(6) Optional Declaration eliminates individual access to last supranational remedy. Cross-link to CIVICUS 'closed civic space' designation for Tunisia.",
+      "tier": "Lawfare",
+      "resilience": false,
+      "severity": "High",
+      "source_url": ""
+    },
+    {
+      "rank": 5,
+      "country": "Nicaragua",
+      "headline": "OHCHR Group of Experts (10 March): transnational spy network integrating army, police, TELCOR (telec…",
+      "summary": "OHCHR Group of Experts (10 March): transnational spy network integrating army, police, TELCOR (telecommunications regulator), diplomatic missions and FSLN operatives; public funds illegally diverted through parallel FSLN structures to finance security crackdown since 2018; 452 Nicaraguans arbitrarily stripped of nationality; thousands rendered de facto stateless. Current co-foreign minister implicated in directing transnational repression across multiple countries while serving abroad.",
+      "tier": "EconomicCapture",
+      "resilience": false,
+      "severity": "High",
+      "source_url": ""
+    },
+    {
+      "rank": 6,
+      "country": "Kazakhstan",
+      "headline": "15 March referendum: constitutional overhaul removes international treaty supremacy (mirroring Russi…",
+      "summary": "15 March referendum: constitutional overhaul removes international treaty supremacy (mirroring Russia's 2020 amendment); parliament made unicameral 'Kurultai'; president appoints Supreme Court, Constitutional Court, Central Election Commission and National Bank chiefs; NGO foreign funding disclosure requirements introduced. Amnesty: 'closely resembles repressive foreign agents legislation'. Chatham House: moves Kazakhstan from personalist toward Chinese-model technocratic authoritarianism.",
+      "tier": "TermLimitChange",
+      "resilience": false,
+      "severity": "High",
+      "source_url": ""
+    },
+    {
+      "rank": 7,
+      "country": "Slovakia",
+      "headline": "IPI/MJRC Media Capture Monitoring Report 2025: Fico government dissolved RTVS and replaced with STVR…",
+      "summary": "IPI/MJRC Media Capture Monitoring Report 2025: Fico government dissolved RTVS and replaced with STVR controlled exclusively by pro-government appointees — 'direct violation of Article 5 EMFA'. Anti-NGO transparency law entered force June 2025 (€35,000 threshold for detailed disclosures). Six of nine members of the media regulator are government coalition nominees. IPI: 'clear breach of EMFA' — first confirmed EMFA violation by an EU member state for public broadcasting.",
+      "tier": "EconomicCapture",
+      "resilience": false,
+      "severity": "High",
+      "source_url": ""
+    },
+    {
+      "rank": 8,
+      "country": "Hungary",
+      "headline": "IPI (17 Mar): journalists from HVG and Telex physically ejected from Fidesz campaign events; other o…",
+      "summary": "IPI (17 Mar): journalists from HVG and Telex physically ejected from Fidesz campaign events; other outlets allowed free access — selective targeting of independent press ahead of 12 April elections. ODIHR election observation mission deployed. IPI: 'most sophisticated system of media capture within EU' — Fidesz-aligned groups bought major outlets ahead of elections, compounding control over public media, state advertising and regulatory bodies.",
+      "tier": "EconomicCapture",
+      "resilience": false,
+      "severity": "High",
+      "source_url": ""
+    }
+  ],
+  "institutional_integrity_flags": [
+    {
+      "flag_type": "Intelligence Community Politicisation",
+      "country": "United States",
+      "headline": "DNI Tulsi Gabbard's 2026 Worldwide Threats Hearing (March 19) omitted foreign election interference …",
+      "summary": "DNI Tulsi Gabbard's 2026 Worldwide Threats Hearing (March 19) omitted foreign election interference threats — for the first time in nearly a decade. Defense One (March 18): 'For the first time in nearly a decade, foreign threats to US elections are omitted from the intelligence community's annual threat assessment.' Reuters (March 19): top US spy cited no foreign threats to November elections. This is a structural signal: the intelligence apparatus designed to protect electoral integrity has been redirected away from that function.",
+      "severity": "High",
+      "lead_time": "6-12 months before formal downgrade",
+      "source": "Defense One March 18 2026 / Reuters March 19 2026 / Small Wars Journal March 25 2026",
+      "source_url": ""
+    },
+    {
+      "flag_type": "Judicial Independence",
+      "country": "United States",
+      "headline": "Reuters analysis (March 7): 97% of Trump's 31 Supreme Court emergency requests argue judicial interf…",
+      "summary": "Reuters analysis (March 7): 97% of Trump's 31 Supreme Court emergency requests argue judicial interference with presidential power — a systematic campaign to reframe judicial review as illegitimate. Supreme Court has generally supported emergency requests without written reasoning. Trump called own appointees 'lapdogs' for ruling on tariffs. V-Dem: rule of law deteriorating in 22 countries including USA — judiciary independence is the most common specific indicator declining globally.",
+      "severity": "High",
+      "lead_time": "Already registering in V-Dem LDI",
+      "source": "Reuters March 7 2026 / V-Dem Democracy Report 2026",
+      "source_url": ""
+    },
+    {
+      "flag_type": "Civil Service / Political Participation Integrity",
+      "country": "Georgia",
+      "headline": "New March 2026 law: 8-year ban on political party membership for anyone previously employed by a for…",
+      "summary": "New March 2026 law: 8-year ban on political party membership for anyone previously employed by a foreign-funded organisation. This structurally excludes the entire civil society professional class from political participation — not just now but for nearly a decade. IDEA Democracy Tracker: Representation and Participation scores declining. This is a leading indicator of the kind of institutional hollowing that takes years to reverse.",
+      "severity": "High",
+      "lead_time": "Already crossing Rapid Decay threshold",
+      "source": "CIVICUS March 2026 / FIDH March 18 2026 / IDEA Democracy Tracker",
+      "source_url": ""
+    },
+    {
+      "flag_type": "Electoral Administration Integrity",
+      "country": "Benin",
+      "headline": "Atlantic Council (March 16): Constitution revised overnight November 2025 without meaningful public …",
+      "summary": "Atlantic Council (March 16): Constitution revised overnight November 2025 without meaningful public debate. National Assembly now exclusively Talon-aligned after January 2026 elections. April 12 presidential election has only two candidates — both from the ruling bloc. IDEA GSoD 2025: Credible Elections index shows 35 countries (20%) declining since 2019 — Benin's trajectory exemplifies the 'managed competition' pattern that precedes full autocratisation.",
+      "severity": "High",
+      "lead_time": "Crossing threshold April 12 2026",
+      "source": "Atlantic Council March 16 2026 / IDEA GSoD 2025 / CIVICUS March 2026",
+      "source_url": ""
+    },
+    {
+      "flag_type": "Electoral Administration Integrity",
+      "country": "Hungary",
+      "headline": "Electoral redistricting (2024) engineered to require Tisza to outperform polls by 3–5 points for a p…",
+      "summary": "Electoral redistricting (2024) engineered to require Tisza to outperform polls by 3–5 points for a parliamentary majority — a structural advantage that operates regardless of vote share. ODIHR deployed specifically due to these concerns. IDEA Democracy Tracker: electoral integrity concerns flagged since 2018. The redistricting is a classic electoral administration capture signal: changing the rules between elections to favour the incumbent.",
+      "severity": "High",
+      "lead_time": "Registering in April 12 election outcome",
+      "source": "ODIHR / IDEA Democracy Tracker / CSIS March 11 2026",
+      "source_url": ""
+    },
+    {
+      "flag_type": "Rule of Law / State Fragility",
+      "country": "Colombia",
+      "headline": "GTI 2026: Colombia re-entered top 10 terrorism-impacted countries — 70% increase in deaths, 47% incr…",
+      "summary": "GTI 2026: Colombia re-entered top 10 terrorism-impacted countries — 70% increase in deaths, 47% increase in attacks. IEP identifies state inability to manage cross-border counterinsurgency as the structural driver. IDEA: Rule of Law category shows highest number of aggregate-level declines globally in 2024 — 32 countries including Colombia. The terrorism surge is a lagging indicator of earlier rule of law deterioration.",
+      "severity": "Medium",
+      "lead_time": "Already registering in GTI 2026",
+      "source": "GTI 2026 / IDEA GSoD 2025",
+      "source_url": ""
+    }
+  ],
+  "regional_mimicry_chains": [
+    {
+      "chain_id": "russian-foreign-agent-chain",
+      "headline": "Russian Foreign Agent Law Exports",
+      "chain": [
+        {
+          "country": "Russia",
+          "law": "Foreign Agents Law (2012, expanded 2022)",
+          "year": 2012
+        },
+        {
+          "country": "Georgia",
+          "law": "FARA-style foreign agent law (March 2025)",
+          "year": 2025
+        },
+        {
+          "country": "Bosnia-Herzegovina (RS)",
+          "law": "Foreign agent law (Feb 2025, suspended May 2025)",
+          "year": 2025
+        },
+        {
+          "country": "El Salvador",
+          "law": "Foreign agent law with 30% punitive tax (May 2025)",
+          "year": 2025
+        },
+        {
+          "country": "Kazakhstan",
+          "law": "NGO foreign funding disclosure requirements (March 2026)",
+          "year": 2026
+        }
+      ],
+      "source_url": "https://www.civicus.org/index.php/media-resources/news/8201-civicus-monitor-watchlist-march-2026"
+    },
+    {
+      "chain_id": "electoral-restriction-chain",
+      "headline": "Electoral Restriction Template: From Hungary to Transatlantic",
+      "chain": [
+        {
+          "country": "Hungary",
+          "law": "Electoral redistricting requiring 3-5pt over-performance (2018–2024)",
+          "year": 2024
+        },
+        {
+          "country": "United States",
+          "law": "SAVE America Act (House Feb 2026); mid-decade redistricting",
+          "year": 2026
+        },
+        {
+          "country": "Benin",
+          "law": "Constitution revised overnight Nov 2025; managed competition model",
+          "year": 2025
+        }
+      ],
+      "source_url": "https://www.idea.int/gsod/2025"
+    }
+  ],
+  "cross_monitor_flags": {
+    "updated": "2026-03-31T06:00:00Z",
+    "flags": [
+      {
+        "id": "cms-001",
+        "title": "FIMI operations as a direct enabler of democratic backsliding in monitored countries",
+        "monitors_involved": [
+          "Global FIMI & Cognitive Warfare Monitor",
+          "World Democracy Monitor"
+        ],
+        "status": "Active",
+        "significance": "Structural",
+        "first_flagged": "2026-03-31",
+        "last_updated": "2026-03-31",
+        "body": "The FIMI Monitor tracks foreign information manipulation and interference as its primary domain; the Democracy Monitor tracks the institutional consequences — but the two are causally connected in at least three active cases. (1) Romania: the 2024–25 electoral crisis involving Călin Georgescu's candidacy — now in the Democracy Monitor's Recovery section — was FIMI-amplified, per CIVICUS documentation. (2) Georgia: government-affiliated disinformation networks framing civil society organisations as 'foreign-sponsored saboteurs' directly enables the legal architecture (foreign grants law, extremism law) being tracked in the Democracy Monitor's heatmap. (3) Hungary: pre-election disinformation environment (Fidesz-aligned media ecosystem, selective journalist exclusion) is both a Media Capture Phase 3 entry in this monitor and a FIMI-relevant domestic information operation. From the Democracy Monitor's perspective: where FIMI operations are the mechanism by which legal/institutional capture is justified or enabled, the legislative and heatmap entries in this monitor should be read in conjunction with active campaign entries in the FIMI Monitor.",
+        "action": "Legislative Watch entries tagged fimi_link: true where FIMI operations are documented as enabling the democratic erosion mechanism.",
+        "unchanged_since": "2026-03-31"
+      },
+      {
+        "id": "cms-002",
+        "title": "European far-right network coordination as both a hybrid threat and a democratic integrity failure",
+        "monitors_involved": [
+          "European Geopolitical & Hybrid Threat Monitor",
+          "World Democracy Monitor"
+        ],
+        "status": "Active",
+        "significance": "Structural",
+        "first_flagged": "2026-03-31",
+        "last_updated": "2026-03-31",
+        "body": "The EGHTM tracks Russia-linked political, financial, and influence operations as external pressure vectors on European security. The Democracy Monitor's Networks section tracks the same actors — Fidesz, RN, AfD, FPÖ, SMER — as domestic anchors of authoritarian model export. The two monitors are tracking the same phenomenon from different analytical directions: the EGHTM from the perspective of external actor intent and capability; the Democracy Monitor from the perspective of domestic institutional consequences and legal architecture. The EPP–far-right coordination documented in the Democracy Monitor (DW, March 18) — where mainstream centre-right parties are coordinating with Patriots for Europe on migration votes — is also an EGHTM-relevant signal about the collapse of the cordon sanitaire that had previously insulated European institutions from Kremlin-adjacent influence. From the Democracy Monitor's perspective: the EGHTM's Kremlin political influence assessment should be read as providing the actor-attribution layer for the Democracy Monitor's Networks entries, which document the domestic institutional effects but not the full intelligence picture of the foreign principal.",
+        "action": "Networks section cards for Fidesz, RN, AfD, FPÖ, SMER carry EGHTM cross-reference. Russia funding documentation in the Networks section sourced from the same base as EGHTM's political influence assessments.",
+        "unchanged_since": "2026-03-31"
+      },
+      {
+        "id": "cms-003",
+        "title": "AI platform capture as Phase 2/3 media capture in democratic backsliding cases",
+        "monitors_involved": [
+          "AI Governance Monitor",
+          "World Democracy Monitor"
+        ],
+        "status": "Active",
+        "significance": "Structural",
+        "first_flagged": "2026-03-31",
+        "last_updated": "2026-03-31",
+        "body": "The AI Governance Monitor tracks AI development, governance, and power concentration. The Democracy Monitor's Media Capture section documents Musk/X as a Phase 2 (oligarchic capture) and Phase 3 (regulatory weaponisation) case. A University of Manchester study (March 2026) documented X's shift to 'platform illiberalism' — centralised control, dismantled moderation, aligned political amplification. Meta's content moderation retreat since 2025 follows the same pattern. The AI Governance Monitor's tracking of AI power concentration, algorithmic amplification governance, and platform political alignment directly reinforces the Democracy Monitor's assessment that the three largest US digital platforms now operate with oligarchic alignment to executive power. From the Democracy Monitor's perspective: platform governance failures documented by the AI Governance Monitor are a structural enabler of the information environment in which democratic backsliding occurs — the AI layer sits upstream of both FIMI operations and domestic media capture.",
+        "action": "Media Capture section's US Phase 2 entry references the University of Manchester AI governance research. The Democracy Monitor's 360° Research Tier 2 does not yet include an AI governance-specific source — flagged for addition.",
+        "unchanged_since": "2026-03-31"
+      },
+      {
+        "id": "cms-004",
+        "title": "Wartime executive emergency powers as democratic erosion accelerant",
+        "monitors_involved": [
+          "Strategic Conflict & Escalation Monitor",
+          "World Democracy Monitor"
+        ],
+        "status": "Active",
+        "significance": "Contextual",
+        "first_flagged": "2026-03-31",
+        "last_updated": "2026-03-31",
+        "body": "The Conflict & Escalation Monitor tracks the US-Iran war and its escalation dynamics. The Democracy Monitor tracks the domestic democratic consequences: Trump's wartime emergency powers framing is being used to accelerate precisely the institutional capture the Democracy Monitor measures. FCC Chair Carr's March 14 threat to revoke broadcast licences was explicitly tied to Iran war coverage — 'hoaxes and news distortions' framing of factual reporting. DNI Gabbard's omission of election interference from the Worldwide Threats Assessment (March 19) came in the context of the Iran war hearing. The war creates an emergency legitimacy environment that insulates executive overreach from the normal judicial and institutional checks this monitor tracks. From the Democracy Monitor's perspective: active conflict is a structural accelerant of the democratic erosion indicators this monitor measures — wartime executive emergency powers bypass the resilience mechanisms (courts, press, civil society) that currently constrain the US severity score at 5.5.",
+        "action": "US institutional integrity signals (Lawfare Media, Reuters March 7) already captured in Institutional Integrity section. The Iran war context is noted in the US heatmap entry.",
+        "unchanged_since": "2026-03-31"
+      },
+      {
+        "id": "cms-005",
+        "title": "Economic coercion and oligarchization as shared cross-monitor domain",
+        "monitors_involved": [
+          "Asym Intel Macro Monitor",
+          "World Democracy Monitor"
+        ],
+        "status": "Active",
+        "significance": "Structural",
+        "first_flagged": "2026-03-31",
+        "last_updated": "2026-03-31",
+        "body": "The Macro Monitor tracks geopolitical risk and financial stress indicators. The Democracy Monitor's state capture section tracks oligarchization of key sectors — media, energy, finance — as a mechanism of democratic backsliding. These are the same phenomenon from different analytical perspectives. The Macro Monitor's 'Blind Spot' framework (indicators that read as benign but are structurally suppressed) is analytically parallel to the Democracy Monitor's 'Silent Erosion' feature — both identify developments that are procedurally invisible to standard tracking. Specifically: the US executive branch's use of government contracts (Amazon/Bezos, Palantir/Thiel, Oracle/Ellison) to create structural conflicts of interest that capture editorial direction is simultaneously a macro-level state-capital relationship issue and a Phase 2 media capture case in the Democracy Monitor. From the Democracy Monitor's perspective: where economic capture of key sectors is the mechanism of democratic erosion, the Macro Monitor's financial intelligence provides the quantitative layer that the Democracy Monitor's qualitative assessment does not fully capture.",
+        "action": "State capture and Media Capture sections already document the oligarchization dimension. Cross-reference to Macro Monitor flagged for future briefs where economic coercion is the primary mechanism.",
+        "unchanged_since": "2026-03-31"
+      },
+      {
+        "id": "cms-006",
+        "title": "Environmental stress as democratic fragility multiplier in Watch List countries",
+        "monitors_involved": [
+          "Global Environmental Risks & Planetary Boundaries Monitor",
+          "World Democracy Monitor"
+        ],
+        "status": "Contextual",
+        "significance": "Emerging",
+        "first_flagged": "2026-03-31",
+        "last_updated": "2026-03-31",
+        "body": "The Environmental Risks Monitor tracks Earth system processes as a strategic intelligence domain, including the intersection of environmental degradation with political and institutional fragility. The Democracy Monitor's Watch List includes Colombia and several Sub-Saharan African countries where environmental stress (water scarcity, land degradation, climate displacement) intersects directly with the state fragility and insurgent group dynamics that drive the democratic erosion signals this monitor tracks. The Global Terrorism Index 2026 signal for Colombia (70% terrorism death increase) cannot be fully explained without the coca crop eradication failure and displacement dynamics that are also Environmental Risks Monitor territory. From the Democracy Monitor's perspective: environmental stress is a structural multiplier of the institutional fragility signals this monitor tracks — particularly in the Watch List tier. This connection is currently absent from the Democracy Monitor's analytical framework and should be added as a Watch List assessment dimension.",
+        "action": "Colombia Watch List entry flags state fragility and GTI signal. Environmental stress dimension not yet formally incorporated — flagged as a Watch List methodology gap to address.",
+        "unchanged_since": "2026-03-31"
+      }
+    ],
+    "version_history": []
+  },
+  "source_url": "https://asym-intel.info/monitors/democratic-integrity/2026-03-30-weekly-brief/"
+}
