@@ -8,23 +8,104 @@
   <link rel="stylesheet" href="../shared/css/base.css">
   <link rel="stylesheet" href="assets/monitor.css">
   <script src="../shared/js/theme.js"></script>
+  <script src="../shared/js/charts.js"></script>
 </head>
 
 <body>
-<style>
-body{padding-top:40px!important}
-/* WDM/blueprint monitors: monitor-nav and sidebar offset */
-.monitor-nav{top:40px!important}
-.monitor-sidebar{top:calc(40px + 52px)!important;height:calc(100vh - 40px - 52px)!important}
-/* Legacy monitor overrides (pre-blueprint) */
-nav.sidebar,#sidebar,.sidebar-header{top:40px!important}
-nav.sidebar{height:calc(100vh - 40px)!important}
-.left-nav{top:40px!important;height:calc(100vh - 40px)!important}
-.header:not([data-asym-network-bar]){top:40px!important}
-nav:not([data-asym-network-bar]):not(.monitor-nav){top:40px!important}
-</style><nav data-asym-network-bar style="height:40px;position:fixed;top:0;left:0;right:0;z-index:9999;background:#1a1918;border-bottom:1px solid #2d2c2a;font-family:'Satoshi','Inter',sans-serif;font-size:13px;letter-spacing:0.02em;display:flex;align-items:center;padding:0 24px;gap:1.5rem;"><a href="https://asym-intel.info" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:#e0dfdc;font-weight:500;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2" y="4" width="10" height="2.5" rx="1.25" fill="#4f98a3"/><rect x="6" y="9" width="12" height="2.5" rx="1.25" fill="#4f98a3" opacity=".65"/><rect x="2" y="14" width="7" height="2.5" rx="1.25" fill="#4f98a3" opacity=".35"/></svg><span>Asymmetric Intelligence</span></a><div style="flex:1"></div><nav class="nb-links" style="display:flex;align-items:center;gap:1.25rem;" aria-label="Platform sections"><a href="https://asym-intel.info/monitors/" style="color:#a8a7a4;text-decoration:none;transition:color 0.15s">Monitors</a><a href="https://compossible.asym-intel.info" style="color:#a8a7a4;text-decoration:none;transition:color 0.15s">Compossible</a><a href="https://whitespace.asym-intel.info" style="color:#a8a7a4;text-decoration:none;transition:color 0.15s">The White Space</a></nav></nav><style>.nb-links{display:flex}@media(max-width:640px){.nb-links{display:none}}</style>
 
 </nav><style>.nb-links{display:flex}@media(max-width:640px){.nb-links{display:none}}</style>
+
+<style>
+/* ── Lagrange Radar Chart ───────────────────── */
+.lagrange-radar-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .lagrange-radar-wrap { grid-template-columns: 1fr; }
+}
+.lagrange-radar-canvas-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.lagrange-radar-canvas-wrap canvas {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
+.lagrange-dim-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.lagrange-dim-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-2);
+  align-items: center;
+}
+.lagrange-dim-row__label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+.lagrange-dim-row__note {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+.lagrange-dim-row__score {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  min-width: 44px;
+  text-align: right;
+}
+.lagrange-dim-row__bar-wrap {
+  grid-column: 1 / -1;
+  background: var(--color-border-subtle);
+  border-radius: 3px;
+  height: 5px;
+  overflow: hidden;
+}
+.lagrange-dim-row__bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+.lagrange-composite-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-6);
+}
+.lagrange-composite-badge__value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #5b8db0;
+  line-height: 1;
+}
+.lagrange-composite-badge__label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  max-width: 140px;
+  line-height: 1.3;
+}
+[data-theme="dark"] .lagrange-composite-badge {
+  background: rgba(91,141,176,0.1);
+  border-color: rgba(91,141,176,0.25);
+}
+</style>
+
 
 <nav class="monitor-nav" aria-label="Monitor navigation">
   <a class="monitor-nav__brand" href="dashboard.html">
@@ -135,6 +216,18 @@ nav:not([data-asym-network-bar]):not(.monitor-nav){top:40px!important}
       </div>
     </section>
 
+    <section class="module-section" id="section-actor-campaigns">
+      <h2 class="section-title">Active Actor Campaigns</h2>
+      <p class="text-sm text-muted" style="margin-bottom:var(--space-6)">State actor influence campaigns targeting European strategic autonomy, carried forward across issues.</p>
+      <div id="actor-campaigns-list"><div class="loading-state">Loading…</div></div>
+    </section>
+
+    <section class="module-section" id="section-lagrange">
+      <h2 class="section-title">Strategic Autonomy Scorecard</h2>
+      <p class="text-sm text-muted" style="margin-bottom:var(--space-6)">Six dimensions of European strategic autonomy, scored 0–100. The Lagrange Point composite tracks overall progress toward genuine independence.</p>
+      <div id="lagrange-scorecard"><div class="loading-state">Loading…</div></div>
+    </section>
+
     <section class="module-section" id="section-cross-monitor">
       <div class="module-header">
         <div class="module-num-large">06</div>
@@ -155,6 +248,8 @@ nav:not([data-asym-network-bar]):not(.monitor-nav){top:40px!important}
       <li><a href="#section-capture">State Capture</a></li>
       <li><a href="#section-legislation">EU Legislation</a></li>
       <li><a href="#section-timeline">Timeline</a></li>
+      <li><a href="#section-actor-campaigns">Actor Campaigns</a></li>
+      <li><a href="#section-lagrange">Autonomy Scorecard</a></li>
       <li><a href="#section-cross-monitor">Cross-Monitor</a></li>
     </ul>
   </nav>
@@ -199,6 +294,18 @@ document.addEventListener('DOMContentLoaded', function () {
     el.innerHTML = html;
   }
 
+  Promise.all([
+    fetch('data/persistent-state.json').then(function(r){return r.json();}),
+    fetch('data/report-latest.json').then(function(r){return r.json();}).catch(function(){return {};})
+  ]).then(function(results) {
+    var d = results[0];
+    var report = results[1];
+    // Merge cross-monitor flags from report into d for rendering
+    if (!d.cross_monitor_flags && report.cross_monitor_flags) {
+      d.cross_monitor_flags = report.cross_monitor_flags;
+    }
+  })
+  .catch(function(){});
   fetch('data/persistent-state.json')
     .then(function (r) { return r.json(); })
     .then(function (d) {
@@ -211,10 +318,18 @@ document.addEventListener('DOMContentLoaded', function () {
       var kpiFields = [
         ['threat_actors_tracked','Threat Actors Tracked'],
         ['hybrid_attacks_total','Hybrid Attacks Total'],
+        ['hybrid_attacks_recent','Hybrid Attacks (Recent)'],
         ['elections_under_threat','Elections Under Threat'],
+        ['fimi_incidents_eeas','FIMI Incidents (EEAS)'],
+        ['eu_legislation_targeted','EU Legislation Targeted'],
         ['eu_defence_total_2025','EU Defence Total 2025'],
         ['eu_defence_spending_real_change','Defence Spending Change'],
         ['safe_programme_total','SAFE Programme Total'],
+        ['ceasefire_probability_ukraine','Ceasefire Probability'],
+        ['lagrange_point_progress','Lagrange Point Progress'],
+        ['democratic_health_avg','Democratic Health Avg'],
+        ['vdem_autocratising_europe','V-Dem Autocratising (EU)'],
+        ['eu_support_ukraine_total','EU Support Ukraine Total'],
       ];
       kpiFields.forEach(function (pair) {
         var val = kpi[pair[0]];
@@ -228,6 +343,139 @@ document.addEventListener('DOMContentLoaded', function () {
       kpiHtml += '</div>';
       document.getElementById('kpi-state').innerHTML = kpiHtml;
 
+      // Lagrange Point Scorecard — Radar Chart
+      var lagEl = document.getElementById('lagrange-scorecard');
+      if (lagEl) {
+        var lagDims = (kpi.lagrange_point_dimensions) || {};
+        var lagProgress = kpi.lagrange_point_progress || '—';
+        var dimOrder = ['energy','defence','technology','finance','materials','institutions'];
+        var dimLabels = {
+          energy: 'Energy Independence',
+          defence: 'Defence Sovereignty',
+          technology: 'Tech/Industrial',
+          finance: 'Financial Autonomy',
+          materials: 'Critical Materials',
+          institutions: 'Institutional Resilience'
+        };
+        if (Object.keys(lagDims).length) {
+          // Composite badge + radar + bar list
+          lagEl.innerHTML =
+            '<div class="lagrange-composite-badge">' +
+              '<div class="lagrange-composite-badge__value">' + escHtml(String(lagProgress)) + '</div>' +
+              '<div class="lagrange-composite-badge__label">Composite Lagrange Point Progress</div>' +
+            '</div>' +
+            '<div class="lagrange-radar-wrap">' +
+              '<div class="lagrange-radar-canvas-wrap">' +
+                '<canvas id="lagrange-radar-canvas" width="380" height="380" aria-label="Strategic Autonomy Radar Chart" role="img"></canvas>' +
+              '</div>' +
+              '<div class="lagrange-dim-list" id="lagrange-dim-list"></div>' +
+            '</div>';
+
+          // Build dimension list
+          var dimListEl = document.getElementById('lagrange-dim-list');
+          var dimListHtml = '';
+          dimOrder.forEach(function(dim) {
+            var d2 = lagDims[dim];
+            if (!d2) return;
+            var score = parseFloat(d2.score||0);
+            var barColor = score >= 50 ? 'var(--positive)' : score >= 30 ? '#5b8db0' : 'var(--high)';
+            dimListHtml +=
+              '<div class="lagrange-dim-row">' +
+                '<div>' +
+                  '<div class="lagrange-dim-row__label">' + escHtml(dimLabels[dim]||dim) + '</div>' +
+                  (d2.note ? '<div class="lagrange-dim-row__note">' + escHtml(d2.note) + '</div>' : '') +
+                '</div>' +
+                '<div class="lagrange-dim-row__score" style="color:' + barColor + '">' + escHtml(String(d2.score)) + '</div>' +
+                '<div class="lagrange-dim-row__bar-wrap">' +
+                  '<div class="lagrange-dim-row__bar" style="width:' + Math.min(score,100) + '%;background:' + barColor + '"></div>' +
+                '</div>' +
+              '</div>';
+          });
+          if (dimListEl) dimListEl.innerHTML = dimListHtml;
+
+          // Draw radar chart
+          var radarCanvas = document.getElementById('lagrange-radar-canvas');
+          if (radarCanvas && typeof Chart !== 'undefined') {
+            var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            var labelColor = isDark ? 'rgba(224,223,220,0.85)' : 'rgba(26,25,23,0.75)';
+            var gridColor = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)';
+            var radarLabels = dimOrder.map(function(d) { return dimLabels[d] || d; });
+            var radarScores = dimOrder.map(function(d) { return lagDims[d] ? parseFloat(lagDims[d].score||0) : 0; });
+            var radarChart = new Chart(radarCanvas.getContext('2d'), {
+              type: 'radar',
+              data: {
+                labels: radarLabels,
+                datasets: [{
+                  label: 'Autonomy Score',
+                  data: radarScores,
+                  backgroundColor: 'rgba(91,141,176,0.18)',
+                  borderColor: '#5b8db0',
+                  borderWidth: 2,
+                  pointBackgroundColor: '#5b8db0',
+                  pointBorderColor: isDark ? '#1e1d1b' : '#ffffff',
+                  pointBorderWidth: 2,
+                  pointRadius: 5,
+                  pointHoverRadius: 7,
+                  fill: true,
+                }]
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                animation: { duration: 700, easing: 'easeInOutQuart' },
+                scales: {
+                  r: {
+                    min: 0,
+                    max: 100,
+                    ticks: {
+                      stepSize: 25,
+                      color: labelColor,
+                      backdropColor: 'transparent',
+                      font: { size: 10 }
+                    },
+                    grid: { color: gridColor },
+                    angleLines: { color: gridColor },
+                    pointLabels: {
+                      color: labelColor,
+                      font: { size: 11, weight: '500' }
+                    }
+                  }
+                },
+                plugins: {
+                  legend: { display: false },
+                  tooltip: {
+                    callbacks: {
+                      label: function(ctx) {
+                        return ' ' + ctx.parsed.r + ' / 100';
+                      }
+                    }
+                  }
+                }
+              }
+            });
+            // Re-draw on theme change
+            var themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+              themeToggle.addEventListener('click', function() {
+                setTimeout(function() {
+                  var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+                  var lc = dark ? 'rgba(224,223,220,0.85)' : 'rgba(26,25,23,0.75)';
+                  var gc = dark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)';
+                  radarChart.options.scales.r.ticks.color = lc;
+                  radarChart.options.scales.r.pointLabels.color = lc;
+                  radarChart.options.scales.r.grid.color = gc;
+                  radarChart.options.scales.r.angleLines.color = gc;
+                  radarChart.data.datasets[0].pointBorderColor = dark ? '#1e1d1b' : '#ffffff';
+                  radarChart.update();
+                }, 80);
+              });
+            }
+          }
+        } else {
+          lagEl.innerHTML = '<p class="text-muted text-sm">Scorecard data will appear after the next publish cycle.</p>';
+        }
+      }
+
       renderList(d.active_elections || [], 'elections-list', 'name', 'key_facts', ['country','date','severity','interference_actors']);
 
       var cases = d.state_capture_cases || [];
@@ -235,7 +483,7 @@ document.addEventListener('DOMContentLoaded', function () {
       cases.forEach(function (c) {
         var sevLabel = c.severity >= 4.5 ? 'critical' : c.severity >= 3.5 ? 'high' : 'moderate';
         scHtml += '<div class="card">' +
-          '<div class="card__title">' + escHtml(c.country || '') + ' <span class="severity-badge severity-badge--' + sevLabel + '">' + escHtml(String(c.severity || '')) + '</span></div>' +
+          '<div class="card__title">' + (typeof AsymRenderer !== 'undefined' && AsymRenderer.flag ? (AsymRenderer.flag(c.country||'')||'') + (AsymRenderer.flag(c.country||'') ? '\u00a0' : '') : '') + escHtml(c.country || '') + ' <span class="severity-badge severity-badge--' + sevLabel + '">' + escHtml(String(c.severity || '')) + '</span></div>' +
           '<div class="card__body">' + escHtml(c.status || '') + '</div>' +
           '<div class="card__footer"><span>' + escHtml(c.key_indicator || '') + '</span></div>' +
           '</div>';
@@ -270,7 +518,36 @@ document.addEventListener('DOMContentLoaded', function () {
       var crossFlags = d.cross_monitor_flags || {};
       var flags = Array.isArray(crossFlags) ? crossFlags : (crossFlags.flags || []);
       if (!flags.length) {
-        document.getElementById('cross-monitor-list').innerHTML = '<p class="text-muted">No cross-monitor flags.</p>';
+        // Active actor campaigns
+      var camps = d.active_actor_campaigns || {};
+      var campEl = document.getElementById('actor-campaigns-list');
+      if (campEl) {
+        var actors = Object.keys(camps);
+        if (!actors.length) {
+          campEl.innerHTML = '<p class="text-muted text-sm">No active actor campaigns tracked.</p>';
+        } else {
+          var cHtml = '';
+          actors.forEach(function(actor) {
+            var items = camps[actor] || [];
+            cHtml += '<div style="margin-bottom:var(--space-6)">' +
+              '<div style="font-size:var(--text-xs);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--monitor-accent);margin-bottom:var(--space-3)">' +
+              (typeof AsymRenderer !== 'undefined' && AsymRenderer.flag ? (AsymRenderer.flag(actor)||'') + (AsymRenderer.flag(actor)?'\u00a0':'') : '') +
+              escHtml(actor) + ' — ' + items.length + ' campaign' + (items.length!==1?'s':'') + '</div>';
+            items.forEach(function(c) {
+              cHtml += '<div class="card" style="margin-bottom:var(--space-2)">' +
+                '<div class="card__label">' + escHtml(c.status||'') + (c.target?' · '+escHtml(c.target):'') + '</div>' +
+                '<div class="card__title">' + escHtml(c.name||c.id||'') + '</div>' +
+                (c.last_activity?'<div class="card__footer"><span>Last activity: '+escHtml(c.last_activity)+'</span>' +
+                  (c.source_url?'<a href="'+escHtml(c.source_url)+'" target="_blank" rel="noopener" class="source-link">Source →</a>':'') + '</div>':'') +
+              '</div>';
+            });
+            cHtml += '</div>';
+          });
+          campEl.innerHTML = cHtml;
+        }
+      }
+
+      document.getElementById('cross-monitor-list').innerHTML = '<p class="text-muted">No cross-monitor flags.</p>';
       } else {
         var cfHtml = '';
         flags.forEach(function (flag) {

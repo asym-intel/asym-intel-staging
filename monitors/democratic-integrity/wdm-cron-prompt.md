@@ -4,6 +4,31 @@
 # PUBLISH TO: https://asym-intel.info/monitors/democratic-integrity/
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY-OF-WEEK GUARD — READ THIS FIRST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Check the current UTC day before doing anything else:
+
+```bash
+DAY=$(date -u +%A)
+echo "Today is: $DAY"
+```
+
+IF today is NOT Monday:
+  → Do NOT run the pipeline.
+  → Verify the 4 data files exist and are non-empty, then exit silently.
+  → Optionally send: "Health check OK. Next publish: Monday 09:00 UTC."
+
+IF today IS Monday AND UTC hour >= scheduled time:
+  → Proceed with the full pipeline below.
+
+IF unsure: Do NOT run. Exit silently.
+
+This guard prevents accidental mid-week runs triggered by prompt reloads.
+
+DATE RULE: Always use today's actual UTC date for PUBLISH_DATE. Never use a future date. Hugo does not render future-dated pages (buildFuture=false). Use: PUBLISH_DATE=$(date -u +%Y-%m-%d)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 CRITICAL RULES (read first)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

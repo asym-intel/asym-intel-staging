@@ -8,22 +8,124 @@
   <link rel="stylesheet" href="../shared/css/base.css">
   <link rel="stylesheet" href="assets/monitor.css">
   <script src="../shared/js/theme.js"></script>
+<style>
+  .dir-arrow { display:inline-flex; align-items:center; gap:4px; font-size:var(--text-xs); font-weight:600; border-radius:var(--radius-sm); padding:2px 6px; white-space:nowrap; }
+  .dir-arrow svg { flex-shrink:0; }
+  .dir-arrow__label { letter-spacing:0.02em; }
+  .dir-arrow--down   { color:var(--critical); background:var(--critical-bg); }
+  .dir-arrow--up     { color:var(--positive); background:var(--positive-bg); }
+  .dir-arrow--accel  { color:var(--high);     background:var(--high-bg); }
+  .dir-arrow--stable { color:var(--color-text-muted); background:var(--color-bg-alt); }
+  .dir-arrow--neutral{ color:var(--color-text-muted); }
+
+  /* ── REGIME BADGE ── */
+  .regime-badge-large {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin: var(--space-4) 0;
+  }
+  .regime-badge-large__pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: #22a0aa;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.45em 1em;
+    border-radius: var(--radius-md);
+    line-height: 1;
+  }
+  .regime-badge-large__conviction {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+  }
+  .regime-badge-large__conviction strong {
+    color: var(--color-text);
+  }
+  [data-theme="dark"] .regime-badge-large__pill { background: #22a0aa; color: #fff; }
+  [data-theme="dark"] .regime-badge-large__conviction { color: #a09e9a; }
+
+  /* ── SCORE GAUGE ── */
+  .score-gauge-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-6) var(--space-4) var(--space-4);
+  }
+  .score-gauge-wrap svg { overflow: visible; }
+  .score-gauge-label {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-top: var(--space-2);
+  }
+  .score-gauge-value {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-top: 0.2rem;
+    line-height: 1;
+  }
+  .score-gauge-sublabel {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    margin-top: 0.2rem;
+  }
+
+  /* ── VISUAL KPI ROW (gauge + badge side by side) ── */
+  .visual-kpi-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: var(--space-6);
+    align-items: center;
+    margin: var(--space-4) 0 var(--space-6);
+  }
+  @media (max-width: 700px) {
+    .visual-kpi-row { grid-template-columns: 1fr; }
+  }
+  .regime-badge-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  /* ── ASSET BAR CHART SECTION ── */
+  #section-asset-chart .module-title { font-size: var(--text-base); }
+  .asset-chart-wrap {
+    position: relative;
+    height: 320px;
+    width: 100%;
+  }
+  @media (max-width: 700px) {
+    .asset-chart-wrap { height: 420px; }
+  }
+  .asset-chart-legend {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-3);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    align-items: center;
+  }
+  .asset-chart-legend__dot {
+    width: 10px; height: 10px; border-radius: 2px; display: inline-block; margin-right: 4px;
+  }
+</style>
 </head>
 
 <body>
-<style>
-body{padding-top:40px!important}
-/* WDM/blueprint monitors: monitor-nav and sidebar offset */
-.monitor-nav{top:40px!important}
-.monitor-sidebar{top:calc(40px + 52px)!important;height:calc(100vh - 40px - 52px)!important}
-/* Legacy monitor overrides (pre-blueprint) */
-nav.sidebar,#sidebar,.sidebar-header{top:40px!important}
-nav.sidebar{height:calc(100vh - 40px)!important}
-.left-nav{top:40px!important;height:calc(100vh - 40px)!important}
-.header:not([data-asym-network-bar]){top:40px!important}
-nav:not([data-asym-network-bar]):not(.monitor-nav){top:40px!important}
-</style><nav data-asym-network-bar style="height:40px;position:fixed;top:0;left:0;right:0;z-index:9999;background:#1a1918;border-bottom:1px solid #2d2c2a;font-family:'Satoshi','Inter',sans-serif;font-size:13px;letter-spacing:0.02em;display:flex;align-items:center;padding:0 24px;gap:1.5rem;"><a href="https://asym-intel.info" style="display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:#e0dfdc;font-weight:500;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2" y="4" width="10" height="2.5" rx="1.25" fill="#4f98a3"/><rect x="6" y="9" width="12" height="2.5" rx="1.25" fill="#4f98a3" opacity=".65"/><rect x="2" y="14" width="7" height="2.5" rx="1.25" fill="#4f98a3" opacity=".35"/></svg><span>Asymmetric Intelligence</span></a><div style="flex:1"></div><nav class="nb-links" style="display:flex;align-items:center;gap:1.25rem;" aria-label="Platform sections"><a href="https://asym-intel.info/monitors/" style="color:#a8a7a4;text-decoration:none;transition:color 0.15s">Monitors</a><a href="https://compossible.asym-intel.info" style="color:#a8a7a4;text-decoration:none;transition:color 0.15s">Compossible</a><a href="https://whitespace.asym-intel.info" style="color:#a8a7a4;text-decoration:none;transition:color 0.15s">The White Space</a></nav></nav><style>.nb-links{display:flex}@media(max-width:640px){.nb-links{display:none}}</style>
-
 
 <nav class="monitor-nav" aria-label="Monitor navigation">
   <a class="monitor-nav__brand" href="overview.html">
@@ -103,6 +205,33 @@ nav:not([data-asym-network-bar]):not(.monitor-nav){top:40px!important}
           <div class="kpi-card__sub" id="kpi-score">—</div>
         </div>
       </div>
+
+      <!-- Visual KPI row: Gauge + Regime Badge -->
+      <div class="visual-kpi-row" id="visual-kpi-row">
+        <!-- Gauge injected here by JS -->
+        <div id="gauge-container" class="score-gauge-wrap">
+          <svg id="gauge-svg" width="200" height="110" viewBox="0 0 200 110" aria-label="System score gauge" role="img">
+            <!-- Track arc -->
+            <path id="gauge-track" d="" stroke="var(--color-border)" stroke-width="16" fill="none" stroke-linecap="round"/>
+            <!-- Value arc -->
+            <path id="gauge-arc" d="" stroke="#c1440e" stroke-width="16" fill="none" stroke-linecap="round"/>
+            <!-- Needle -->
+            <line id="gauge-needle" x1="100" y1="100" x2="100" y2="20" stroke="var(--color-text)" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="100" cy="100" r="5" fill="var(--color-text)"/>
+            <!-- Scale labels -->
+            <text x="14" y="108" font-size="10" fill="var(--color-text-muted)" text-anchor="middle">−1</text>
+            <text x="100" y="16" font-size="10" fill="var(--color-text-muted)" text-anchor="middle">0</text>
+            <text x="186" y="108" font-size="10" fill="var(--color-text-muted)" text-anchor="middle">+1</text>
+          </svg>
+          <div class="score-gauge-value" id="gauge-value">—</div>
+          <div class="score-gauge-label">System Average Score</div>
+          <div class="score-gauge-sublabel" id="gauge-delta">—</div>
+        </div>
+        <!-- Regime badge injected here -->
+        <div class="regime-badge-block" id="regime-badge-block">
+          <div class="loading-state" style="font-size:var(--text-sm)">Loading…</div>
+        </div>
+      </div>
     </section>
 
     <!-- Signal Block -->
@@ -125,6 +254,22 @@ nav:not([data-asym-network-bar]):not(.monitor-nav){top:40px!important}
       </ul>
     </section>
 
+    <!-- Asset Class Bar Chart -->
+    <section class="module-section" id="section-asset-chart">
+      <div class="module-header">
+        <div class="module-title">Asset Class Scores — Visual</div>
+      </div>
+      <p class="text-sm text-muted" style="margin-bottom:var(--space-4)">Current score vs prior score for all 8 asset classes. Bars coloured by direction: red = bearish, green = bullish.</p>
+      <div class="asset-chart-wrap">
+        <canvas id="asset-bar-chart"></canvas>
+      </div>
+      <div class="asset-chart-legend">
+        <span><span class="asset-chart-legend__dot" style="background:rgba(193,68,14,0.85)"></span>Current (bearish)</span>
+        <span><span class="asset-chart-legend__dot" style="background:rgba(5,150,105,0.85)"></span>Current (bullish)</span>
+        <span><span class="asset-chart-legend__dot" style="background:rgba(150,150,150,0.35);border:1px solid rgba(150,150,150,0.6)"></span>Prior score</span>
+      </div>
+    </section>
+
     <!-- Asset Outlook Summary Table -->
     <section class="module-section" id="section-assets">
       <div class="module-header">
@@ -135,6 +280,11 @@ nav:not([data-asym-network-bar]):not(.monitor-nav){top:40px!important}
       </div>
     </section>
 
+    <section class="module-section" id="section-safe-haven">
+      <h2 class="section-title">Safe Haven Positioning</h2>
+      <div id="safe-haven-wrap"><div class="loading-state">Loading…</div></div>
+    </section>
+
   </main>
 
   <nav class="monitor-sidebar" aria-label="Page sections">
@@ -143,7 +293,9 @@ nav:not([data-asym-network-bar]):not(.monitor-nav){top:40px!important}
       <li><a href="#section-kpi">KPIs</a></li>
       <li><a href="#section-signal">Signal</a></li>
       <li><a href="#section-delta">Delta Strip</a></li>
+      <li><a href="#section-asset-chart">Asset Chart</a></li>
       <li><a href="#section-assets">Asset Outlook</a></li>
+      <li><a href="#section-safe-haven">Safe Haven</a></li>
     </ul>
   </nav>
 </div>
@@ -155,9 +307,11 @@ nav:not([data-asym-network-bar]):not(.monitor-nav){top:40px!important}
 
 <script src="../shared/js/nav.js"></script>
 <script src="../shared/js/renderer.js"></script>
+<script src="../shared/js/charts.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
+  // ── Utility helpers ──────────────────────────────────────────────────────
   function esc(str) {
     return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
@@ -180,6 +334,230 @@ document.addEventListener('DOMContentLoaded', function () {
     return 'neutral';
   }
 
+  function directionArrow(dir) {
+    if (!dir) return '<span style="color:var(--color-text-faint);font-size:var(--text-xs)">—</span>';
+    var d = dir.toLowerCase();
+    var isDown  = d.indexOf('deteriorat') > -1 || d.indexOf('escalat') > -1 ||
+                 d.indexOf('erosion') > -1 || d.indexOf('tighten') > -1 || d.indexOf('contract') > -1;
+    var isUp    = d.indexOf('improv') > -1 || d.indexOf('recover') > -1 || d.indexOf('positive') > -1;
+    var isAccel = d.indexOf('accelerat') > -1 || d.indexOf('structural increase') > -1;
+    var isStable = d.indexOf('stable') > -1;
+    var cls = isDown ? 'down' : isUp ? 'up' : isAccel ? 'accel' : isStable ? 'stable' : 'neutral';
+    var arrowPath = isDown
+      ? '<path d="M7 2v10M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>'
+      : (isStable
+        ? '<path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>'
+        : '<path d="M7 12V2M3 6l4-4 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>');
+    return '<span class="dir-arrow dir-arrow--' + cls + '" title="' + dir.replace(/"/g,"&quot;") + '">' +
+      '<svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true">' + arrowPath + '</svg>' +
+      '<span class="dir-arrow__label">' + dir + '</span>' +
+      '</span>';
+  }
+
+  // ── SVG Gauge renderer ───────────────────────────────────────────────────
+  function renderGauge(score) {
+    // Gauge: semicircle from left (-1) to right (+1), pivot at bottom center
+    // Score maps from -1..+1 to 180deg..0deg angle (left to right)
+    var cx = 100, cy = 100, r = 78;
+    var startAngle = Math.PI;  // 180deg = left = -1
+    var endAngle   = 0;        // 0deg   = right = +1
+
+    function polarToXY(angle, radius) {
+      return {
+        x: cx + radius * Math.cos(angle),
+        y: cy - radius * Math.sin(angle)
+      };
+    }
+
+    function describeArc(startA, endA, radius) {
+      var s = polarToXY(startA, radius);
+      var e = polarToXY(endA,   radius);
+      var large = (startA - endA) > Math.PI ? 1 : 0;
+      return 'M ' + s.x.toFixed(2) + ' ' + s.y.toFixed(2) +
+             ' A ' + radius + ' ' + radius + ' 0 ' + large + ' 0 ' +
+             e.x.toFixed(2) + ' ' + e.y.toFixed(2);
+    }
+
+    // Full track
+    var trackPath = describeArc(startAngle, endAngle, r);
+    document.getElementById('gauge-track').setAttribute('d', trackPath);
+
+    var safeScore = (score != null && !isNaN(score)) ? Math.max(-1, Math.min(1, parseFloat(score))) : 0;
+
+    // Colour interpolation: red (-1) → amber (0) → green (+1)
+    var colour;
+    if (safeScore < 0) {
+      // red to amber
+      var t = 1 + safeScore; // 0..1 (0=red, 1=amber)
+      var rr = Math.round(193 + (217 - 193) * t);
+      var gg = Math.round(68  + (119 - 68)  * t);
+      var bb = Math.round(14  + 6           * t);
+      colour = 'rgb(' + rr + ',' + gg + ',' + bb + ')';
+    } else {
+      // amber to green
+      var t2 = safeScore; // 0..1 (0=amber, 1=green)
+      var rr2 = Math.round(217 + (5   - 217) * t2);
+      var gg2 = Math.round(119 + (150 - 119) * t2);
+      var bb2 = Math.round(20  + (105 - 20)  * t2);
+      colour = 'rgb(' + rr2 + ',' + gg2 + ',' + bb2 + ')';
+    }
+
+    // Value arc: from left (PI) to score angle
+    // Score -1 → angle PI; score 0 → angle PI/2; score +1 → angle 0
+    var scoreAngle = Math.PI - (safeScore + 1) / 2 * Math.PI;
+    if (Math.abs(scoreAngle - startAngle) > 0.01) {
+      var valuePath = describeArc(startAngle, scoreAngle, r);
+      var arcEl = document.getElementById('gauge-arc');
+      arcEl.setAttribute('d', valuePath);
+      arcEl.setAttribute('stroke', colour);
+    } else {
+      document.getElementById('gauge-arc').setAttribute('d', '');
+    }
+
+    // Needle: points from center to arc at scoreAngle
+    var needleTip = polarToXY(scoreAngle, r - 10);
+    var needleEl = document.getElementById('gauge-needle');
+    needleEl.setAttribute('x2', needleTip.x.toFixed(2));
+    needleEl.setAttribute('y2', needleTip.y.toFixed(2));
+    needleEl.setAttribute('stroke', colour);
+    document.querySelector('#gauge-container circle').setAttribute('fill', colour);
+
+    // Value text
+    var valEl = document.getElementById('gauge-value');
+    valEl.textContent = (safeScore > 0 ? '+' : '') + safeScore.toFixed(3);
+    valEl.style.color = colour;
+  }
+
+  // ── Regime badge renderer ────────────────────────────────────────────────
+  function renderRegimeBadge(regime, conviction, stressLabel, stressDir) {
+    var block = document.getElementById('regime-badge-block');
+    if (!block) return;
+    var regimeText = regime || '—';
+    var convText   = conviction || '—';
+    var html = '<div class="regime-badge-large">' +
+      '<span class="regime-badge-large__pill">' + esc(regimeText) + '</span>' +
+      '<span class="regime-badge-large__conviction"><strong>' + esc(convText) + '</strong> CONVICTION</span>' +
+    '</div>';
+    if (stressLabel) {
+      html += '<div style="font-size:var(--text-sm);color:var(--color-text-secondary);margin-top:var(--space-1)">' +
+        '<strong>Stress:</strong> ' + esc(stressLabel) +
+        (stressDir ? ' &nbsp;·&nbsp; ' + esc(stressDir) : '') +
+      '</div>';
+    }
+    block.innerHTML = html;
+  }
+
+  // ── Asset Bar Chart renderer ─────────────────────────────────────────────
+  var _assetChart = null;
+  function renderAssetBarChart(assets) {
+    if (!assets || !assets.length) {
+      document.querySelector('.asset-chart-wrap').innerHTML =
+        '<p class="text-muted text-sm" style="padding:var(--space-4)">No asset class data available for chart.</p>';
+      return;
+    }
+
+    // Sort by current score ascending (most bearish first)
+    var sorted = assets.slice().sort(function(a, b) { return parseFloat(a.score||0) - parseFloat(b.score||0); });
+
+    var labels       = sorted.map(function(a){ return a.asset_class || a.asset || ''; });
+    var currentScores= sorted.map(function(a){ return parseFloat(a.score || 0); });
+    var priorScores  = sorted.map(function(a){
+      return (a.prior_score != null && a.prior_score !== undefined) ? parseFloat(a.prior_score) : null;
+    });
+
+    // Colours per bar: negative=critical red, positive=green
+    var barColours = currentScores.map(function(s){
+      return s < 0 ? 'rgba(193,68,14,0.85)' : 'rgba(5,150,105,0.85)';
+    });
+    var barHover = currentScores.map(function(s){
+      return s < 0 ? 'rgba(193,68,14,1)' : 'rgba(5,150,105,1)';
+    });
+
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    var gridColour  = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)';
+    var tickColour  = isDark ? '#a09e9a' : '#6b6660';
+    var labelColour = isDark ? '#e0dfdc' : '#3d3a35';
+
+    var ctx = document.getElementById('asset-bar-chart');
+    if (!ctx) return;
+
+    if (_assetChart) { _assetChart.destroy(); _assetChart = null; }
+
+    _assetChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Current Score',
+            data: currentScores,
+            backgroundColor: barColours,
+            hoverBackgroundColor: barHover,
+            borderRadius: 4,
+            borderSkipped: false,
+            order: 1
+          },
+          {
+            label: 'Prior Score',
+            data: priorScores,
+            backgroundColor: 'rgba(150,150,150,0.18)',
+            borderColor: 'rgba(150,150,150,0.55)',
+            borderWidth: 1.5,
+            borderRadius: 4,
+            borderSkipped: false,
+            order: 2
+          }
+        ]
+      },
+      options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { mode: 'index', intersect: false },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function(ctx2) {
+                var v = ctx2.raw;
+                if (v == null) return ctx2.dataset.label + ': —';
+                return ctx2.dataset.label + ': ' + (v > 0 ? '+' : '') + v.toFixed(3);
+              },
+              afterBody: function(items) {
+                var idx = items[0] ? items[0].dataIndex : -1;
+                if (idx < 0) return [];
+                var asset = sorted[idx];
+                var lines = [];
+                if (asset.flag)       lines.push('Flag: ' + asset.flag);
+                if (asset.conviction) lines.push('Conviction: ' + asset.conviction);
+                if (asset.delta != null) lines.push('Delta: ' + (asset.delta > 0 ? '+' : '') + parseFloat(asset.delta).toFixed(3));
+                return lines;
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            min: -1.1,
+            max: 1.1,
+            grid: { color: gridColour },
+            ticks: {
+              color: tickColour,
+              font: { size: 11 },
+              callback: function(v) { return (v > 0 ? '+' : '') + v.toFixed(1); }
+            },
+            border: { dash: [3, 3] }
+          },
+          y: {
+            grid: { display: false },
+            ticks: { color: labelColour, font: { size: 11 } }
+          }
+        }
+      }
+    });
+  }
+
+  // ── Main fetch & render ──────────────────────────────────────────────────
   fetch('data/report-latest.json')
     .then(function (r) { return r.json(); })
     .then(function (d) {
@@ -191,13 +569,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function renderDashboard(d) {
     var meta     = d.meta || {};
-    var eb       = d.executive_briefing || {};
+    // Remap: JSON stores stress/regime inside signal; asset data in asset_outlook
     var signalObj = d.signal || {};
+    var eb       = d.executive_briefing || {
+      system_stress_label:     signalObj.system_stress_label     || '',
+      system_stress_direction: signalObj.system_stress_direction || '',
+      system_average_score:    signalObj.system_average_score,
+      regime:                  signalObj.regime                  || '',
+      regime_conviction:       signalObj.regime_conviction       || '',
+      summary:                 signalObj.headline                || ''
+    };
     var signal    = signalObj.headline || eb.system_stress_label || '';
     var signalBody = signalObj.system_stress_label || signalObj.regime || eb.summary || '';
 
-    var assets   = d.asset_class_scores || [];
-    var outlook  = d.outlook || {};
+    // asset_class_scores → asset_outlook (same structure)
+    var assets   = d.asset_class_scores || d.asset_outlook || [];
+    var outlook  = d.safe_haven || d.outlook || {};
+
+    var avgScore = (eb.system_average_score != null ? eb.system_average_score : signalObj.system_average_score);
+    var regime   = eb.regime || signalObj.regime || '';
+    var conviction = eb.regime_conviction || signalObj.regime_conviction || '';
+    var stressLabel = eb.system_stress_label || signalObj.system_stress_label || '';
+    var stressDir   = eb.system_stress_direction || signalObj.system_stress_direction || '';
 
     // Page header
     document.getElementById('page-title').textContent = 'GMM — ' + (meta.week_label || '');
@@ -206,25 +599,37 @@ document.addEventListener('DOMContentLoaded', function () {
       '<span>Published ' + fmtDate(meta.published) + '</span>';
 
     // KPIs
-    document.getElementById('kpi-stress').textContent   = eb.system_stress_label || signalObj.system_stress_label || '—';
-    document.getElementById('kpi-stress-dir').textContent = eb.system_stress_direction || signalObj.system_stress_direction || '—';
-    document.getElementById('kpi-regime').textContent   = eb.regime || signalObj.regime || '—';
-    document.getElementById('kpi-regime-conv').textContent = (eb.regime_conviction || signalObj.regime_conviction || '—') + ' conviction';
+    document.getElementById('kpi-stress').textContent   = stressLabel || '—';
+    document.getElementById('kpi-stress-dir').textContent = stressDir || '—';
+    document.getElementById('kpi-regime').textContent   = regime || '—';
+    document.getElementById('kpi-regime-conv').textContent = (conviction || '—') + ' conviction';
     document.getElementById('kpi-week').textContent     = meta.week_label || '—';
-    var avgScore = eb.system_average_score || signalObj.system_average_score;
     document.getElementById('kpi-score').textContent    = avgScore != null ? 'Avg score: ' + (avgScore > 0 ? '+' : '') + parseFloat(avgScore).toFixed(3) : '—';
+
+    // Gauge
+    renderGauge(avgScore);
+
+    // Delta display for gauge
+    var delta = signalObj.delta_vs_prior;
+    if (delta != null) {
+      document.getElementById('gauge-delta').textContent = 'Δ vs prior: ' + (delta > 0 ? '+' : '') + parseFloat(delta).toFixed(3);
+    } else {
+      document.getElementById('gauge-delta').textContent = '';
+    }
+
+    // Regime badge
+    renderRegimeBadge(regime, conviction, stressLabel, stressDir);
 
     // Signal block
     var sbWrap = document.getElementById('signal-block-wrap');
-    var sbText = signal || signalBody || eb.summary || '';
     sbWrap.innerHTML =
       '<div class="signal-block">' +
         '<div class="signal-block__label">Weekly Signal — GMM</div>' +
-        '<h2 class="signal-block__headline">' + esc(eb.system_stress_label || signalObj.system_stress_label || '') + '</h2>' +
+        '<h2 class="signal-block__headline">' + esc(stressLabel || '') + '</h2>' +
         '<p class="signal-block__body">' + esc(eb.summary || signalBody || '') + '</p>' +
         (eb.one_number_to_watch ? '<p style="margin-top:var(--space-4);font-size:var(--text-sm);color:var(--color-text-secondary)"><strong>One number to watch:</strong> ' + esc(eb.one_number_to_watch) + '</p>' : '') +
         '<div class="signal-block__meta">' +
-          '<span class="regime-badge">' + esc(eb.regime || signalObj.regime || '—') + ' · ' + esc(eb.regime_conviction || signalObj.regime_conviction || '—') + ' conviction</span>' +
+          '<span class="regime-badge">' + esc(regime || '—') + ' · ' + esc(conviction || '—') + ' conviction</span>' +
           (eb.source_url ? '<a href="' + esc(eb.source_url) + '" target="_blank" rel="noopener" style="font-size:var(--text-xs);color:var(--monitor-accent)">Full brief →</a>' : '') +
         '</div>' +
       '</div>';
@@ -247,6 +652,9 @@ document.addEventListener('DOMContentLoaded', function () {
       }).join('');
     }
 
+    // Asset bar chart
+    renderAssetBarChart(assets);
+
     // Asset outlook table
     var atWrap = document.getElementById('asset-table-wrap');
     if (!assets.length) {
@@ -261,7 +669,7 @@ document.addEventListener('DOMContentLoaded', function () {
           '<td class="asset-table__name">' + esc(a.asset_class) + '</td>' +
           '<td><span class="score-chip score-chip--' + (scorePos ? 'pos' : 'neg') + '">' + (parseFloat(a.score||0) > 0 ? '+' : '') + esc(a.score) + '</span></td>' +
           '<td><span class="flag-badge flag-badge--' + flagClass(a.flag) + '">' + esc(a.flag) + '</span></td>' +
-          '<td style="font-size:var(--text-xs);color:var(--color-text-muted)">' + esc(a.direction || '—') + '</td>' +
+          '<td>' + directionArrow(a.direction) + '</td>' +
           '<td><div class="asset-table__driver">' + esc(a.key_driver || '') + '</div></td>' +
           '</tr>';
       });
@@ -271,25 +679,53 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       atWrap.innerHTML = tHTML;
     }
+
+    // Safe Haven section
+    var shWrap = document.getElementById('safe-haven-wrap');
+    var sh = d.safe_haven || {};
+    if (sh.asset) {
+      shWrap.innerHTML =
+        '<div class="card">' +
+          '<div class="card__label">' + esc(sh.regime || '') + ' · ' + esc(sh.horizon || '') + '</div>' +
+          '<div class="card__title">' + esc(sh.asset) + '</div>' +
+          '<div class="card__body">' + esc(sh.rationale || '') + '</div>' +
+          (sh.condition_for_reassessment
+            ? '<div class="card__footer" style="font-size:var(--text-xs);font-style:italic"><strong>Reassess if:</strong> ' + esc(sh.condition_for_reassessment) + '</div>'
+            : '') +
+          (sh.not_investment_advice
+            ? '<div style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--space-2)">Not investment advice.</div>'
+            : '') +
+        '</div>';
+    } else {
+      shWrap.innerHTML = '<p class="text-muted text-sm">Safe haven data will appear after the next publish cycle.</p>';
+    }
   }
 
   function buildDeltaItems(d) {
-    // Collect WARNING and ELEVATED indicators from all domains
     var items = [];
     var domains = d.domain_indicators || {};
-    Object.keys(domains).forEach(function (dk) {
-      var arr = domains[dk];
-      if (!Array.isArray(arr)) return;
-      arr.forEach(function (ind) {
-        if (ind.flag === 'WARNING' || ind.flag === 'ELEVATED') {
-          items.push({ title: ind.indicator, reading: ind.reading || '', flag: ind.flag, score: ind.score || 0 });
-        }
+    // If domain_indicators exists, use it
+    if (Object.keys(domains).length) {
+      Object.keys(domains).forEach(function (dk) {
+        var arr = domains[dk];
+        if (!Array.isArray(arr)) return;
+        arr.forEach(function (ind) {
+          if (ind.flag === 'WARNING' || ind.flag === 'ELEVATED') {
+            items.push({ title: ind.indicator, reading: ind.reading || '', flag: ind.flag, score: ind.score || 0 });
+          }
+        });
       });
-    });
-    // Sort by score ascending (worst first)
+    } else {
+      // Fallback: pull from flat indicator arrays (debt_dynamics, credit_stress, systemic_risk)
+      ['debt_dynamics','credit_stress','systemic_risk'].forEach(function(key) {
+        (d[key] || []).forEach(function(ind) {
+          if (ind.flag === 'WARNING' || ind.flag === 'ELEVATED') {
+            items.push({ title: ind.indicator, reading: ind.reading || '', flag: ind.flag, score: ind.score || 0 });
+          }
+        });
+      });
+    }
     items.sort(function (a, b) { return a.score - b.score; });
-    // Also include amplifiers
-    var amps = (d.domain_indicators || {}).domain_6_amplifiers || [];
     return items;
   }
 });

@@ -1,266 +1,409 @@
 {
   "meta": {
-    "issue": 1,
+    "issue": 2,
     "volume": 1,
-    "week_label": "W/E 30 March 2026",
-    "published": "2026-03-30T20:00:00Z",
-    "slug": "2026-03-30",
-    "publish_time_utc": "T20:00:00Z",
+    "week_label": "W/E 2 April 2026",
+    "published": "2026-04-01T09:00:00Z",
+    "slug": "2026-04-01",
+    "publish_time_utc": "T09:00:00Z",
     "editor": "asym-intel",
-    "schema_version": "1.0"
+    "schema_version": "2.0"
   },
-  "signal": "Russia's Social Design Agency confirmed operating from Budapest Embassy compound ahead of Hungary's April 12 election — highest-priority active FIMI target in Europe as of Q1 2026.",
-  "active_campaigns": {
-    "RU": [
-      {
-        "id": "RU-001",
-        "operation_name": "Social Design Agency — Hungary Pre-Op",
-        "headline": "SDA confirmed operating from Russian Embassy Budapest; EEAS RAS activated 19 March 2026",
-        "status": "ACTIVE",
-        "attribution_confidence": "Confirmed",
-        "platform": "Multiple / Embassy-run",
-        "target": "Hungary — April 12 parliamentary election",
-        "summary": "EEAS Rapid Alert System activated following confirmation that Russia's Social Design Agency is operating from within the Russian Embassy compound in Budapest. Operations include fake local news site seeding and pro-Orbán narrative amplification through Telegram channel networks. SDA previously attributed to Romania 2024, Germany 2021, France 2022.",
-        "last_activity": "2026-03-19",
-        "source_url": "https://www.eeas.europa.eu"
-      },
-      {
-        "id": "RU-002",
-        "operation_name": "Doppelganger Network — DE/FR Narrative Seeding",
-        "headline": "Meta CIB removes 1,700+ Doppelganger assets — largest Russia-attributed enforcement action since 2022",
-        "status": "DISRUPTED",
-        "attribution_confidence": "Confirmed",
-        "platform": "Meta (Facebook, Instagram), X, Telegram",
-        "target": "Germany (Bundestag), France — domestic political discourse",
-        "summary": "Meta February 2026 CIB report documented removal of 1,700+ assets. Fake news sites cloned major German, French, Ukrainian outlets. Coordinated engagement timing exploited algorithmic amplification. Network targeted Bundestag election narrative and French domestic politics. Operation disrupted but not concluded — infrastructure reconstitution expected.",
-        "last_activity": "2026-02-01",
-        "source_url": "https://about.fb.com/news/"
-      },
-      {
-        "id": "RU-003",
-        "operation_name": "GRU — UK Political Party Funding Investigation",
-        "headline": "MI5 public statement references ongoing investigation into Russian funding of UK political actors",
-        "status": "ACTIVE",
-        "attribution_confidence": "High",
-        "platform": "Direct / financial",
-        "target": "UK political parties — undisclosed targets",
-        "summary": "MI5 public statement referenced ongoing investigation into Russian state-linked funding of UK political actors. Specific party names not publicly disclosed. Pattern consistent with documented GRU Unit 54777 influence-via-capture methodology.",
-        "last_activity": "2026-03-01",
-        "source_url": "https://www.mi5.gov.uk"
-      }
+  "signal": {
+    "headline": "Storm-1516 deploys Euronews impersonation against Hungary as April 12 election enters critical phase \u2014 AI-generated YouTube network simultaneously farming 1.8 billion views with fabricated war narratives",
+    "actor": "RU",
+    "confidence": "Confirmed",
+    "f_flags": [
+      "F1"
     ],
-    "CN": [
-      {
-        "id": "CN-001",
-        "operation_name": "Spamouflage/Dragonbridge — Indo-Pacific Narrative",
-        "headline": "Google TAG Q1 2026 removes 2,500+ Dragonbridge assets across YouTube, Blogger, X",
-        "status": "DISRUPTED",
-        "attribution_confidence": "Confirmed",
-        "platform": "YouTube, Blogger, X",
-        "target": "Taiwan Strait, Indo-Pacific regional narrative",
-        "summary": "Google TAG Q1 2026 disruption of coordinated Dragonbridge/Spamouflage operation. Evolution in tactics: shorter content cycles, localised language targeting, AI-generated commentary to bypass platform filters. Operation disrupted; reconstitution of network infrastructure anticipated.",
-        "last_activity": "2026-03-01",
-        "source_url": "https://blog.google/threat-analysis-group/"
-      },
-      {
-        "id": "CN-002",
-        "operation_name": "United Front — Pacific Island States Outreach",
-        "headline": "ASPI ICPC documents United Front Work Department community engagement across Pacific Island nations",
-        "status": "ONGOING",
-        "attribution_confidence": "Assessed",
-        "platform": "WeChat, community organisations",
-        "target": "Pacific Island states — governance and media narrative",
-        "summary": "ASPI ICPC analysis documents UFWD-linked entities cultivating relationships with Pacific Island diaspora communities and media organisations. Combines overt cultural engagement with covert narrative management. Aims to shape perceptions of Chinese Belt and Road investments and counter Five Eyes security messaging.",
-        "last_activity": "2026-03-01",
-        "source_url": "https://www.aspi.org.au/program/international-cyber-policy-centre"
-      }
-    ],
-    "IR": [
-      {
-        "id": "IR-001",
-        "operation_name": "IRGC — Campus Protest Amplification",
-        "headline": "DFRLab documents Iran-aligned network amplifying pro-Palestinian campus movements across EU/US",
-        "status": "ONGOING",
-        "attribution_confidence": "Assessed",
-        "platform": "X, Instagram, Telegram",
-        "target": "EU and US university campus environments",
-        "summary": "DFRLab Q1 2026: Iran-aligned network systematically amplifying pro-Palestinian campus protest movements using combination of authentic accounts and coordinated inauthentic amplification infrastructure. Exploits blurred boundary between genuine political expression and foreign-directed amplification. Most methodologically difficult FIMI category to attribute with confidence.",
-        "last_activity": "2026-03-01",
-        "source_url": "https://www.atlanticcouncil.org/programs/digital-forensic-research-lab/"
-      }
-    ],
-    "GULF": [
-      {
-        "id": "GULF-UAE-001",
-        "operation_name": "UAE — UK Parliament Influence Operation",
-        "headline": "Forbidden Stories/OCCRP report UAE lobbying-to-influence targeting UK Parliament and journalists",
-        "status": "ONGOING",
-        "attribution_confidence": "Possible",
-        "platform": "Direct / financial channels",
-        "target": "UK Parliament, UK journalists",
-        "summary": "Investigative reporting by Forbidden Stories and OCCRP documents UAE-linked entities targeting UK parliamentary figures and journalists through financial inducements and information operations. Methodology combines overt registered lobbying with undisclosed influence activity. Client: UAE government agencies (assessed).",
-        "last_activity": "2026-03-01",
-        "source_url": "https://forbiddenstories.org"
-      },
-      {
-        "id": "GULF-SA-001",
-        "operation_name": "Saudi Arabia — Sports-Washing / Anti-Qatar Narrative",
-        "headline": "Investigative journalism documents Saudi-linked narrative seeding in EU media ecosystem",
-        "status": "ONGOING",
-        "attribution_confidence": "Possible",
-        "platform": "Mainstream media, PR networks",
-        "target": "EU media ecosystem",
-        "summary": "Coordinated narrative seeding promoting Saudi sports and cultural investments while running anti-Qatar and anti-Muslim Brotherhood campaigns in European media. Uses a combination of direct media placement and amplification through sympathetic outlets. Attribution possible but not yet confirmed at Tier 1/2 level.",
-        "last_activity": "2026-02-01",
-        "source_url": "https://www.occrp.org"
-      }
-    ],
-    "US": [
-      {
-        "id": "US-001",
-        "operation_name": "Turning Point Action — Alliance of Sovereign Nations",
-        "headline": "AoS launched 5 March 2026 — European far-right coalition including MEPs with documented Russian connections",
-        "status": "ACTIVE",
-        "attribution_confidence": "High",
-        "platform": "Direct / AoS platform, social media",
-        "target": "European far-right parties, MEPs, national legislatures",
-        "summary": "Turning Point Action launched the Alliance of Sovereign Nations on 5 March 2026 — a formal European far-right coalition. Includes MEPs with documented Russian-linked network connections. Shares organisational infrastructure, funding patterns, and narrative frames with Kremlin-aligned actors while operating through US-registered entities. Creates a convergence dynamic that standard single-actor FIMI frameworks are structurally poorly equipped to capture.",
-        "last_activity": "2026-03-05",
-        "source_url": "https://www.politico.eu"
-      }
-    ],
-    "IL": [
-      {
-        "id": "IL-001",
-        "operation_name": "Black Cube — Bundestag Lobbying/Profiling",
-        "headline": "Black Cube operation confirmed targeting German Bundestag politicians — Haaretz/Süddeutsche March 2026",
-        "status": "ACTIVE",
-        "attribution_confidence": "Confirmed",
-        "platform": "Direct / private intelligence",
-        "target": "German politicians, journalists",
-        "summary": "Haaretz and Süddeutsche Zeitung reporting confirmed Black Cube operation involving profiling of Bundestag politicians, honey-trap approaches, and opposition research. Attribution confirmed at operator level; state client unattributed. Represents commercial cognitive warfare model at its most developed: state-level capability with full deniability.",
-        "last_activity": "2026-03-01",
-        "source_url": "https://www.haaretz.com"
-      },
-      {
-        "id": "IL-002",
-        "operation_name": "Israel Hasbara Network — Campus/Wikipedia Operations",
-        "headline": "Researchers document coordinated Wikipedia-editing and campus narrative management by Israeli-linked actors",
-        "status": "ONGOING",
-        "attribution_confidence": "Assessed",
-        "platform": "Wikipedia, campus social media, mainstream media",
-        "target": "Campus discourse on Gaza/October 7, diaspora communities",
-        "summary": "Academic and investigative researchers have documented coordinated Wikipedia-editing campaigns and campus narrative management operations linked to Israeli government communications infrastructure. Operations aim to shape historical record and current discourse on Gaza. ELNET parliamentary lobbying infrastructure documented separately in European Parliament.",
-        "last_activity": "2026-03-01",
-        "source_url": "https://www.haaretz.com"
-      }
-    ]
+    "note": "MF1 alert: pro-Orb\u00e1n Hungarian Conservative outlet running counter-narrative attempting to delegitimise the interference story itself \u2014 a meta-FIMI layer on the primary operation"
   },
-  "campaign_archive": [],
-  "platform_actions": [
+  "campaigns": [
     {
-      "platform": "Meta (Facebook/Instagram)",
-      "action_type": "CIB Takedown",
-      "headline": "Meta removes 1,700+ Doppelganger assets — largest Russia-attributed removal since 2022",
-      "actor_attributed": "Russia",
+      "id": "RU-001",
+      "operation_name": "Social Design Agency \u2014 Hungary Pre-Op",
+      "status": "ACTIVE",
       "attribution_confidence": "Confirmed",
-      "assets_removed": 1700,
-      "date": "2026-02-01",
-      "summary": "Coordinated Inauthentic Behaviour removal targeting fake news sites cloning German, French, and Ukrainian outlets, plus coordinated Facebook and Instagram accounts.",
+      "actor": "RU",
+      "platform": "Multiple / Embassy-run, TikTok, Telegram",
+      "target": "Hungary \u2014 April 12 parliamentary election",
+      "summary": "SDA confirmed operating from Russian Embassy Budapest. Operations include fake local news seeding, pro-Orb\u00e1n narrative amplification. Magyar explicitly named TikTok as primary vector. 11 days to election. EEAS RAS active.",
+      "last_activity": "2026-03-24",
+      "f_flags": [
+        "F1"
+      ],
+      "changelog": "[2026-04-02: Storm-1516 Euronews impersonation confirmed as parallel operation targeting same election \u2014 RU-004 added as linked campaign]",
+      "source_url": "https://www.eeas.europa.eu"
+    },
+    {
+      "id": "RU-002",
+      "operation_name": "Doppelganger Network \u2014 DE/FR Narrative Seeding",
+      "status": "DISRUPTED",
+      "attribution_confidence": "Confirmed",
+      "actor": "RU",
+      "platform": "Meta (Facebook, Instagram), X, Telegram",
+      "target": "Germany (Bundestag), France",
+      "summary": "Meta February 2026 CIB removed 1,700+ assets. No new confirmed activity since takedown. Infrastructure reconstitution likely but not yet evidenced at Tier 1/2. Status remains DISRUPTED.",
+      "last_activity": "2026-02-01",
+      "f_flags": [],
+      "changelog": "",
       "source_url": "https://about.fb.com/news/"
     },
     {
-      "platform": "Google (YouTube/Blogger/X)",
-      "action_type": "TAG Disruption",
-      "headline": "Google TAG removes 2,500+ Dragonbridge/Spamouflage assets",
-      "actor_attributed": "China",
+      "id": "RU-003",
+      "operation_name": "GRU \u2014 UK Political Party Funding Investigation",
+      "status": "ACTIVE",
+      "attribution_confidence": "High",
+      "actor": "RU",
+      "platform": "Direct / financial",
+      "target": "UK political parties",
+      "summary": "MI5-referenced investigation ongoing. No new primary-source intelligence this week. Status unchanged.",
+      "last_activity": "2026-03-01",
+      "f_flags": [],
+      "changelog": "",
+      "source_url": "https://www.mi5.gov.uk"
+    },
+    {
+      "id": "RU-004",
+      "operation_name": "Storm-1516 \u2014 Hungary Election Impersonation Campaign",
+      "status": "ACTIVE",
+      "attribution_confidence": "High",
+      "actor": "RU",
+      "platform": "X, Facebook, Telegram, fake news websites",
+      "target": "Hungary \u2014 April 12 election; opposition leader P\u00e9ter Magyar",
+      "summary": "Researchers at the Gnida project confirmed Storm-1516 is running a coordinated impersonation campaign using fake Euronews-style websites and videos. Fabricated article claimed Magyar insulted Trump and called him 'senile grandpa'. Video spread across coordinated anonymous accounts. Storm-1516 previously active in 2024 US presidential election and Germany's February 2025 elections. MF1 alert: Hungarian Conservative counter-narrative attempting to delegitimise the interference story itself.",
+      "last_activity": "2026-03-24",
+      "f_flags": [
+        "F1"
+      ],
+      "changelog": "[2026-04-02: New campaign \u2014 Storm-1516 Euronews impersonation confirmed by Gnida project researchers]",
+      "source_url": "https://www.euronews.com/my-europe/2026/03/24/impersonating-euronews-pro-kremlin-disinformation-network-takes-aim-at-hungarys-elections"
+    },
+    {
+      "id": "RU-005",
+      "operation_name": "SVR 'Gamechanger' \u2014 Fake Orb\u00e1n Assassination Plot",
+      "status": "ASSESSED",
+      "attribution_confidence": "Assessed",
+      "actor": "RU",
+      "platform": "Physical / psychological operation",
+      "target": "Hungary \u2014 election narrative; Orb\u00e1n legitimacy amplification",
+      "summary": "Washington Post (21 March) reported SVR proposed staging a fake assassination attempt against Orb\u00e1n to shift election into 'emotional realm' of security and stability. Plan internally named 'Gamechanger'. WaPo cites single unnamed European intelligence document \u2014 no independent corroboration. MF3 alert: single-source, unverified document. Attribution: Assessed (consistent with SVR active measures doctrine but not independently confirmed). Counter-narrative from pro-Orb\u00e1n sources attempts to delegitimise story entirely \u2014 assess as motivated counter-narrative, not exculpatory evidence.",
+      "last_activity": "2026-03-21",
+      "f_flags": [
+        "F3"
+      ],
+      "changelog": "[2026-04-02: New entry \u2014 MF3 caution applied: single unnamed intelligence source, no independent corroboration]",
+      "source_url": "https://www.washingtonpost.com"
+    },
+    {
+      "id": "CN-001",
+      "operation_name": "Spamouflage/Dragonbridge \u2014 Indo-Pacific Narrative",
+      "status": "DISRUPTED",
       "attribution_confidence": "Confirmed",
-      "assets_removed": 2500,
-      "date": "2026-03-01",
-      "summary": "Coordinated disruption of Spamouflage/Dragonbridge network targeting Taiwan Strait and Indo-Pacific narratives. Assets evolved to use shorter content cycles and AI-generated commentary.",
+      "actor": "CN",
+      "platform": "YouTube, Blogger, X",
+      "target": "Taiwan Strait, Indo-Pacific",
+      "summary": "Google TAG Q1 2026 disruption remains the last confirmed enforcement action. No new primary-source intelligence this week. Reconstitution ongoing but not yet confirmed at Tier 1/2.",
+      "last_activity": "2026-03-01",
+      "f_flags": [],
+      "changelog": "",
       "source_url": "https://blog.google/threat-analysis-group/"
     },
     {
-      "platform": "X (formerly Twitter)",
-      "action_type": "Enforcement Gap — Structural",
-      "headline": "EEAS: 88% of EU-targeted FIMI content remains on X after flagging",
-      "actor_attributed": "Multi-actor",
+      "id": "CN-002",
+      "operation_name": "United Front \u2014 Pacific Island States Outreach",
+      "status": "ONGOING",
+      "attribution_confidence": "Assessed",
+      "actor": "CN",
+      "platform": "WeChat, community organisations",
+      "target": "Pacific Island states",
+      "summary": "No new primary-source intelligence this week. Status unchanged.",
+      "last_activity": "2026-03-01",
+      "f_flags": [],
+      "changelog": "",
+      "source_url": "https://www.aspi.org.au/program/international-cyber-policy-centre"
+    },
+    {
+      "id": "AI-NET-001",
+      "operation_name": "AI-Generated YouTube Network \u2014 War Coverage Slop",
+      "status": "ACTIVE",
+      "attribution_confidence": "Assessed",
+      "actor": "UNATTRIBUTED",
+      "platform": "YouTube",
+      "target": "English and Russian-speaking audiences; Russia-Ukraine war narrative",
+      "summary": "DFRLab (23 March 2026): 26 YouTube channels, collectively 1.8 billion views, 1.96 million subscribers. Deploys AI synthetic anchors, LLM-generated scripts, automated thumbnails. Blends factual geopolitical reporting with fabricated events (invented strikes on Mykolaiv, Rzesz\u00f3w). Network coordinated: synchronized pauses/reactivations, content mirroring, thematic pivots from Armenia-Azerbaijan to Ukraine. 23 of 26 channels still active as of 23 March. Attribution: Assessed as coordinated network (behaviour confirmed); state attribution not yet established at Tier 1/2 \u2014 UNATTRIBUTED pending further evidence. MF2 alert: do not assume single-actor attribution solely from content alignment.",
+      "last_activity": "2026-03-23",
+      "f_flags": [
+        "F2"
+      ],
+      "changelog": "[2026-04-02: New campaign \u2014 DFRLab March 23 report. Actor field: UNATTRIBUTED pending Tier 1/2 attribution. MF2 caution applied.]",
+      "source_url": "https://dfrlab.org/2026/03/23/ai-generated-youtube-channels-co-opt-war-coverage-to-farm-nearly-two-billion-views/"
+    },
+    {
+      "id": "IR-001",
+      "operation_name": "IRGC \u2014 Campus Protest Amplification",
+      "status": "ONGOING",
+      "attribution_confidence": "Assessed",
+      "actor": "IR",
+      "platform": "X, Instagram, Telegram",
+      "target": "EU and US university campus environments",
+      "summary": "No new primary-source intelligence this week. Status unchanged.",
+      "last_activity": "2026-03-01",
+      "f_flags": [],
+      "changelog": "",
+      "source_url": "https://www.atlanticcouncil.org/programs/digital-forensic-research-lab/"
+    },
+    {
+      "id": "GULF-UAE-001",
+      "operation_name": "UAE \u2014 UK Parliament Influence Operation",
+      "status": "ONGOING",
+      "attribution_confidence": "Possible",
+      "actor": "GULF",
+      "platform": "Direct / financial channels",
+      "target": "UK Parliament, journalists",
+      "summary": "No new primary-source intelligence this week. Status unchanged.",
+      "last_activity": "2026-03-01",
+      "f_flags": [],
+      "changelog": "",
+      "source_url": "https://forbiddenstories.org"
+    },
+    {
+      "id": "US-001",
+      "operation_name": "Turning Point Action \u2014 Alliance of Sovereign Nations",
+      "status": "ACTIVE",
+      "attribution_confidence": "High",
+      "actor": "US",
+      "platform": "Direct / AoS platform, social media",
+      "target": "European far-right parties, MEPs",
+      "summary": "No new primary-source intelligence this week. AoS infrastructure remains active. Status unchanged.",
+      "last_activity": "2026-03-05",
+      "f_flags": [],
+      "changelog": "",
+      "source_url": "https://www.politico.eu"
+    },
+    {
+      "id": "IL-001",
+      "operation_name": "Black Cube \u2014 Bundestag Lobbying/Profiling",
+      "status": "ACTIVE",
       "attribution_confidence": "Confirmed",
-      "assets_removed": 0,
-      "date": "2026-03-12",
-      "summary": "EEAS 4th Annual FIMI Report finds 88% of flagged EU-targeted FIMI content remains live on X, vs 23% on Meta and 31% on YouTube. X Trust and Safety staffing down ~80% since 2022 ownership change. Platform now primary low-enforcement environment for cross-actor FIMI operations. Structural feature, not enforcement cycle anomaly.",
-      "source_url": "https://www.eeas.europa.eu/eeas/4th-eeas-annual-report-foreign-information-manipulation-and-interference-threats_en"
+      "actor": "IL",
+      "platform": "Direct / private intelligence",
+      "target": "German politicians, journalists",
+      "summary": "No new primary-source intelligence this week. NSO Group permanent injunction (October 2025) and appeal (November 2025) noted under commercial operators \u2014 separate from Black Cube but relevant to commercial cognitive warfare sector status. Status unchanged.",
+      "last_activity": "2026-03-01",
+      "f_flags": [],
+      "changelog": "",
+      "source_url": "https://www.haaretz.com"
     }
   ],
-  "regulatory_developments": [
+  "actor_tracker": [
     {
-      "jurisdiction": "European Union",
-      "instrument": "EEAS FIMI Framework",
-      "headline": "EEAS 4th Annual FIMI Threat Report — 540 incidents, AI in 47% of operations",
+      "actor": "RU",
+      "status": "HIGHLY ACTIVE",
+      "doctrine": "Active Measures / Reflexive Control / Information Confrontation",
+      "source_url": "https://www.euronews.com/my-europe/2026/03/24/impersonating-euronews-pro-kremlin-disinformation-network-takes-aim-at-hungarys-elections",
+      "headline": "Three confirmed or assessed operations simultaneously targeting Hungary April 12 election: SDA (Confirmed), Storm-1516 (High), SVR Gamechanger (Assessed). Election represents highest-density FIMI targeting in Europe Q1 2026."
+    },
+    {
+      "actor": "CN",
+      "status": "ACTIVE",
+      "doctrine": "Discourse Power / United Front / Three Warfares",
+      "source_url": "https://blog.google/threat-analysis-group/",
+      "headline": "No new confirmed operations this week. Dragonbridge disruption remains last confirmed enforcement action. AI YouTube network (AI-NET-001) pending attribution."
+    },
+    {
+      "actor": "IR",
+      "status": "ACTIVE",
+      "doctrine": "IRGC cognitive warfare",
+      "source_url": "https://dfrlab.org",
+      "headline": "No new confirmed operations this week. Campus amplification ongoing."
+    },
+    {
+      "actor": "GULF",
+      "status": "ASSESSED ACTIVE",
+      "doctrine": "Strategic narrative / lobbying-to-influence",
+      "source_url": "https://forbiddenstories.org",
+      "headline": "No new confirmed operations this week."
+    },
+    {
+      "actor": "US",
+      "status": "ASSESSED ACTIVE",
+      "doctrine": "Near-state political influence / PAC-adjacent",
+      "source_url": "https://www.politico.eu",
+      "headline": "AoS operational. No new confirmed operations this week."
+    },
+    {
+      "actor": "IL",
+      "status": "ASSESSED ACTIVE",
+      "doctrine": "Hasbara / Commercial Cognitive Warfare",
+      "source_url": "https://arstechnica.com/security/2025/10/nso-permanently-barred-from-targeting-whatsapp-users-with-pegasus-spyware/",
+      "headline": "NSO Group permanent injunction (October 2025) upheld \u2014 NSO appealing. Represents potential structural constraint on commercial spyware sector."
+    }
+  ],
+  "platform_responses": [
+    {
+      "platform": "Meta",
+      "action_type": "CIB Takedown",
+      "headline": "Doppelganger \u2014 1,700+ assets removed (Feb 2026)",
+      "actor": "RU",
+      "date": "2026-02-01",
+      "source_url": "https://about.fb.com/news/"
+    },
+    {
+      "platform": "Google TAG",
+      "action_type": "Network Disruption",
+      "headline": "Dragonbridge/Spamouflage \u2014 2,500+ assets removed (Q1 2026)",
+      "actor": "CN",
+      "date": "2026-03-01",
+      "source_url": "https://blog.google/threat-analysis-group/"
+    },
+    {
+      "platform": "X",
+      "action_type": "Structural Enforcement Gap",
+      "headline": "88% of EU-flagged FIMI content remains on X (EEAS Mar 2026)",
+      "actor": "Multi-actor",
       "date": "2026-03-12",
-      "summary": "4th Annual FIMI Report documents 540 incidents Q4 2024–Q1 2026. AI-generated or AI-assisted content in 47% of tracked operations (up from near-zero 2020). Formally attributes operations to Russia and China only — US, Israel, Iran, Gulf states outside EEAS mandate. FIMI Deterrence Playbook published alongside report.",
       "source_url": "https://www.eeas.europa.eu/eeas/4th-eeas-annual-report-foreign-information-manipulation-and-interference-threats_en"
     },
     {
-      "jurisdiction": "European Union",
-      "instrument": "EEAS FIMI Explorer",
-      "headline": "EEAS launches first interactive FIMI dashboard mapping operations and channels",
-      "date": "2026-03-17",
-      "summary": "First interactive FIMI dashboard mapping operations, channels, and the FIMI 'galaxy'. Provides public access to EEAS attribution data. Limited to Russia and China attributed operations — structural gap for other actors remains.",
-      "source_url": "https://www.eeas.europa.eu/eeas/dismantling-infrastructure-foreign-information-manipulation-and-interference-house-cards_en"
+      "platform": "YouTube",
+      "action_type": "Platform Policy Gap",
+      "headline": "AI-generated network (26 channels, 1.8B views) remains active despite misinformation policy violations \u2014 no confirmed enforcement action",
+      "actor": "UNATTRIBUTED",
+      "date": "2026-03-23",
+      "source_url": "https://dfrlab.org/2026/03/23/ai-generated-youtube-channels-co-opt-war-coverage-to-farm-nearly-two-billion-views/"
+    }
+  ],
+  "attribution_log": [
+    {
+      "id": "ATTR-001",
+      "date": "2026-04-02",
+      "campaign_id": "RU-005",
+      "mf_flags": [
+        "MF3"
+      ],
+      "confidence": "Assessed",
+      "note": "SVR Gamechanger: single unnamed European intelligence document, no independent corroboration. Do not upgrade to Confirmed without second Tier 1/2 source.",
+      "source_url": "https://www.washingtonpost.com",
+      "headline": "SVR Gamechanger: single unnamed European intelligence document, no independent corroboration.",
+      "summary": "SVR Gamechanger: single unnamed European intelligence document, no independent corroboration. Do not upgrade to Confirmed without second Tier 1/2 source.",
+      "actor": "RU-005",
+      "instrument": "Assessed"
+    },
+    {
+      "id": "ATTR-002",
+      "date": "2026-04-02",
+      "campaign_id": "AI-NET-001",
+      "mf_flags": [
+        "MF2"
+      ],
+      "confidence": "Assessed",
+      "note": "AI YouTube network: coordination confirmed (DFRLab behavioural analysis), state attribution not yet established. Content alignment with Russian narratives is necessary but not sufficient for attribution. Retain UNATTRIBUTED until Tier 1/2 source attributes.",
+      "source_url": "https://dfrlab.org/2026/03/23/ai-generated-youtube-channels-co-opt-war-coverage-to-farm-nearly-two-billion-views/",
+      "headline": "AI YouTube network: coordination confirmed (DFRLab behavioural analysis), state attribution not yet established.",
+      "summary": "AI YouTube network: coordination confirmed (DFRLab behavioural analysis), state attribution not yet established. Content alignment with Russian narratives is necessary but not sufficient for attribution. Retain UNATTRIBUTED until Tier 1/2 source attributes.",
+      "actor": "AI-NET-001",
+      "instrument": "Assessed"
+    },
+    {
+      "id": "ATTR-003",
+      "date": "2026-04-02",
+      "campaign_id": "RU-004",
+      "mf_flags": [
+        "MF1"
+      ],
+      "confidence": "High",
+      "note": "Storm-1516 Euronews impersonation: MF1 alert \u2014 Hungarian Conservative counter-narrative attempting to delegitimise this story. Counter-narrative is motivated (pro-Orb\u00e1n editorial stance) and does not constitute exculpatory evidence. Primary attribution via Gnida project researchers maintained.",
+      "source_url": "https://www.hungarianconservative.com/articles/politics/disinformation-hungary-election-russia-ukraine-orban-eu/",
+      "headline": "Storm-1516 Euronews impersonation: MF1 alert \u2014 Hungarian Conservative counter-narrative attempting to delegitimise this story.",
+      "summary": "Storm-1516 Euronews impersonation: MF1 alert \u2014 Hungarian Conservative counter-narrative attempting to delegitimise this story. Counter-narrative is motivated (pro-Orb\u00e1n editorial stance) and does not constitute exculpatory evidence. Primary attribution via Gnida project researchers maintained.",
+      "actor": "RU-004",
+      "instrument": "High"
+    }
+  ],
+  "cognitive_warfare": [
+    {
+      "significance": "Structural \u2014 represents the AI capability transition from augmentation to primary production pipeline",
+      "source_url": "https://dfrlab.org/2026/03/23/ai-generated-youtube-channels-co-opt-war-coverage-to-farm-nearly-two-billion-views/",
+      "id": "CW-001",
+      "classification": "COGNITIVE WARFARE",
+      "headline": "AI-generated synthetic media as scalable FIMI infrastructure",
+      "detail": "DFRLab March 2026 documentation of 26-channel YouTube network (1.8B views) using AI synthetic anchors, LLM scripts, automated thumbnails represents operational proof-of-concept for AI-at-scale FIMI. Production cost per video negligible; reach algorithmic. This is the maturation of the AI-FIMI convergence flagged in Issue 1 (47% of EEAS-tracked operations AI-assisted). The YouTube model differs from text-seeding operations: video with synthetic anchors creates higher epistemic authority signals for audiences.",
+      "summary": "Structural \u2014 represents the AI capability transition from augmentation to primary production pipeline"
+    },
+    {
+      "significance": "Tactical \u2014 election-specific, but the meta-FIMI pattern is structurally persistent across all documented Russian electoral operations",
+      "source_url": "https://www.hungarianconservative.com/articles/politics/disinformation-hungary-election-russia-ukraine-orban-eu/",
+      "id": "CW-002",
+      "classification": "COGNITIVE WARFARE",
+      "headline": "Meta-FIMI: counter-narratives targeting interference reporting",
+      "detail": "Hungarian Conservative's March 23 article systematically contests the evidence base for Russian interference reporting ahead of the April 12 election. Consistent with known Russian active measures doctrine: seed doubt about the interference story itself, not just the primary narratives. This meta-layer \u2014 discrediting the attributors rather than the attributed operation \u2014 is MF1 territory and analytically distinct from legitimate methodological critique.",
+      "summary": "Tactical \u2014 election-specific, but the meta-FIMI pattern is structurally persistent across all documented Russian electoral operations"
+    },
+    {
+      "significance": "Doctrinal \u2014 EEAS shifting from reactive attribution to proactive pre-election deployment",
+      "source_url": "https://www.eeas.europa.eu/eeas/keynote-speech-hrvp-kaja-kallas-2026-conference-countering-foreign-information-manipulation-and_en",
+      "id": "CW-003",
+      "classification": "COGNITIVE WARFARE",
+      "headline": "EEAS Hybrid Rapid Response Team \u2014 Armenia June 2026",
+      "detail": "EEAS HRVP Kallas confirmed at the 2026 Counter-FIMI Conference (17 March) that a Hybrid Rapid Response Team will deploy to Armenia ahead of June 2026 parliamentary elections. First HRR\u0422 deployment to the South Caucasus. Armenia was identified in EEAS FIMI Report 4th as an expected primary target in the run-up to June elections. Signals a doctrinal shift from post-election attribution to pre-election deterrence.",
+      "summary": "Doctrinal \u2014 EEAS shifting from reactive attribution to proactive pre-election deployment"
     }
   ],
   "cross_monitor_flags": {
-    "updated": "2026-03-30T20:00:00Z",
+    "updated": "2026-04-02T09:00:00Z",
     "flags": [
       {
         "id": "CMF-001",
         "monitor": "Democratic Integrity Monitor",
         "monitor_slug": "democratic-integrity",
-        "headline": "FIMI as constitutive mechanism of democratic erosion — not merely external pressure",
-        "linkage": "Russia's Social Design Agency Hungary operation (RU-001) and Doppelganger network (RU-002) are documented in both monitors from different analytical angles. The Democratic Integrity Monitor tracks electoral and institutional consequences; this monitor tracks the upstream information operations. The distinction between foreign information operation and domestic democratic backsliding is increasingly artificial — the same transnational networks drive both.",
-        "significance": "Structural — FIMI is the delivery mechanism for democratic erosion, not a parallel phenomenon. Monitoring in silos produces systematic blind spots.",
+        "headline": "FIMI as constitutive mechanism of democratic erosion \u2014 Hungary election FIMI density at critical level",
+        "linkage": "Three simultaneous confirmed/assessed RU operations targeting Hungary April 12 election (SDA, Storm-1516, SVR Gamechanger) represent the highest documented pre-election FIMI density for a single EU election. The Democratic Integrity Monitor's Hungary election-adjacent entries should cross-reference this cluster. F1-flagged signal this week.",
         "classification": "Structural",
-        "status": "Active",
+        "status": "Active \u2014 ESCALATED this issue",
         "first_flagged": "2026-03-30",
-        "unchanged_since": "2026-03-30",
+        "updated": "2026-04-02",
         "source_url": "https://asym-intel.info/monitors/democratic-integrity/dashboard.html"
       },
       {
         "id": "CMF-002",
         "monitor": "European Strategic Autonomy Monitor (EGHTM)",
         "monitor_slug": "european-strategic-autonomy",
-        "headline": "Cognitive warfare as operational preparation for European strategic paralysis",
-        "linkage": "The EGHTM tracks European defence spending, NATO cohesion, and the Ukraine conflict. This monitor's documentation of Russian political technologist networks, the Turning Point Action/Alliance of Sovereign Nations infrastructure, and Chinese United Front operations reveals the cognitive warfare layer that degrades European strategic coherence — fragmenting political will before hard-security decisions can be taken. Hub-and-spoke architecture: EGHTM tracks EU response posture; this monitor provides global attribution depth.",
-        "significance": "Structural — narrative dominance over European electorates is a prerequisite for Russian and Chinese hard-security objectives. FIMI is operational preparation for strategic paralysis.",
+        "headline": "Cognitive warfare as operational preparation for European strategic paralysis \u2014 Hungary election as test case",
+        "linkage": "If Orb\u00e1n retains power with confirmed Russian FIMI support, this consolidates a Russian-aligned veto actor inside the EU for the next cycle. The EGHTM tracks EU institutional coherence \u2014 this is the FIMI dimension of that question. Washington Post reporting on Szijj\u00e1rt\u00f3 leaking EU meeting content to Lavrov (if confirmed) represents the intelligence capture dimension that EGHTM state-capture tracker should note.",
         "classification": "Structural",
-        "status": "Active",
+        "status": "Active \u2014 ESCALATED this issue",
         "first_flagged": "2026-03-30",
-        "unchanged_since": "2026-03-30",
+        "updated": "2026-04-02",
         "source_url": "https://asym-intel.info/monitors/european-strategic-autonomy/dashboard.html"
       },
       {
         "id": "CMF-003",
         "monitor": "AI Governance Monitor",
         "monitor_slug": "ai-governance",
-        "headline": "AI capability as FIMI force-multiplier — 47% of operations now AI-assisted",
-        "linkage": "The AI Governance Monitor tracks AI capability and regulatory landscape; this monitor tracks operational deployment of that capability in information warfare. Key intersections: synthetic media for persona creation, LLM-generated narrative seeding at scale, AI-assisted cross-lingual operations, AI-powered political micro-targeting. EEAS 4th FIMI Report (March 2026) finds 47% of tracked operations now AI-assisted — up from near-zero 2020.",
-        "significance": "Accelerating structural — AI governance failures are FIMI infrastructure failures. Unregulated generative AI capability is incorporated into state information operations within months of release.",
-        "classification": "Structural",
-        "status": "Active",
-        "first_flagged": "2026-03-30",
-        "unchanged_since": "2026-03-30",
-        "source_url": "https://asym-intel.info/monitors/ai-governance/dashboard.html"
+        "headline": "AI-generated YouTube network (1.8B views) as operational proof of AI-FIMI convergence at scale",
+        "linkage": "DFRLab March 23 documentation of 26-channel AI production pipeline achieving 1.8B views is the most significant empirical data point on AI-FIMI convergence since the EEAS 47% figure. AI Governance Monitor should track platform policy gaps (YouTube not enforcing against synthetic anchors presenting fabricated events as news) as a governance failure with direct FIMI consequences.",
+        "classification": "Structural \u2014 accelerating",
+        "status": "Active \u2014 NEW DEVELOPMENT this issue",
+        "first_flagged": "2026-04-02",
+        "updated": "2026-04-02",
+        "source_url": "https://dfrlab.org/2026/03/23/ai-generated-youtube-channels-co-opt-war-coverage-to-farm-nearly-two-billion-views/"
       }
     ],
     "version_history": [
       {
         "date": "2026-03-30",
-        "change": "Inaugural cross-monitor flags — three structural flags established",
-        "reason": "First issue. Flags reflect the hub-and-spoke architecture of the FIMI monitor within the asym-intel suite.",
-        "prior_value": "None — first issue"
+        "change": "Inaugural flags established \u2014 CMF-001, CMF-002, CMF-003",
+        "reason": "First issue",
+        "prior_value": "None"
+      },
+      {
+        "date": "2026-04-02",
+        "change": "CMF-001 and CMF-002 ESCALATED \u2014 three simultaneous RU Hungary operations. CMF-003 updated with AI YouTube network as new concrete data point.",
+        "reason": "Storm-1516 and SVR Gamechanger new this issue; DFRLab AI network report materially advances AI-FIMI evidence base",
+        "prior_value": "CMF-001/CMF-002: Active. CMF-003: Active (general AI-FIMI reference)"
       }
     ]
   },
-  "source_url": "https://asym-intel.info/monitors/fimi-cognitive-warfare/2026-03-30-weekly-brief/"
+  "source_url": "https://asym-intel.info/monitors/fimi-cognitive-warfare/2026-04-02-weekly-brief/"
 }

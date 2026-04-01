@@ -358,3 +358,276 @@
     _renderCrossMonitorFlags: renderCrossMonitorFlags
   };
 })();
+
+/* ─── Persistent State Renderer ─────────────────────────────
+   window.AsymPersistent — renders persistent-state.json sections
+   into container elements. Handles null/missing fields gracefully.
+   ─────────────────────────────────────────────────────────── */
+
+window.AsymPersistent = (function () {
+  'use strict';
+
+  function escHtml(str) {
+    return String(str == null ? '' : str)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function severityClass(val) {
+    var v = String(val||'').toLowerCase();
+    if (v==='transgressed'||v==='critical'||v==='rapid decay'||v==='red'||v==='high') return 'critical';
+    if (v==='high risk'||v==='elevated'||v==='amber'||v==='watchlist') return 'high';
+    if (v==='increasing risk'||v==='contested'||v==='moderate') return 'moderate';
+    if (v==='safe'||v==='green'||v==='recovery'||v==='positive') return 'positive';
+    return 'moderate';
+  }
+
+  /* Render version history toggle */
+  function renderVersionHistory(history) {
+    if (!history || !history.length) return '';
+    var entries = history.map(function(h) {
+      return '<div class="version-entry">' +
+        '<div class="version-entry__date">' + escHtml(h.date||'') + '</div>' +
+        '<div class="version-entry__change">' + escHtml(h.change||'') + '</div>' +
+        (h.reason ? '<div class="version-entry__reason">' + escHtml(h.reason) + '</div>' : '') +
+      '</div>';
+    }).join('');
+    return '<div class="version-history" id="vh-' + Math.random().toString(36).slice(2,7) + '">' + entries + '</div>' +
+           '<button class="version-history__toggle" onclick="var vh=this.previousElementSibling;vh.classList.toggle(\'version-history--open\');this.textContent=vh.classList.contains(\'version-history--open\')?\'Hide history ↑\':\'Version history →\'">Version history →</button>';
+  }
+
+  /* Generic entity card — works for any persistent entity with standard fields */
+  function renderEntityCard(entity, opts) {
+    opts = opts || {};
+    var statusVal  = entity.status || entity.tier || entity.band || entity.severity || '';
+    var scoreVal   = entity.severity_score != null ? entity.severity_score : (entity.score != null ? entity.score : '');
+    var trendVal   = entity.trend || entity.severity_arrow || entity.trajectory_arrow || '';
+    var nameVal    = entity.country || entity.boundary || entity.conflict || entity.name || entity.chain_id || '';
+    var bodyVal    = entity.headline || entity.lead_signal || entity.summary || entity.signal || entity.note || '';
+    var metaItems  = [];
+    if (entity.theatre)      metaItems.push(escHtml(entity.theatre));
+    if (entity.first_seen)   metaItems.push('First seen: ' + escHtml(entity.first_seen));
+    if (entity.last_updated) metaItems.push('Updated: ' + escHtml(entity.last_updated));
+    if (entity.last_material_change) metaItems.push('Changed: ' + escHtml(entity.last_material_change));
+
+    return '<div class="persistent-entity">' +
+      '<div class="persistent-entity__header">' +
+        '<div class="persistent-entity__country">' + escHtml(nameVal) + '</div>' +
+        '<div class="persistent-entity__badges">' +
+          (statusVal ? '<span class="severity-badge severity-badge--' + severityClass(statusVal) + '">' + escHtml(statusVal) + '</span>' : '') +
+          (scoreVal !== '' ? '<span class="severity-badge severity-badge--' + severityClass(statusVal) + '">' + escHtml(scoreVal) + (trendVal ? ' ' + escHtml(trendVal) : '') + '</span>' : '') +
+        '</div>' +
+      '</div>' +
+      (metaItems.length ? '<div class="persistent-entity__meta">' + metaItems.join(' · ') + '</div>' : '') +
+      (bodyVal ? '<div class="card__body" style="margin-top:var(--space-3)">' + escHtml(bodyVal) + '</div>' : '') +
+      renderVersionHistory(entity.version_history || []) +
+    '</div>';
+  }
+
+  /* Render a cross_monitor_flags block */
+  function renderCrossMonitorFlags(cmf, containerId) {
+    var el = document.getElementById(containerId);
+    if (!el) return;
+    var flags = [];
+    if (cmf && Array.isArray(cmf.flags)) flags = cmf.flags;
+    else if (cmf && typeof cmf === 'object') flags = Object.values(cmf).filter(Array.isArray).flat();
+
+    var active = flags.filter(function(f){ return (f.status||'').toLowerCase() !== 'resolved'; });
+    if (!active.length) {
+      el.innerHTML = '<p class="text-muted text-sm">Cross-monitor flags are written by the weekly cron task and accumulate here across issues. Flags will appear after the next publish cycle.</p>';
+      return;
+    }
+    el.innerHTML = active.map(function(f) {
+      return '<div class="cms-flag">' +
+        '<div class="cms-flag__header">' +
+          '<div><div class="cms-flag__id">' + escHtml(f.id||'') + '</div>' +
+          '<div class="cms-flag__title">' + escHtml(f.title||'') + '</div></div>' +
+          '<span class="severity-badge severity-badge--moderate">' + escHtml(f.status||'Active') + '</span>' +
+        '</div>' +
+        (f.monitors_involved&&f.monitors_involved.length ? '<div class="cms-flag__monitors">↔ ' + f.monitors_involved.map(escHtml).join(' · ') + '</div>' : '') +
+        '<div class="cms-flag__body cms-flag__body--collapsed">' + escHtml(f.linkage||f.title||'') + '</div>' +
+        '<span class="cms-read-more" onclick="var b=this.previousElementSibling;b.classList.toggle(\'cms-flag__body--collapsed\');this.textContent=b.classList.contains(\'cms-flag__body--collapsed\')?\'Read more →\':\'Show less ↑\'">Read more →</span>' +
+      '</div>';
+    }).join('');
+  }
+
+  /* Render an array of entities into a container */
+  function renderEntityList(items, containerId, opts) {
+    var el = document.getElementById(containerId);
+    if (!el) return;
+    if (!items || !items.length) {
+      el.innerHTML = '<p class="text-muted text-sm">No entries recorded yet.</p>';
+      return;
+    }
+    // Flatten if items is an object (dict of arrays)
+    var list = Array.isArray(items) ? items : Object.values(items).flat();
+    el.innerHTML = list.map(function(item) { return renderEntityCard(item, opts); }).join('');
+  }
+
+  return {
+    renderEntityCard: renderEntityCard,
+    renderEntityList: renderEntityList,
+    renderCrossMonitorFlags: renderCrossMonitorFlags,
+    renderVersionHistory: renderVersionHistory,
+    severityClass: severityClass,
+    escHtml: escHtml
+  };
+}());
+
+
+/* ─── Country Flag Utility ───────────────────────────────────
+   AsymRenderer.flag(code) — returns emoji flag for ISO 3166-1 alpha-2
+   or common abbreviations used across monitors.
+   Usage: AsymRenderer.flag('RU') → '🇷🇺'
+          AsymRenderer.flagLabel('RU') → '🇷🇺 RU'
+   ─────────────────────────────────────────────────────────── */
+
+(function () {
+  // Extended map covering all monitor-relevant country codes + abbreviations
+  var ALIASES = {
+    /* — Major powers — */
+    'RU': 'RU', 'RUSSIA': 'RU',
+    'US': 'US', 'USA': 'US', 'UNITED STATES': 'US',
+    'CN': 'CN', 'CHINA': 'CN',
+    'IN': 'IN', 'INDIA': 'IN',
+    'JP': 'JP', 'JAPAN': 'JP',
+    'DE': 'DE', 'GERMANY': 'DE',
+    'FR': 'FR', 'FRANCE': 'FR',
+    'GB': 'GB', 'UK': 'GB', 'UNITED KINGDOM': 'GB',
+    'TR': 'TR', 'TURKEY': 'TR', 'TÜRKIYE': 'TR',
+    'SA': 'SA', 'SAUDI ARABIA': 'SA', 'GULF': 'SA',
+    /* — Europe — */
+    'UA': 'UA', 'UKRAINE': 'UA',
+    'PL': 'PL', 'POLAND': 'PL',
+    'HU': 'HU', 'HUNGARY': 'HU',
+    'RO': 'RO', 'ROMANIA': 'RO',
+    'RS': 'RS', 'SERBIA': 'RS',
+    'SK': 'SK', 'SLOVAKIA': 'SK',
+    'SI': 'SI', 'SLOVENIA': 'SI',
+    'CZ': 'CZ', 'CZECH REPUBLIC': 'CZ', 'CZECHIA': 'CZ',
+    'AT': 'AT', 'AUSTRIA': 'AT',
+    'CY': 'CY', 'CYPRUS': 'CY',
+    'IT': 'IT', 'ITALY': 'IT',
+    'ES': 'ES', 'SPAIN': 'ES',
+    'PT': 'PT', 'PORTUGAL': 'PT',
+    'GR': 'GR', 'GREECE': 'GR',
+    'NL': 'NL', 'NETHERLANDS': 'NL',
+    'BE': 'BE', 'BELGIUM': 'BE',
+    'SE': 'SE', 'SWEDEN': 'SE',
+    'FI': 'FI', 'FINLAND': 'FI',
+    'NO': 'NO', 'NORWAY': 'NO',
+    'DK': 'DK', 'DENMARK': 'DK',
+    'CH': 'CH', 'SWITZERLAND': 'CH',
+    'BA': 'BA', 'BOSNIA': 'BA', 'BOSNIA-HERZEGOVINA (RS)': 'BA', 'BOSNIA-HERZEGOVINA': 'BA',
+    /* — Post-Soviet / Caucasus — */
+    'GE': 'GE', 'GEORGIA': 'GE',
+    'AM': 'AM', 'ARMENIA': 'AM',
+    'AZ': 'AZ', 'AZERBAIJAN': 'AZ',
+    'KZ': 'KZ', 'KAZAKHSTAN': 'KZ',
+    'BY': 'BY', 'BELARUS': 'BY',
+    'MD': 'MD', 'MOLDOVA': 'MD',
+    /* — Middle East — */
+    'IL': 'IL', 'ISRAEL': 'IL',
+    'IR': 'IR', 'IRAN': 'IR',
+    'IQ': 'IQ', 'IRAQ': 'IQ',
+    'SY': 'SY', 'SYRIA': 'SY',
+    'LB': 'LB', 'LEBANON': 'LB',
+    'YE': 'YE', 'YEMEN': 'YE',
+    'JO': 'JO', 'JORDAN': 'JO',
+    'EG': 'EG', 'EGYPT': 'EG',
+    'TN': 'TN', 'TUNISIA': 'TN',
+    'LY': 'LY', 'LIBYA': 'LY',
+    'MA': 'MA', 'MOROCCO': 'MA',
+    'QA': 'QA', 'QATAR': 'QA',
+    'AE': 'AE', 'UAE': 'AE', 'UNITED ARAB EMIRATES': 'AE',
+    /* — Asia-Pacific — */
+    'KP': 'KP', 'DPRK': 'KP', 'NORTH KOREA': 'KP',
+    'KR': 'KR', 'SOUTH KOREA': 'KR',
+    'TW': 'TW', 'TAIWAN': 'TW',
+    'TH': 'TH', 'THAILAND': 'TH',
+    'MM': 'MM', 'MYANMAR': 'MM',
+    'PH': 'PH', 'PHILIPPINES': 'PH',
+    'ID': 'ID', 'INDONESIA': 'ID',
+    'MY': 'MY', 'MALAYSIA': 'MY',
+    'VN': 'VN', 'VIETNAM': 'VN',
+    'BD': 'BD', 'BANGLADESH': 'BD',
+    'PK': 'PK', 'PAKISTAN': 'PK',
+    'AF': 'AF', 'AFGHANISTAN': 'AF',
+    'NP': 'NP', 'NEPAL': 'NP',
+    'LK': 'LK', 'SRI LANKA': 'LK',
+    'AU': 'AU', 'AUSTRALIA': 'AU',
+    'NZ': 'NZ', 'NEW ZEALAND': 'NZ',
+    /* — Africa — */
+    'ZA': 'ZA', 'SOUTH AFRICA': 'ZA',
+    'NG': 'NG', 'NIGERIA': 'NG',
+    'ET': 'ET', 'ETHIOPIA': 'ET',
+    'KE': 'KE', 'KENYA': 'KE',
+    'TZ': 'TZ', 'TANZANIA': 'TZ',
+    'UG': 'UG', 'UGANDA': 'UG',
+    'RW': 'RW', 'RWANDA': 'RW',
+    'SD': 'SD', 'SUDAN': 'SD',
+    'CD': 'CD', 'DRC': 'CD', 'DEMOCRATIC REPUBLIC OF THE CONGO': 'CD',
+    'CM': 'CM', 'CAMEROON': 'CM',
+    'GH': 'GH', 'GHANA': 'GH',
+    'SN': 'SN', 'SENEGAL': 'SN',
+    'ML': 'ML', 'MALI': 'ML',
+    'BF': 'BF', 'BURKINA FASO': 'BF',
+    'NE': 'NE', 'NIGER': 'NE',
+    'TD': 'TD', 'CHAD': 'TD',
+    'SO': 'SO', 'SOMALIA': 'SO',
+    'MZ': 'MZ', 'MOZAMBIQUE': 'MZ',
+    'ZM': 'ZM', 'ZAMBIA': 'ZM',
+    'ZW': 'ZW', 'ZIMBABWE': 'ZW',
+    'CI': 'CI', "CÔTE D'IVOIRE": 'CI', "COTE D'IVOIRE": 'CI',
+    'BJ': 'BJ', 'BENIN': 'BJ',
+    'HT': 'HT', 'HAITI': 'HT',
+    'AO': 'AO', 'ANGOLA': 'AO',
+    /* — Americas — */
+    'MX': 'MX', 'MEXICO': 'MX',
+    'BR': 'BR', 'BRAZIL': 'BR',
+    'AR': 'AR', 'ARGENTINA': 'AR',
+    'CL': 'CL', 'CHILE': 'CL',
+    'CO': 'CO', 'COLOMBIA': 'CO',
+    'VE': 'VE', 'VENEZUELA': 'VE',
+    'PE': 'PE', 'PERU': 'PE',
+    'BO': 'BO', 'BOLIVIA': 'BO',
+    'NI': 'NI', 'NICARAGUA': 'NI',
+    'SV': 'SV', 'EL SALVADOR': 'SV',
+    'HN': 'HN', 'HONDURAS': 'HN',
+    'GT': 'GT', 'GUATEMALA': 'GT',
+    'CU': 'CU', 'CUBA': 'CU',
+    'CA': 'CA', 'CANADA': 'CA',
+    /* — Supranational — */
+    'EU': 'EU', 'EUROPEAN UNION': 'EU',
+  };
+
+  function toEmoji(iso2) {
+    if (!iso2 || iso2.length !== 2) return '';
+    // EU is not a country — use a special rendering
+    if (iso2 === 'EU') return '🇪🇺';
+    var cp1 = iso2.toUpperCase().charCodeAt(0) - 65 + 0x1F1E6;
+    var cp2 = iso2.toUpperCase().charCodeAt(1) - 65 + 0x1F1E6;
+    return String.fromCodePoint(cp1) + String.fromCodePoint(cp2);
+  }
+
+  function flag(code) {
+    if (!code) return '';
+    var upper = String(code).toUpperCase().trim();
+    var iso = ALIASES[upper] || (upper.length === 2 ? upper : null);
+    if (!iso) return '';
+    return toEmoji(iso);
+  }
+
+  function flagLabel(code) {
+    var f = flag(code);
+    if (!f) return code || '';
+    return f + ' ' + code.toUpperCase();
+  }
+
+  // Attach to AsymRenderer if available, otherwise to window directly
+  if (window.AsymRenderer) {
+    window.AsymRenderer.flag = flag;
+    window.AsymRenderer.flagLabel = flagLabel;
+  }
+  window.AsymFlag = { flag: flag, flagLabel: flagLabel };
+}());

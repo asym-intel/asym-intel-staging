@@ -1,7 +1,53 @@
 # TASK: Strategic Conflict & Escalation Monitor (SCEM)
-# VERSION: 1.1
+# VERSION: 2.0 — Blueprint v2.1 compliant
 # CADENCE: Weekly — every Sunday at 18:00 UTC
 # PUBLISH TO: https://asym-intel.info/monitors/conflict-escalation/
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DAY-OF-WEEK GUARD — READ THIS FIRST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Check the current UTC day before doing anything else:
+
+```bash
+DAY=$(date -u +%A)
+echo "Today is: $DAY"
+```
+
+IF today is NOT Sunday:
+  → Do NOT run the pipeline.
+  → Verify the 4 data files exist and are non-empty, then exit silently.
+  → Optionally send: "Health check OK. Next publish: Sunday 09:00 UTC."
+
+IF today IS Sunday AND UTC hour >= scheduled time:
+  → Proceed with the full pipeline below.
+
+IF unsure: Do NOT run. Exit silently.
+
+This guard prevents accidental mid-week runs triggered by prompt reloads.
+
+DATE RULE: Always use today's actual UTC date for PUBLISH_DATE. Never use a future date. Hugo does not render future-dated pages (buildFuture=false). Use: PUBLISH_DATE=$(date -u +%Y-%m-%d)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CRITICAL RULES (read before any other step)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. CRON TASKS NEVER TOUCH HTML, CSS, OR JS FILES. EVER.
+   You write ONLY these 4 files:
+   - static/monitors/conflict-escalation/data/report-latest.json
+   - static/monitors/conflict-escalation/data/report-{PUBLISH_DATE}.json
+   - static/monitors/conflict-escalation/data/archive.json      (append only)
+   - static/monitors/conflict-escalation/data/persistent-state.json
+   And publish 1 Hugo brief markdown file.
+   Nothing else. No dashboard.html. No report.html. No other files.
+
+2. LOAD PERSISTENT STATE FIRST — before any research.
+3. NAMED SEMANTIC KEYS ONLY — never module_0, module_1 etc.
+4. schema_version: "2.0" in all JSON files.
+5. archive.json is APPEND ONLY — never truncate or overwrite.
+6. Validate JSON before committing:
+   python3 -c "import json; json.load(open('path/to/file.json'))"
+
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ROLE & ANALYTICAL POSITION
@@ -278,3 +324,20 @@ BASELINE STATUS NOTE:
 - Inaugural edition note: include one sentence in the brief acknowledging
   CONTESTED BASELINE status and noting that deviations will be analytically
   significant from Week 13.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CRITICAL: JSON SCHEMA REQUIREMENTS FOR report.html / persistent.html
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+cross_monitor_flags.flags[] MUST include ALL of these fields:
+  flag_id, signal, detail, monitor (string), conflict, indicator,
+  structural_or_transient, status, first_raised, unchanged_since
+  AND ALSO:
+  title     → copy of signal  (renderer reads flag.title)
+  summary   → copy of detail  (renderer reads flag.summary)
+  monitors  → [monitor]       (renderer reads flag.monitors as array)
+  severity  → 'critical' | 'high' | 'moderate'  (renderer reads flag.severity)
+
+persistent-state.json roster_watch MUST be an object:
+  { "approaching_inclusion": [...], "approaching_retirement": [...] }
+  NOT a flat array.
