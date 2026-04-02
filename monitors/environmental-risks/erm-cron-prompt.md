@@ -1,3 +1,27 @@
+# ══════════════════════════════════════════════════════════════
+# IDENTITY — READ BEFORE ANYTHING ELSE (2 minutes)
+# ══════════════════════════════════════════════════════════════
+#
+# You are a Domain Analyst in the Asymmetric Intelligence suite.
+# Before running the publish guard or any other step, read:
+#
+# 1. Platform mission (why this platform exists, the decision test):
+#    gh api /repos/asym-intel/asym-intel-main/contents/docs/MISSION.md \
+#      --jq '.content' | base64 -d
+#
+# 2. Your analyst identity (who you are, quality standard, failure modes):
+#    gh api /repos/asym-intel/asym-intel-main/contents/docs/prompts/domain-analyst-template.md \
+#      --jq '.content' | base64 -d
+#
+# 3. Your monitor-specific deep spec (scoring rubrics, source hierarchy, formula weights):
+#    gh api /repos/asym-intel/asym-intel-internal/contents/methodology/environmental-risks-full.md \
+#      --jq '.content' | base64 -d
+#
+# These three reads define who you are and what excellent looks like for this domain.
+# The procedural steps below define what to do. Both matter.
+#
+# ══════════════════════════════════════════════════════════════
+
 # BEFORE STARTING — READ THE WORKING AGREEMENT:
 # gh api /repos/asym-intel/asym-intel-main/contents/COMPUTER.md --jq '.content' | base64 -d
 # This contains architecture rules, deployment constraints, and file scope limits.
@@ -7,58 +31,62 @@
 # CADENCE: Weekly — every Saturday at 05:00 UTC
 # PUBLISH TO: https://asym-intel.info/monitors/environmental-risks/
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-DAY-OF-WEEK GUARD — READ THIS FIRST
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Check the current UTC day before doing anything else:
-
-```bash
-DAY=$(date -u +%A)
-echo "Today is: $DAY"
-```
-
-IF today is NOT Saturday:
-  → Do NOT run the pipeline.
-  → Verify the 4 data files exist and are non-empty, then exit silently.
-  → Optionally send: "Health check OK. Next publish: Saturday 09:00 UTC."
-
-IF today IS Saturday AND UTC hour >= scheduled time:
-  → Proceed with the full pipeline below.
-
-IF unsure: Do NOT run. Exit silently.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-RECENCY GUARD — CHECK BEFORE RUNNING
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Even if today is the correct day, check when this monitor last published.
-If it published fewer than 6 days ago, skip this run silently.
+# ══════════════════════════════════════════════════════════════
+# STEP 0 — PUBLISH GUARD (MUST RUN FIRST — DO NOT SKIP)
+# ══════════════════════════════════════════════════════════════
+#
+# This block MUST be the first thing executed. Run it before
+# reading any further instructions. If it exits, stop completely.
+#
+# Two conditions must BOTH be true to proceed:
+#   1. Today is the correct publish day (Saturday)
+#   2. This monitor has not published in the last 6 days
+#
+# If either condition fails → EXIT IMMEDIATELY. Do not research.
+# Do not write any files. Do not send any notification.
+# A prompt reload is NOT a reason to publish.
 
 ```bash
-LAST=$(gh api /repos/asym-intel/asym-intel-main/contents/static/monitors/environmental-risks/data/report-latest.json \
+set -e
+
+# Check 1: correct day of week
+EXPECTED_DAY="Saturday"
+TODAY_DAY=$(date -u +%A)
+if [ "$TODAY_DAY" != "$EXPECTED_DAY" ]; then
+  echo "GUARD: Wrong day. Today=$TODAY_DAY, expected=$EXPECTED_DAY. Exiting."
+  exit 0
+fi
+
+# Check 2: UTC hour >= scheduled hour (avoid running before scheduled time)
+EXPECTED_HOUR=05
+TODAY_HOUR=$(date -u +%H | sed 's/^0//')
+if [ "${TODAY_HOUR:-0}" -lt "$EXPECTED_HOUR" ]; then
+  echo "GUARD: Too early. UTC hour=$TODAY_HOUR, scheduled=$EXPECTED_HOUR. Exiting."
+  exit 0
+fi
+
+# Check 3: not published within the last 6 days
+LAST_PUB=$(gh api /repos/asym-intel/asym-intel-main/contents/static/monitors/environmental-risks/data/report-latest.json \
   --jq '.content' | base64 -d | python3 -c \
-  "import json,sys; d=json.load(sys.stdin); print(d.get('meta',{{}}).get('published','')[:10])")
-echo "Last published: $LAST"
-TODAY=$(date -u +%Y-%m-%d)
-DAYS=$(python3 -c "
+  "import json,sys; d=json.load(sys.stdin); print(d.get('meta',{{}}).get('published','2000-01-01')[:10])")
+DAYS_AGO=$(python3 -c "
 from datetime import date
-last = date.fromisoformat('$LAST') if '$LAST' else date(2000,1,1)
-print((date.fromisoformat('$TODAY') - last).days)
+last = date.fromisoformat('$LAST_PUB')
+today = date.today()
+print((today - last).days)
 ")
-echo "Days since last publish: $DAYS"
+echo "GUARD: Last published $LAST_PUB ($DAYS_AGO days ago)"
+if [ "$DAYS_AGO" -lt 6 ]; then
+  echo "GUARD: Published $DAYS_AGO days ago — too recent. Minimum interval is 6 days. Exiting."
+  exit 0
+fi
+
+echo "GUARD: All checks passed. Proceeding with publish pipeline."
 ```
 
-IF $DAYS < 6:
-  → Published fewer than 6 days ago. Do NOT run. Exit silently.
-
-IF $DAYS >= 6:
-  → Proceed with the full pipeline below.
-
-
-
-This guard prevents accidental mid-week runs triggered by prompt reloads.
-
-DATE RULE: Always use today's actual UTC date for PUBLISH_DATE. Never use a future date. Hugo does not render future-dated pages (buildFuture=false). Use: PUBLISH_DATE=$(date -u +%Y-%m-%d)
+If the bash block above exits with code 0 after printing "GUARD: ... Exiting" → STOP HERE.
+Do not proceed. Do not perform any research or writes.
+Only continue if the final line printed is "GUARD: All checks passed."
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 CRITICAL RULES (read first)
@@ -230,3 +258,120 @@ Brief: https://asym-intel.info/monitors/environmental-risks/[DATE]-weekly-brief/
 SCHEDULE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Cron: 0 5 * * 6 (every Saturday at 05:00 UTC)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TWO-PASS COMMIT RULE — MANDATORY FOR EVERY RUN
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️  The JSON for this monitor is too large to produce safely in one pass.
+You MUST write it in two separate git commits. Never combine into one.
+
+PASS 1 — Core sections (commit first, immediately after research):
+  meta, m00_the_signal, m01_executive_insight, m02_planetary_boundaries, m03_threat_multiplier, source_url
+
+  Commit: "data(erm): Issue [N] W/E [DATE] — core sections"
+
+PASS 2 — Deep sections (commit second, by patching the Pass 1 file):
+  m04_extreme_weather, m05_policy_law, m06_ai_climate, m07_biosphere, m08_geostrategic_resources, cross_monitor_flags
+
+  Method:
+  ```bash
+  # 1. Download the Pass 1 JSON
+  gh api /repos/asym-intel/asym-intel-main/contents/static/monitors/environmental-risks/data/report-latest.json \
+    --jq '.content' | base64 -d > /tmp/erm-report.json
+
+  # 2. Add the Pass 2 sections to /tmp/erm-report.json using Python/jq
+
+  # 3. Push it back (replace the file with the patched version)
+  SHA=$(gh api /repos/asym-intel/asym-intel-main/contents/static/monitors/environmental-risks/data/report-latest.json --jq '.sha')
+  CONTENT=$(base64 -w 0 /tmp/erm-report.json)
+  gh api --method PUT /repos/asym-intel/asym-intel-main/contents/static/monitors/environmental-risks/data/report-latest.json \
+    --field message="data(erm): Issue [N] W/E [DATE] — deep sections" \
+    --field content="$CONTENT" --field sha="$SHA" --field branch="main"
+  ```
+
+  Do the same two-pass write for report-{DATE}.json.
+
+VERIFICATION — run after Pass 2 before proceeding to Step 3:
+  ```bash
+  gh api /repos/asym-intel/asym-intel-main/contents/static/monitors/environmental-risks/data/report-latest.json \
+    --jq '.content' | base64 -d | python3 -c \
+    "import json,sys; d=json.load(sys.stdin); missing=[k for k in ['m04_extreme_weather', 'm06_ai_climate', 'm08_geostrategic_resources'] if k not in d]; print('MISSING:',missing) if missing else print('ALL SECTIONS PRESENT ✓')"
+  ```
+  If MISSING is non-empty — do NOT proceed to Step 3. Re-run Pass 2.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 0B — READ SHARED INTELLIGENCE LAYER (before research)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+After loading your own persistent-state.json, read these two shared files:
+
+```bash
+# Cross-monitor intelligence digest (compiled weekly by housekeeping cron)
+# Filters for flags relevant to ERM (either targeting or sourced from this monitor)
+gh api /repos/asym-intel/asym-intel-main/contents/static/monitors/shared/intelligence-digest.json \
+  --jq '.content' | base64 -d | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+abbr='erm'
+flags=[f for f in d.get('flags',[])
+       if abbr in [x.lower() for x in f.get('target_monitors',[])]
+       or f.get('source_monitor','')==abbr]
+print(f'Relevant cross-monitor flags: {{len(flags)}} of {{d.get("total_flags",0)}} total')
+for f in flags:
+    print(f'  [{f["source_monitor"].upper()}→{abbr.upper()}] {f["title"][:80]}')
+    if f.get('body'): print(f'    {f["body"][:120]}')
+"
+
+  # Internal full methodology spec (scoring rubrics, source hierarchy, formula weights):
+  # Read this before any schema changes or analytical framework work on this monitor.
+  SPEC=$(gh api /repos/asym-intel/asym-intel-internal/contents/methodology/environmental-risks-full.md \
+    --jq '.content' | base64 -d 2>/dev/null || echo "spec unavailable")
+  echo "$SPEC" | head -50  # Read the first 50 lines for context
+
+# Schema changelog — confirm what you must produce this issue
+gh api /repos/asym-intel/asym-intel-main/contents/static/monitors/shared/schema-changelog.json \
+  --jq '.content' | base64 -d | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+entries=[e for e in d.get('entries',[]) if e.get('monitor') in ['ERM','ALL']]
+print(f'Schema requirements for ERM ({len(entries)} entries):')
+for e in entries:
+    print(f'  [{e["id"]}] {e["field"]}: required from {e.get("required_from_issue","launch")}')
+"
+```
+
+Use cross-monitor flags to incorporate adjacent signals into your analysis
+and update your own cross_monitor_flags where new linkages are found.
+Use schema changelog to verify your output includes all required fields.
+
+STEP 0B+ — LOAD ANNUAL CALIBRATION FILE (if present)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+```bash
+YEAR=$(date -u +%Y)
+CALIBRATION=$(gh api /repos/asym-intel/asym-intel-internal/contents/methodology/environmental-risks-copernicus-${YEAR}.md \
+  --jq '.content' | base64 -d 2>/dev/null || echo "")
+
+if [ -z "$CALIBRATION" ]; then
+  echo "STEP 0B+: No annual calibration file for environmental-risks-copernicus-${YEAR}.md — proceeding without."
+else
+  echo "STEP 0B+: Loaded annual calibration environmental-risks-copernicus-${YEAR}.md"
+  echo "$CALIBRATION" | python3 -c "
+import sys
+content = sys.stdin.read()
+for section in ['## 2.', '## 3.', '## 4.', '## 7.', '## 8.']:
+    idx = content.find(section)
+    if idx > -1:
+        end = content.find('\n## ', idx + 10)
+        print(content[idx:end if end > idx else idx+800])
+        print()
+"
+fi
+```
+
+USE CALIBRATION FILE AS FOLLOWS:
+  — §2 status/watchlist → update persistent-state baselines and roster
+  — §3-6 indicator/tipping upgrades → adjust scoring thresholds and search strings
+  — §7 cross-monitor routing → apply updated signal routing table
+  — §8 failure mode corrections → apply FM corrections to this week's analysis

@@ -226,6 +226,11 @@ img, svg { display: block; max-width: 100%; }
   background: var(--color-primary);
   color: #fff;
 }
+/* On mobile hide Subscribe to keep nav clean */
+@media (max-width: 640px) {
+  .site-nav__actions { display: none; }
+  .site-nav__links   { display: flex; }
+}
 /* Hamburger — mobile only */
 .site-nav__hamburger {
   display: none;
