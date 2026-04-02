@@ -472,6 +472,11 @@
 <script src="../shared/js/renderer.js"></script>
 <script src="../shared/js/charts.js"></script>
 <script>
+function escHtml(str) {
+  return String(str == null ? '' : str)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   function escHtml(str) {
     return String(str == null ? '' : str)
@@ -998,6 +1003,11 @@ document.addEventListener('DOMContentLoaded', function () {
 }());
 
   // ── Cross-Monitor Flags ───────────────────────────────────────────
+  function escHtml(str) {
+    return String(str == null ? '' : str)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
   function renderCrossMonitor(cmf, targetId) {
     var flags = (cmf && cmf.flags) ? cmf.flags : [];
     var el = document.getElementById(targetId);
