@@ -779,6 +779,9 @@ document.addEventListener('DOMContentLoaded', function () {
       tableHtml += '</tbody></table>';
       tableHtml += '<p style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--space-2)"><a href="report.html">View full heatmap →</a></p>';
       document.getElementById('heatmap-table').innerHTML = tableHtml;
+
+      // Cross-monitor flags
+      renderCrossMonitor(d.cross_monitor_flags || {}, 'cross-monitor-content');
     })
     .catch(function (err) {
       console.error(err);

@@ -816,6 +816,9 @@ document.addEventListener('DOMContentLoaded', function () {
         platHtml = '<p class="text-muted">No platform enforcement actions this issue.</p>';
       }
       document.getElementById('platform-enforce-block').innerHTML = platHtml;
+
+      // Cross-monitor flags
+      renderCrossMonitor(d.cross_monitor_flags || {}, 'cross-monitor-content');
     })
     .catch(function (err) {
       console.error(err);

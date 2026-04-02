@@ -910,6 +910,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Real M2 Waterfall
     renderRealM2(eb.real_m2 || {});
+
+      // Cross-monitor flags
+      renderCrossMonitor(d.cross_monitor_flags || {}, 'cross-monitor-content');
   }
 
   // ── Macro Scenarios renderer ─────────────────────────────────────────

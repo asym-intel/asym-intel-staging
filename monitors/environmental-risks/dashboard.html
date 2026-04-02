@@ -562,6 +562,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         hmHtml += '</div>';
         document.getElementById('cascade-heatmap-wrap').innerHTML = hmHtml;
+
+      // Cross-monitor flags
+      renderCrossMonitor(d.cross_monitor_flags || {}, 'cross-monitor-content');
       } else {
         document.getElementById('cascade-heatmap-loading').textContent = 'No cascade chain data available.';
       }
