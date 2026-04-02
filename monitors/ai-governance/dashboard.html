@@ -851,6 +851,8 @@
         document.getElementById('model-frontier-content').innerHTML = '<p class="empty-state">No model data available.</p>';
       }
 
+      // Cross-monitor flags
+      renderCrossMonitor(d.cross_monitor_flags || {}, 'cross-monitor-content');
     })
     .catch(function () {
       document.getElementById('signal-block').innerHTML = '<p class="error-state">Could not load data.</p>';
