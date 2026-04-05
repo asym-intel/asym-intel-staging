@@ -965,11 +965,11 @@
       .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function esc(s) {
+    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
 
-    function esc(s) {
-      return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    }
+  document.addEventListener('DOMContentLoaded', function () {
 
     /* ── EU Act helpers ── */
     function euactNodeClass(status) {
