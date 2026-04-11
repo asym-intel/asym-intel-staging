@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "schema_version": "chatter-v1.0",
+    "monitor_slug": "environmental-risks",
+    "generated_at": "2026-04-10T08:04:27.046977Z",
+    "data_date": "2026-04-10",
+    "item_count": 0,
+    "coverage_note": "Top 10 raw signals from ERM sources — unanalysed",
+    "citations": [
+      "https://www.pik-potsdam.de/en/news/latest-news/global-warming-must-peak-below-2degc-to-limit-tipping-point-risks",
+      "https://www.youtube.com/watch?v=_bJlStEfIqc",
+      "https://voices.earth/insights/are-we-approaching-a-climate-tipping-point-why-2026-might-be-a-decisive-year/",
+      "https://e360.yale.edu/features/1.5-degrees-tipping-points",
+      "https://global-tipping-points.org",
+      "https://phys.org/news/2026-02-sequence-critical-thresholds-antarctic-ice.html",
+      "https://theecologist.org/2026/mar/04/climate-nears-tipping-points",
+      "https://www.euronews.com/2026/02/11/hothouse-earth-scientists-sound-alarm-as-multiple-climate-systems-near-critical-tipping-po"
+    ]
+  },
+  "items": []
+}

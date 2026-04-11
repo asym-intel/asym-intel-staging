@@ -1,0 +1,35 @@
+{
+  "_meta": {
+    "schema_version": "chatter-v1.0",
+    "monitor_slug": "democratic-integrity",
+    "generated_at": "2026-04-10T07:57:41.517666Z",
+    "data_date": "2026-04-10",
+    "item_count": 1,
+    "coverage_note": "Top 10 raw signals from WDM sources — unanalysed",
+    "citations": [
+      "https://www.semafor.com/article/04/08/2026/democracy-improves-globally-though-gains-are-uneven-report-says",
+      "https://freedomhouse.org/sites/default/files/2026-03/FIW2026_final_digital%20(1).pdf",
+      "https://www.rescue.org/article/top-10-crises-world-cant-ignore-2026",
+      "https://www.democracynow.org/2026/4/8/headlines",
+      "https://reports.weforum.org/docs/WEF_The_Global_Cooperation_Barometer_2026.pdf",
+      "https://www.idea.int/democracytracker/home",
+      "https://www.statista.com/statistics/1456852/world-leader-approval-ratings/",
+      "https://www.v-dem.net/documents/75/V-Dem_Institute_Democracy_Report_2026_lowres.pdf"
+    ]
+  },
+  "items": [
+    {
+      "item_id": "wdm-chatter-2026-04-08-001",
+      "title": "Democracy improves globally though gains are uneven, report says",
+      "summary": "EIU report finds nearly 75% of countries held firm or improved in democracy measures, with strongest gains in Latin America and Caribbean; notes ongoing US declines and contested by V-Dem findings.",
+      "source_url": "https://www.semafor.com/article/04/08/2026/democracy-improves-globally-though-gains-are-uneven-report-says",
+      "source_name": "Semafor",
+      "published_date": "2026-04-08",
+      "source_tier": "2",
+      "retrieved_at": "2026-04-10T07:57:39Z",
+      "domain_relevance": "Reports on global democratic trends and backsliding in key countries like US",
+      "cross_monitor_tag": [],
+      "is_episodic": false
+    }
+  ]
+}

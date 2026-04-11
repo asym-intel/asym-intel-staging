@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "schema_version": "chatter-v1.0",
+    "monitor_slug": "european-strategic-autonomy",
+    "generated_at": "2026-04-10T07:59:44.256235Z",
+    "data_date": "2026-04-10",
+    "item_count": 0,
+    "coverage_note": "Top 10 raw signals from ESA sources — unanalysed",
+    "citations": [
+      "https://eic.ec.europa.eu/news/eic-tech-report-2026-identifies-25-emerging-deep-tech-signals-support-europes-strategic-autonomy-and-2026-03-30_en",
+      "https://atlasinstitute.org/europes-strategic-autonomy-charting-the-path-forward-in-an-era-of-u-s-retrenchment/",
+      "https://www.cep.eu/eu-topics/details/eu-strategic-autonomy-radar.html",
+      "https://www.cambridge.org/core/journals/european-journal-of-international-security/article/strategic-autonomy-a-quantum-leap-forward-on-european-total-defence/88D298DF15E21833F86238369C92A497",
+      "https://www.europarl.europa.eu/RegData/etudes/STUD/2025/764371/ECTI_STU(2025)764371_EN.pdf",
+      "https://egmontinstitute.be/app/uploads/2022/06/EU-Open-Strategic-Autonomy_Gehrke_2022.pdf",
+      "https://www.tandfonline.com/doi/full/10.1080/07036337.2025.2537369",
+      "https://www.swp-berlin.org/publikation/european-autonomy-in-space"
+    ]
+  },
+  "items": []
+}

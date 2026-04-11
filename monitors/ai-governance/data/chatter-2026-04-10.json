@@ -1,0 +1,22 @@
+{
+  "_meta": {
+    "schema_version": "chatter-v1.0",
+    "monitor_slug": "ai-governance",
+    "generated_at": "2026-04-10T08:05:45.987507Z",
+    "data_date": "2026-04-10",
+    "item_count": 0,
+    "coverage_note": "Top 10 raw signals from AIM sources — unanalysed",
+    "citations": [
+      "https://statetechmagazine.com/article/2025/12/nascio-state-cios-put-ai-governance-first-2026-top-10-priorities-list",
+      "https://atlan.com/ai-governance-tools/",
+      "https://layerxsecurity.com/generative-ai/best-ai-governance-tools/",
+      "https://www.lumenova.ai/blog/top-10-ai-governance-best-practices/",
+      "https://www.ie.edu/uncover-ie/responsible-ai-governance-master-in-public-policy/",
+      "https://www.ethyca.com/guides/best-ai-governance-platforms-leading-the-charge-in-2026",
+      "https://www.centraleyes.com/best-8-ai-governance-tools-in-2026/",
+      "https://www.arthur.ai/column/ai-governance-framework-guide",
+      "https://accuknox.com/blog/top-10-ai-security-platforms-2026"
+    ]
+  },
+  "items": []
+}
