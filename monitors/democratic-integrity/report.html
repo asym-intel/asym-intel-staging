@@ -46,6 +46,15 @@
       </div>
     </section>
 
+    <section class="module-section" id="section-key-judgments">
+      <div class="module-header">
+        <div class="module-title">Key Judgments</div>
+      </div>
+      <div id="key-judgments-wrap">
+        <div class="loading-state">Loading key judgments…</div>
+      </div>
+    </section>
+
     <section class="module-section" id="section-weekly-brief">
       <div class="module-header">
         <div class="module-title">Weekly Brief</div>
@@ -169,6 +178,7 @@
     <div class="sidebar-nav__title">Sections</div>
     <ul>
       <li><a href="#section-signal">Signal</a></li>
+      <li><a href="#section-key-judgments">Key Judgments</a></li>
       <li><a href="#section-weekly-brief">Weekly Brief</a></li>
       <li><a href="#section-heatmap">Heatmap</a></li>
       <li><a href="#section-intel">Intel Items</a></li>
@@ -219,16 +229,16 @@ document.addEventListener('DOMContentLoaded', function () {
     countries.forEach(function (c) {
       var cls = tierClass || severityClass(c.severity_score);
       /* severity sub-scores inline */
-      var sub = c.severity_sub || {};
+      var sub = c.severity_sub || c.severity_dimensions || {};
       var subStr = Object.keys(sub).map(function(k){ return k.replace(/_/g,' ') + ': ' + sub[k]; }).join(' · ');
       html +=
         '<tr class="heatmap-row--' + cls + '">' +
-          '<td><strong>' + flag(c.country) + ' ' + esc(c.country) + '</strong></td>' +
+          '<td><strong>' + flag(c.country_name || c.country) + ' ' + esc(c.country_name || c.country) + '</strong></td>' +
           '<td><span class="severity-badge severity-badge--' + cls + '">' + esc(c.severity_score) + '</span>' +
             (subStr ? '<div style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:2px">' + esc(subStr) + '</div>' : '') +
           '</td>' +
-          '<td>' + esc(c.severity_arrow || '') + '</td>' +
-          '<td>' + esc(c.lead_signal || c.summary || '') + '</td>' +
+          '<td>' + esc(c.severity_arrow || c.direction || '') + '</td>' +
+          '<td>' + esc(c.lead_signal || c.key_development || c.summary || '') + '</td>' +
         '</tr>';
     });
     html += '</tbody></table>';
@@ -243,9 +253,21 @@ document.addEventListener('DOMContentLoaded', function () {
       var signal  = signalObj.headline || signalObj.title || '';
       var signalBody = signalObj.body || signalObj.summary || '';
       var heatmap = d.heatmap || {};
+      /* Handle flat-array heatmap: bin countries by health_status */
+      if (Array.isArray(heatmap)) {
+        var _hm = {rapid_decay:[], recovery:[], watchlist:[]};
+        heatmap.forEach(function(c) {
+          var st = (c.health_status || '').toLowerCase().replace(/[\s-]+/g, '_');
+          if (st === 'backsliding' || st === 'rapid_decay' || st === 'crisis') _hm.rapid_decay.push(c);
+          else if (st === 'recovery' || st === 'improving') _hm.recovery.push(c);
+          else _hm.watchlist.push(c);
+        });
+        heatmap = _hm;
+      }
       var intel   = d.intelligence_items || [];
       var flags   = d.institutional_integrity_flags || [];
-      var mimicry = d.regional_mimicry_chains || [];
+      var mimicryData = d.mimicry_chain_update || {};
+      var mimicry = Array.isArray(mimicryData.active_chains) ? mimicryData.active_chains : (d.regional_mimicry_chains || []);
       var cross   = d.cross_monitor_flags || {};
       var wb      = d.weekly_brief || '';
 
@@ -266,6 +288,7 @@ document.addEventListener('DOMContentLoaded', function () {
       /* Module jump strip — show when 6+ modules present */
       var jumpModules = [
         {id:'section-signal',label:'Signal'},
+        {id:'section-key-judgments',label:'Judgments'},
         {id:'section-weekly-brief',label:'Brief'},
         {id:'section-heatmap',label:'Heatmap'},
         {id:'section-intel',label:'Intel'},
@@ -295,6 +318,31 @@ document.addEventListener('DOMContentLoaded', function () {
           (signalBody ? '<p class="signal-block__body">' + esc(signalBody) + '</p>' : '') +
           (signalObj.source_url ? '<div style="margin-top:var(--space-3)"><a class="source-link" href="' + esc(signalObj.source_url) + '" target="_blank" rel="noopener">Full Brief →</a></div>' : '') +
         '</div>';
+
+      /* Key Judgments (via AsymSections shared library) */
+      if (window.AsymSections && window.AsymSections.renderKeyJudgments) {
+        AsymSections.renderKeyJudgments(d.key_judgments || [], 'key-judgments-wrap');
+      } else {
+        var kjWrap = document.getElementById('key-judgments-wrap');
+        var kj = d.key_judgments || [];
+        if (!kj.length) {
+          kjWrap.innerHTML = '<p class="text-muted">No key judgments this issue.</p>';
+        } else {
+          var kjHtml = '<div style="display:grid;gap:var(--space-3)">';
+          kj.forEach(function(j) {
+            kjHtml += '<div class="card">' +
+              '<div class="card__label">' + esc(j.id || '') +
+                (j.confidence ? ' \u00b7 <span class="severity-badge severity-badge--' + (j.confidence === 'High' ? 'critical' : 'moderate') + '">' + esc(j.confidence) + '</span>' : '') +
+                (j.trajectory ? ' <span style="font-size:var(--text-xs);color:var(--color-text-muted)">\u2192 ' + esc(j.trajectory) + '</span>' : '') +
+              '</div>' +
+              '<div class="card__body" style="font-weight:600">' + esc(j.judgment || '') + '</div>' +
+              (Array.isArray(j.countries_affected) && j.countries_affected.length ? '<div style="margin-top:var(--space-2);display:flex;flex-wrap:wrap;gap:var(--space-1)">' + j.countries_affected.map(function(c){ return '<span style="font-size:var(--text-xs);padding:1px 6px;border-radius:3px;background:var(--monitor-accent-bg);color:var(--monitor-accent)">' + flag(c) + ' ' + esc(c) + '</span>'; }).join('') + '</div>' : '') +
+            '</div>';
+          });
+          kjHtml += '</div>';
+          kjWrap.innerHTML = kjHtml;
+        }
+      }
 
       /* Weekly Brief */
 
@@ -352,7 +400,7 @@ document.addEventListener('DOMContentLoaded', function () {
               (item.severity ? '<span class="severity-badge severity-badge--' + (item.severity === 'High' ? 'critical' : 'moderate') + '">' + esc(item.severity) + '</span>' : '') +
             '</div>' +
             '<div class="intel-item__summary">' + esc(item.summary || '') + '</div>' +
-            (item.source_url ? AsymRenderer.sourceLink(item.source_url) : '') +
+            (item.source_url && typeof AsymRenderer !== 'undefined' && AsymRenderer.sourceLink ? AsymRenderer.sourceLink(item.source_url) : '') +
           '</div>';
       });
       document.getElementById('intel-items').innerHTML = intelHtml || '<p class="text-muted">No intelligence items.</p>';
@@ -372,27 +420,29 @@ document.addEventListener('DOMContentLoaded', function () {
             '<div class="card__footer">' +
               (f.first_raised ? '<span>First raised: ' + esc(f.first_raised) + '</span>' : '') +
               (f.unchanged_since ? '<span>Unchanged since: ' + esc(f.unchanged_since) + '</span>' : '') +
-              AsymRenderer.sourceLink(f.source_url) +
+              (f.source_url && typeof AsymRenderer !== 'undefined' && AsymRenderer.sourceLink ? AsymRenderer.sourceLink(f.source_url) : '') +
             '</div>' +
           '</div>';
       });
       document.getElementById('integrity-flags').innerHTML = flagsHtml || '<p class="text-muted">No integrity flags this issue.</p>';
 
       /* Electoral Watch */
-      var ewData = d.electoral_watch || null;
+      var ewRaw = d.electoral_watch || d.electoral_calendar_watch || null;
       var ewHtml = '';
-      if (ewData) {
+      if (ewRaw) {
+        /* Handle both nested {timeline:[]} and flat array shapes */
+        var ewData = Array.isArray(ewRaw) ? {timeline: ewRaw} : ewRaw;
         var timeline = ewData.timeline || [];
         if (timeline.length) {
           ewHtml += '<div class="section-label" style="margin-bottom:var(--space-3)">Upcoming Electoral Events</div>';
           ewHtml += '<table class="heatmap-table"><thead><tr><th>Date</th><th>Country</th><th>Type</th><th>Risk</th><th>Note</th></tr></thead><tbody>';
           timeline.forEach(function(ev) {
             ewHtml += '<tr>' +
-              '<td>' + esc(ev.date || '') + '</td>' +
+              '<td>' + esc(ev.date || ev.election_date || '') + '</td>' +
               '<td>' + flag(ev.country) + ' ' + esc(ev.country || '') + '</td>' +
-              '<td>' + esc(ev.election_type || ev.type || '') + '</td>' +
-              '<td>' + severityTextBadge(ev.risk_level || ev.risk || '') + '</td>' +
-              '<td>' + esc(ev.note || ev.summary || '') + '</td>' +
+              '<td>' + esc(ev.election_type || ev.event || ev.type || '') + '</td>' +
+              '<td>' + severityTextBadge(ev.fimi_risk || ev.risk_level || ev.risk || '') + '</td>' +
+              '<td>' + esc(ev.integrity_concern || ev.wdm_significance || ev.note || ev.summary || '') + '</td>' +
             '</tr>';
           });
           ewHtml += '</tbody></table>';
@@ -533,25 +583,26 @@ document.addEventListener('DOMContentLoaded', function () {
             '</div>' +
             '<div class="card__title">' + esc(item.headline || item.title || '') + '</div>' +
             '<div class="card__body">' + esc(item.detail || item.assessment || item.summary || '') + '</div>' +
-            (item.source_url ? AsymRenderer.sourceLink(item.source_url) : '') +
+            (item.source_url && typeof AsymRenderer !== 'undefined' && AsymRenderer.sourceLink ? AsymRenderer.sourceLink(item.source_url) : '') +
           '</div>';
         });
       }
       document.getElementById('institutional-pulse').innerHTML = ipHtml || '<p class="text-muted">No institutional pulse data this issue.</p>';
 
       /* Legislative Watch */
-      var lwData = d.legislative_watch || null;
+      var lwData = d.legislative_watch || d.legislative_watch_entries || null;
       var lwHtml = '';
       if (lwData) {
         var lwArr = Array.isArray(lwData) ? lwData : (lwData.entries || []);
         if (lwArr.length) {
-          lwHtml = '<table class="heatmap-table"><thead><tr><th>Country</th><th>Bill / Law</th><th>Stage</th><th>Significance</th></tr></thead><tbody>';
+          lwHtml = '<table class="heatmap-table"><thead><tr><th>Country</th><th>Bill / Law</th><th>Stage</th><th>Concern</th></tr></thead><tbody>';
           lwArr.forEach(function(item) {
+            var statusCls = (item.status || '').toLowerCase() === 'in_force' || (item.status || '').toLowerCase() === 'signed' ? 'critical' : 'moderate';
             lwHtml += '<tr>' +
               '<td>' + flag(item.country) + ' ' + esc(item.country || '') + '</td>' +
-              '<td>' + esc(item.bill || item.law || item.title || '') + '</td>' +
-              '<td><span class="severity-badge severity-badge--moderate">' + esc(item.stage || item.status || '') + '</span></td>' +
-              '<td>' + esc(item.significance || item.note || item.summary || '') + '</td>' +
+              '<td>' + esc(item.name || item.bill || item.law || item.title || '') + '</td>' +
+              '<td><span class="severity-badge severity-badge--' + statusCls + '">' + esc(item.status || item.stage || '') + '</span></td>' +
+              '<td>' + esc(item.analytic_concern || item.democratic_impact || item.significance || item.note || item.summary || '') + '</td>' +
             '</tr>';
           });
           lwHtml += '</tbody></table>';
@@ -559,25 +610,48 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       document.getElementById('legislative-watch').innerHTML = lwHtml || '<p class="text-muted">No legislative watch entries this issue.</p>';
 
-      /* Mimicry chains */
+      /* Mimicry chains — handles both v2 (chain_name/adopting_countries) and legacy (template_law/nodes) */
       var mimicryHtml = '';
+      if (mimicryData.note) {
+        mimicryHtml += '<p style="font-size:var(--text-sm);color:var(--color-text-secondary);margin-bottom:var(--space-3)">' + esc(mimicryData.note) + '</p>';
+      }
       mimicry.forEach(function (chain) {
-        var nodes = (chain.nodes || chain.links || []).map(function (n) {
-          return '<div class="mimicry-node">' +
-            '<div class="mimicry-node__country">' + flag(n.country) + ' ' + esc(n.country) + '</div>' +
-            '<div class="mimicry-node__law">' + esc(n.law || '') + '</div>' +
-            '<div class="mimicry-node__year">' + esc(n.year || '') + '</div>' +
-          '</div>';
-        }).join('<div class="mimicry-arrow">→</div>');
-
-        mimicryHtml +=
-          '<div class="mimicry-chain">' +
-            '<div class="mimicry-chain__headline">' +
-              '<strong>Template:</strong> ' + esc(chain.template_law || chain.headline || '') +
-              (chain.origin_country ? ' &mdash; Origin: <span class="text-accent">' + esc(chain.origin_country) + '</span>' : '') +
-            '</div>' +
-            '<div class="mimicry-chain__flow">' + nodes + '</div>' +
-          '</div>';
+        /* v2 shape: chain_name, origin_country, adopting_countries[], current_front, legislative_status, notes */
+        if (chain.adopting_countries) {
+          var flowHtml = '<div class="mimicry-node"><div class="mimicry-node__country">' + flag(chain.origin_country || '') + ' ' + esc(chain.origin_country || 'Origin') + '</div><div class="mimicry-node__law">Origin</div></div>';
+          (chain.adopting_countries || []).forEach(function(c) {
+            flowHtml += '<div class="mimicry-arrow">\u2192</div><div class="mimicry-node"><div class="mimicry-node__country">' + flag(c) + ' ' + esc(c) + '</div></div>';
+          });
+          if (chain.current_front) {
+            flowHtml += '<div class="mimicry-arrow">\u2192</div><div class="mimicry-node"><div class="mimicry-node__country" style="font-weight:700;color:var(--monitor-accent)">' + flag(chain.current_front) + ' ' + esc(chain.current_front) + '</div><div class="mimicry-node__law">Current front</div></div>';
+          }
+          mimicryHtml +=
+            '<div class="mimicry-chain">' +
+              '<div class="mimicry-chain__headline">' +
+                '<strong>' + esc(chain.chain_name || '') + '</strong>' +
+                (chain.legislative_status ? ' <span class="severity-badge severity-badge--moderate">' + esc(chain.legislative_status) + '</span>' : '') +
+              '</div>' +
+              '<div class="mimicry-chain__flow">' + flowHtml + '</div>' +
+              (chain.notes ? '<div style="font-size:var(--text-xs);color:var(--color-text-muted);margin-top:var(--space-2)">' + esc(chain.notes) + '</div>' : '') +
+            '</div>';
+        } else {
+          /* Legacy shape: template_law, nodes[] */
+          var nodes = (chain.nodes || chain.links || []).map(function (n) {
+            return '<div class="mimicry-node">' +
+              '<div class="mimicry-node__country">' + flag(n.country) + ' ' + esc(n.country) + '</div>' +
+              '<div class="mimicry-node__law">' + esc(n.law || '') + '</div>' +
+              '<div class="mimicry-node__year">' + esc(n.year || '') + '</div>' +
+            '</div>';
+          }).join('<div class="mimicry-arrow">\u2192</div>');
+          mimicryHtml +=
+            '<div class="mimicry-chain">' +
+              '<div class="mimicry-chain__headline">' +
+                '<strong>Template:</strong> ' + esc(chain.template_law || chain.headline || '') +
+                (chain.origin_country ? ' &mdash; Origin: <span class="text-accent">' + esc(chain.origin_country) + '</span>' : '') +
+              '</div>' +
+              '<div class="mimicry-chain__flow">' + nodes + '</div>' +
+            '</div>';
+        }
       });
       document.getElementById('mimicry-chains').innerHTML = mimicryHtml || '<p class="text-muted">No mimicry chains this issue.</p>';
 

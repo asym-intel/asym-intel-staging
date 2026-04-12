@@ -101,6 +101,8 @@
   [data-theme="dark"] .vtl-item::before {
     border-color: var(--color-surface);
   }
+
+  /* Lagrange radar CSS now injected by AsymSections.renderRadarChart() */
   </style>
 </head>
 
@@ -189,6 +191,27 @@
       <div id="lagrange-scorecard"><div class="loading-state">Loading…</div></div>
     </section>
 
+    <section class="module-section" id="section-domain-tracker">
+      <div class="module-header">
+        <div class="module-title">Domain Tracker</div>
+      </div>
+      <div id="domain-tracker-block"><div class="loading-state">Loading&hellip;</div></div>
+    </section>
+
+    <section class="module-section" id="section-key-judgments">
+      <div class="module-header">
+        <div class="module-title">Key Judgments</div>
+      </div>
+      <div id="key-judgments-block"><div class="loading-state">Loading&hellip;</div></div>
+    </section>
+
+    <section class="module-section" id="section-cross-candidates">
+      <div class="module-header">
+        <div class="module-title">Cross-Monitor Candidates</div>
+      </div>
+      <div id="cross-candidates-block"><div class="loading-state">Loading&hellip;</div></div>
+    </section>
+
     <section class="module-section" id="section-cross-monitor">
       <div class="module-header">
         <div class="module-num-large">06</div>
@@ -211,6 +234,9 @@
       <li><a href="#section-timeline">Timeline</a></li>
       <li><a href="#section-actor-campaigns">Actor Campaigns</a></li>
       <li><a href="#section-lagrange">Autonomy Scorecard</a></li>
+      <li><a href="#section-domain-tracker">Domain Tracker</a></li>
+      <li><a href="#section-key-judgments">Key Judgments</a></li>
+      <li><a href="#section-cross-candidates">Cross-Monitor Candidates</a></li>
       <li><a href="#section-cross-monitor">Cross-Monitor</a></li>
     </ul>
   </nav>
@@ -298,7 +324,7 @@ document.addEventListener('DOMContentLoaded', function () {
       kpiHtml += '</div>';
       document.getElementById('kpi-state').innerHTML = kpiHtml;
 
-      // Lagrange Point Scorecard — Radar Chart
+      // Lagrange Point Scorecard — via shared AsymSections.renderRadarChart()
       var lagEl = document.getElementById('lagrange-scorecard');
       if (lagEl) {
         var lagDims = (kpi.lagrange_point_dimensions) || {};
@@ -312,125 +338,22 @@ document.addEventListener('DOMContentLoaded', function () {
           materials: 'Critical Materials',
           institutions: 'Institutional Resilience'
         };
-        if (Object.keys(lagDims).length) {
-          // Composite badge + radar + bar list
-          lagEl.innerHTML =
-            '<div class="lagrange-composite-badge">' +
-              '<div class="lagrange-composite-badge__value">' + escHtml(String(lagProgress)) + '</div>' +
-              '<div class="lagrange-composite-badge__label">Composite Autonomy Score</div>' +
-            '</div>' +
-            '<div class="lagrange-radar-wrap">' +
-              '<div class="lagrange-radar-canvas-wrap">' +
-                '<canvas id="lagrange-radar-canvas" width="543" height="543" aria-label="Strategic Autonomy Radar Chart" role="img"></canvas>' +
-              '</div>' +
-              '<div class="lagrange-dim-list" id="lagrange-dim-list"></div>' +
-            '</div>';
-
-          // Build dimension list
-          var dimListEl = document.getElementById('lagrange-dim-list');
-          var dimListHtml = '';
-          dimOrder.forEach(function(dim) {
-            var d2 = lagDims[dim];
-            if (!d2) return;
-            var score = parseFloat(d2.score||0);
-            var barColor = score >= 50 ? 'var(--positive)' : score >= 30 ? '#5b8db0' : 'var(--high)';
-            dimListHtml +=
-              '<div class="lagrange-dim-row">' +
-                '<div>' +
-                  '<div class="lagrange-dim-row__label">' + escHtml(dimLabels[dim]||dim) + '</div>' +
-                  (d2.note ? '<div class="lagrange-dim-row__note">' + escHtml(d2.note) + '</div>' : '') +
-                '</div>' +
-                '<div class="lagrange-dim-row__score" style="color:' + barColor + '">' + escHtml(String(d2.score)) + '</div>' +
-                '<div class="lagrange-dim-row__bar-wrap">' +
-                  '<div class="lagrange-dim-row__bar" style="width:' + Math.min(score,100) + '%;background:' + barColor + '"></div>' +
-                '</div>' +
-              '</div>';
-          });
-          if (dimListEl) dimListEl.innerHTML = dimListHtml;
-
-          // Draw radar chart
-          var radarCanvas = document.getElementById('lagrange-radar-canvas');
-          if (radarCanvas && typeof Chart !== 'undefined') {
-            var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            var labelColor = isDark ? 'rgba(224,223,220,0.85)' : 'rgba(26,25,23,0.75)';
-            var gridColor = isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)';
-            var radarLabels = dimOrder.map(function(d) { return dimLabels[d] || d; });
-            var radarScores = dimOrder.map(function(d) { return lagDims[d] ? parseFloat(lagDims[d].score||0) : 0; });
-            var radarChart = new Chart(radarCanvas.getContext('2d'), {
-              type: 'radar',
-              data: {
-                labels: radarLabels,
-                datasets: [{
-                  label: 'Autonomy Score',
-                  data: radarScores,
-                  backgroundColor: 'rgba(91,141,176,0.18)',
-                  borderColor: '#5b8db0',
-                  borderWidth: 2,
-                  pointBackgroundColor: '#5b8db0',
-                  pointBorderColor: isDark ? '#1e1d1b' : '#ffffff',
-                  pointBorderWidth: 2,
-                  pointRadius: 5,
-                  pointHoverRadius: 7,
-                  fill: true,
-                }]
-              },
-              options: {
-                responsive: true,
-                maintainAspectRatio: true,
-                animation: { duration: 700, easing: 'easeInOutQuart' },
-                scales: {
-                  r: {
-                    min: 0,
-                    max: 100,
-                    ticks: {
-                      stepSize: 25,
-                      color: labelColor,
-                      backdropColor: 'transparent',
-                      font: { size: 14 }
-                    },
-                    grid: { color: gridColor },
-                    angleLines: { color: gridColor },
-                    pointLabels: {
-                      color: labelColor,
-                      font: { size: 15, weight: '500' }
-                    }
-                  }
-                },
-                plugins: {
-                  legend: { display: false },
-                  tooltip: {
-                    callbacks: {
-                      label: function(ctx) {
-                        return ' ' + ctx.parsed.r + ' / 100';
-                      }
-                    }
-                  }
-                }
-              }
-            });
-            // Re-draw on theme change
-            var themeToggle = document.getElementById('theme-toggle');
-            if (themeToggle) {
-              themeToggle.addEventListener('click', function() {
-                setTimeout(function() {
-                  var dark = document.documentElement.getAttribute('data-theme') === 'dark';
-                  var lc = dark ? 'rgba(224,223,220,0.85)' : 'rgba(26,25,23,0.75)';
-                  var gc = dark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.08)';
-                  radarChart.options.scales.r.ticks.color = lc;
-                  radarChart.options.scales.r.pointLabels.color = lc;
-                  radarChart.options.scales.r.grid.color = gc;
-                  radarChart.options.scales.r.angleLines.color = gc;
-                  radarChart.data.datasets[0].pointBorderColor = dark ? '#1e1d1b' : '#ffffff';
-                  radarChart.update();
-                }, 80);
-              });
-            }
-          }
+        if (Object.keys(lagDims).length && typeof AsymSections !== 'undefined') {
+          AsymSections.renderRadarChart({
+            badge: String(lagProgress),
+            badgeLabel: 'Composite Autonomy Score',
+            accent: '#5b8db0',
+            max: 100,
+            title: 'Strategic Autonomy Radar',
+            dimensions: dimOrder.map(function(d) {
+              var dim = lagDims[d] || {};
+              return { label: dimLabels[d] || d, score: parseFloat(dim.score || 0), note: dim.note || '' };
+            })
+          }, 'lagrange-scorecard');
         } else {
           lagEl.innerHTML = '<p class="text-muted text-sm">Scorecard data will appear after the next publish cycle.</p>';
         }
       }
-
       renderList(d.active_elections || [], 'elections-list', 'name', 'key_facts', ['country','date','severity','interference_actors']);
 
       var cases = d.state_capture_cases || [];
@@ -562,6 +485,16 @@ document.addEventListener('DOMContentLoaded', function () {
       console.error(err);
       document.getElementById('ps-meta').textContent = 'Failed to load persistent state.';
     });
+
+  // Load report-latest.json for new AsymSections
+  fetch('data/report-latest.json')
+    .then(function(r) { return r.json(); })
+    .then(function(d) {
+      if (d.domain_tracker) AsymSections.renderDomainTracker(d.domain_tracker, 'domain-tracker-block');
+      if (d.key_judgments) AsymSections.renderKeyJudgments(d.key_judgments, 'key-judgments-block');
+      if (d.cross_monitor_candidates) AsymSections.renderCrossMonitorCandidates(d.cross_monitor_candidates, 'cross-candidates-block');
+    })
+    .catch(function(err) { console.error('Report data load error:', err); });
 });
 </script>
 </body>
