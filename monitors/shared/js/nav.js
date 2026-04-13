@@ -60,7 +60,6 @@
       '<div style="flex:1"></div>',
       '<nav class="nb-links" style="display:flex;align-items:center;gap:1.25rem;" aria-label="Platform sections">',
         '<a href="https://asym-intel.info/monitors/" style="color:#a8a7a4;text-decoration:none;transition:color 0.15s">Monitors</a>',
-        '<a href="https://compossible.asym-intel.info" style="color:#a8a7a4;text-decoration:none;transition:color 0.15s">Compossible</a>',
         '<a href="https://asym-intel.info/network/" style="color:#a8a7a4;text-decoration:none;transition:color 0.15s">Network</a>',
         '<a href="https://asym-intel.info/map/" style="color:#a8a7a4;text-decoration:none;transition:color 0.15s">World Map</a>',
       '</nav>'
@@ -265,6 +264,13 @@
         '<path d="M7.5 1a6.5 6.5 0 1 0 6.5 6.5A6.5 6.5 0 0 0 7.5 1zm0 12A5.5 5.5 0 1 1 11.7 3.8 6.5 6.5 0 0 0 7.5 13z"/>' +
       '</svg>';
     actions.insertBefore(btn, actions.firstChild);
+
+    // Re-run theme.js wireButton now that button exists in the DOM.
+    // theme.js fires wireButton on DOMContentLoaded which may run
+    // before nav.js injects this button — so we re-trigger it here.
+    if (window.AsymTheme && window.AsymTheme._wire) {
+      window.AsymTheme._wire();
+    }
   }
 
   /* ── Footer injection ────────────────────────────────────────
@@ -273,15 +279,28 @@
   function injectMonitorFooter() {
     var footer = document.querySelector('.monitor-footer');
     if (!footer) return;
-    var slug = getMonitorSlug();
-    var m = slug && MONITOR_REGISTRY[slug];
-    if (!m) return;
 
     footer.innerHTML =
-      '<span>' + m.name + ' &middot; <a href="https://asym-intel.info">asym-intel.info</a></span>' +
-      '<span class="monitor-footer__credit">' +
-        '<a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener">Produced with Perplexity Computer</a>' +
+      '<span>' +
+        '&copy; 2026 Asymmetric Intelligence. ' +
+        'Published by <a href="https://ramparts.gi/people/peter-howitt/">Peter Howitt</a>. ' +
+        'Content is published under <a href="https://creativecommons.org/licenses/by/4.0/" rel="license">CC BY 4.0</a>. ' +
+        '<a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener">Produced with Perplexity Computer</a>.' +
       '</span>';
+  }
+
+  /* ── AI discovery link tag ──────────────────────────────────
+     Injects <link rel="alternate" type="text/markdown"> for AI crawlers.
+     Points to report-latest.md sidecar (when it exists). */
+  function injectDiscoveryTag() {
+    var slug = getMonitorSlug();
+    if (!slug) return;
+    var link = document.createElement('link');
+    link.rel = 'alternate';
+    link.type = 'text/markdown';
+    link.title = 'AI-Readable Version';
+    link.href = '/monitors/' + slug + '/data/report-latest.md';
+    document.head.appendChild(link);
   }
 
   var MONITOR_NAV_LINKS = [
@@ -334,6 +353,7 @@
     injectMonitorNav();
     injectThemeToggle();
     injectMonitorFooter();
+    injectDiscoveryTag();
     setupScrollSpy();
     setupHamburger();
     setupSiteNavHamburger();
