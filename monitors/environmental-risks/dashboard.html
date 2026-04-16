@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard — Environmental Risks Monitor · Asymmetric Intelligence</title>
   <meta name="description" content="Live dashboard for the Environmental Risks Monitor. Planetary boundary status, tipping system flags, lead signal, and delta strip.">
+  <!-- Open Graph / Twitter Card -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asym-intel.info/monitors/environmental-risks/dashboard.html">
+  <meta property="og:title" content="Dashboard — Environmental Risks Monitor · Asymmetric Intelligence">
+  <meta property="og:description" content="Live dashboard for the Environmental Risks Monitor. Planetary boundary status, tipping system flags, lead signal, and delta strip.">
+  <meta property="og:image" content="https://asym-intel.info/images/og/environmental-risks-og.png">
+  <meta property="og:site_name" content="Asymmetric Intelligence">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dashboard — Environmental Risks Monitor · Asymmetric Intelligence">
+  <meta name="twitter:description" content="Live dashboard for the Environmental Risks Monitor. Planetary boundary status, tipping system flags, lead signal, and delta strip.">
+  <meta name="twitter:image" content="https://asym-intel.info/images/og/environmental-risks-og.png">
+
   <link rel="stylesheet" href="../shared/css/base.css">
   <link rel="stylesheet" href="assets/monitor.css">
   <script src="../shared/js/theme.js"></script>
@@ -597,7 +609,7 @@ document.addEventListener('DOMContentLoaded', function () {
       } else {
         var wbEl = document.getElementById('weekly-brief-content');
         if (wbEl && d.weekly_brief) {
-          wbEl.innerHTML = '<div style="font-size:var(--text-xs);line-height:1.7;color:var(--color-text-secondary)">' + escHtml(d.weekly_brief) + '</div>';
+          wbEl.innerHTML = '<div style="font-size:var(--text-xs);line-height:1.7;color:var(--color-text-secondary)">' + (typeof AsymRenderer !== 'undefined' && AsymRenderer.renderWithSources ? AsymRenderer.renderWithSources(d.weekly_brief, d.weekly_brief_sources || []) : escHtml(d.weekly_brief)) + '</div>';
         } else if (wbEl) {
           wbEl.innerHTML = '<p class="text-muted text-sm">No weekly brief available.</p>';
         }

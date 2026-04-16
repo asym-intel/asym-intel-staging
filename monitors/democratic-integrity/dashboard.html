@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard — World Democracy Monitor · Asymmetric Intelligence</title>
   <meta name="description" content="Live dashboard for the World Democracy Monitor. KPIs, lead signal, delta strip, and heatmap summary.">
+  <!-- Open Graph / Twitter Card -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://asym-intel.info/monitors/democratic-integrity/dashboard.html">
+  <meta property="og:title" content="Dashboard — World Democracy Monitor · Asymmetric Intelligence">
+  <meta property="og:description" content="Live dashboard for the World Democracy Monitor. KPIs, lead signal, delta strip, and heatmap summary.">
+  <meta property="og:image" content="https://asym-intel.info/images/og/democratic-integrity-og.png">
+  <meta property="og:site_name" content="Asymmetric Intelligence">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dashboard — World Democracy Monitor · Asymmetric Intelligence">
+  <meta name="twitter:description" content="Live dashboard for the World Democracy Monitor. KPIs, lead signal, delta strip, and heatmap summary.">
+  <meta name="twitter:image" content="https://asym-intel.info/images/og/democratic-integrity-og.png">
+
   <link rel="stylesheet" href="../shared/css/base.css">
   <link rel="stylesheet" href="assets/monitor.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
@@ -509,8 +521,8 @@
           var brief = d.weekly_brief || '';
           if (brief && typeof AsymSections !== 'undefined' && AsymSections.renderWeeklyBrief) {
             AsymSections.renderWeeklyBrief(brief, 'weekly-brief-content');
-          } else if (brief && typeof AsymRenderer !== 'undefined' && AsymRenderer.renderMarkdown) {
-            briefEl.innerHTML = '<div style="line-height:1.75;font-size:var(--text-sm)">' + AsymRenderer.renderMarkdown(brief) + '</div>';
+          } else if (brief && typeof AsymRenderer !== 'undefined' && AsymRenderer.renderWithSources) {
+            briefEl.innerHTML = '<div style="line-height:1.75;font-size:var(--text-sm)">' + AsymRenderer.renderWithSources(brief, d.weekly_brief_sources || []) + '</div>';
           } else if (brief) {
             var briefHtml = brief
               .replace(/^## (.+)$/gm, '</p><h3 style="margin-top:var(--space-4);margin-bottom:var(--space-2);font-size:var(--text-base);font-weight:700">$1</h3><p>')
